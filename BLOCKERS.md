@@ -96,28 +96,34 @@ CLAUDE.md kohdan 9.2 alkuperäinen kehote on vanhentunut. Käytä tätä:
 > valmiit ja vaiheesta C on tehty 8 artikkelia kymmenestä. Kerro, mitä
 > jäljellä olevista töistä kannattaa tehdä seuraavaksi.
 
-## DNS: speksin kohta 9.1 on epätarkka (huomio 2026-09-10)
+## DNS: nimipalvelinsiirto tehty (päivitetty 2026-09-10)
 
-CLAUDE.md sanoo "nimipalvelimet `ns1/ns2.vercel-dns.com` kuten esinetti.fi".
-Kaksi korjausta:
+**Toteutunut ratkaisu:** `reilusoppari.fi` on rekisteröity ja sen nimipalvelimet
+osoittavat Verceliin (`ns1.vercel-dns.com`, `ns2.vercel-dns.com`, todennettu
+.fi-rekisteristä 2026-09-10).
 
-1. **esinetti.fi EI käytä nimipalvelinsiirtoa.** esinetti-webin oma ohje
-   (`esinetti-web/CLAUDE.md` kohta 249) neuvoo pitämään domainin välittäjän
-   DNS-hallinnassa ja lisäämään sinne vain A-tietueen `@` → Vercelin IP ja
-   CNAME `www` → `cname.vercel-dns.com`. "Kuten esinetti.fi" tarkoittaa siis
-   tätä, ei nimipalvelinsiirtoa.
-2. **Älä käytä `ns1/ns2.vercel-dns.com` muistista.** Vercel antaa osalle
-   tileistä oman parinsa (`ns1.vercel-dns-0XX.com`). Oikea pari näkyy vasta
-   kun domain lisätään: Vercel → projekti → Settings → Domains. Se on ainoa
-   auktoriteetti.
+Suosittelin aiemmin A + CNAME -tapaa, jossa nimipalvelimet olisivat jääneet
+rekisteröijälle. Jukka valitsi nimipalvelinsiirron. Se toimii, mutta siitä
+seuraa yksi asia, joka on muistettava:
 
-Valinta tapojen välillä:
+> **Kaikki DNS-tietueet luodaan tästä lähtien Vercelissä.** Jos
+> `reilusoppari.fi`-osoitteeseen halutaan joskus sähköpostia, MX-, SPF-, DKIM-
+> ja DMARC-tietueet lisätään Vercelin DNS-hallintaan — ei rekisteröijälle.
+> Sama koskee Resendin domain-vahvistuksen vaatimia tietueita.
 
-| Tapa | Mitä tehdään | Milloin |
-|---|---|---|
-| Nimipalvelinsiirto | Vaihdetaan NS-tietueet rekisteröijällä Vercelin osoittamiin | Vercel hoitaa koko DNS:n, myös www → apex |
-| A + CNAME | Nimipalvelimet ennallaan, lisätään kaksi tietuetta | Domainille tulee myös sähköpostia (MX säilyy nykyisessä hallinnassa) |
+### Nimipalvelinsiirto ei yksin riitä
 
-**Suositus:** A + CNAME, jos `reilusoppari.fi`-osoitteeseen tulee joskus
-sähköpostia. Nimipalvelinsiirto vie kaikki tietueet Vercelille ja MX:t pitää
-perustaa siellä uudelleen.
+Todennettu 2026-09-10: `ns1.vercel-dns.com` vastaa kyselyyn
+`reilusoppari.fi` **"Query refused"**, ja julkinen resolveri antaa siksi
+SERVFAILin. Domain ei siis toimi lainkaan.
+
+Syy ei ole virhe vaan se, miten Vercel toimii: **Vercel tarjoilee DNS:ää vain
+domainille, joka on lisätty Vercel-tilille.** Nimipalvelindelegointi osoittaa
+palvelimille, jotka eivät tiedä vyöhykkeestä mitään.
+
+Korjaus: lisää domain Vercelissä (projekti `reilusoppari-web` → Settings →
+Domains → Add, tai tiimin Domains-näkymä). Vyöhyke syntyy siinä hetkessä ja
+varmenne myönnetään automaattisesti.
+
+**Sama koskee `esinetti.fi`:tä.** Se on täsmälleen samassa tilassa: delegointi
+Verceliin, `Query refused`, ei toimi. Tarkistettu samalla kertaa.
