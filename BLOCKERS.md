@@ -67,15 +67,26 @@ latin-osajoukko, painot 400–800). Ei Google Fonts -CDN-kutsuja.
 Ks. `KUSTANNUKSET.md` — palvelut, hinnat, ALV-käsittely ja sääntö siitä, ettei
 uusia maksullisia palveluita ehdoteta ilman hintatietoa.
 
-## Riippuvuus eSinettiin
+## Riippuvuus eSinettiin (päivitetty 2026-09-10)
 
-Sovellus (`app.reilusoppari.fi`) ajaa eSinetin moottorilla omalla brändillä. Se
-tarkoittaa, että eSinetin monivuokraajaisuus ja brändäys (vaihe 3) on oltava
-kunnossa ennen kuin `LAUNCH_MODE=live` on mahdollinen.
+Sovellus (`app.reilusoppari.fi`) ajaa eSinetin moottorilla omalla brändillä.
 
-Verkkosivu odotuslistatilassa EI riipu siitä — **vaiheet A–C voi tehdä heti kun
-repo on olemassa.** Tavoitelanseeraus CLAUDE.md:n mukaan on kesä 2027, eli tämä
-ei kilpaile eSinetin kanssa aikataulusta.
+**eSinetin vaihe 3 (monivuokraajuus, brändäys, upotus) on tehty** — kaikki 11
+tehtävää merkitty valmiiksi `esinetti/PLAN.md`:ssä. Tämä este on siis poistunut.
+
+**Sovelluksella ei kuitenkaan ole vielä rakennusohjetta.** eSinetti on
+organisaatioiden asiakirjojen allekirjoituspalvelu (tenantit, yhtiöt,
+pöytäkirjat, tilinpäätökset). Reilusoppari on kuluttajatuote, jonka ydin on
+vuokrasuhde: katselmuskuvat, kuukausikuittaus, huoltokirja, todistukset,
+kulut ja verolaskelma. Näistä eSinetissä on valmiina vain allekirjoitus.
+"Ajaa eSinetin moottorilla" pitää siis paikkansa allekirjoituksen osalta,
+mutta se on pieni osa sovellusta.
+
+Ennen kuin sovellusta aloitetaan, tarvitaan oma `CLAUDE.md` samaan tapaan
+kuin tällä sivustolla: tietomalli, käyttäjätyypit, vaiheet ja rajaukset.
+
+Verkkosivu odotuslistatilassa EI riipu tästä. Tavoitelanseeraus CLAUDE.md:n
+mukaan on kesä 2027.
 
 ## Kehote seuraavalle chatille
 
