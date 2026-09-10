@@ -64,6 +64,21 @@ export default function TodistusPage() {
         </div>
       </Section>
 
+      <Section title="Tämä ei tule yllätyksenä">
+        <div className="prose-measure text-ink/80">
+          <p>
+            Molemmille kerrotaan jo vuokrasuhdetta aloitettaessa, että sen päättyessä kumpikin
+            antaa toisestaan arvion ja saa oman todistuksensa. Se on osa sitä, mihin
+            allekirjoituksella sitoudutaan – ei jotain, mikä ilmestyy lopussa.
+          </p>
+          <p className="mt-4">
+            Käytännössä tämä muuttaa myös vuokrasuhdetta sen aikana. Kun molemmat tietävät, että
+            lopussa katsotaan taaksepäin, asiat tulee useammin hoidettua silloin kun ne ovat
+            pieniä.
+          </p>
+        </div>
+      </Section>
+
       <Section title="Kuka todistuksen omistaa">
         <div className="prose-measure text-ink/80">
           <p>
@@ -81,12 +96,14 @@ export default function TodistusPage() {
         <div className="prose-measure text-ink/80">
           <p>
             Numerot tulevat kuittauksista automaattisesti, eikä niitä kirjoiteta käsin. Vapaa teksti
-            on vuokranantajan omaa tekstiä, mutta vuokralainen näkee todistuksen ennen kuin se on
-            valmis – ja jos hän ei halua ottaa sitä vastaan, todistusta ei synny.
+            on vuokranantajan omaa tekstiä, ja vuokralainen näkee todistuksen ennen kuin se on
+            valmis. Hän voi liittää siihen oman vastineensa.
           </p>
           <p className="mt-4">
-            Todistus ei ole arvio henkilöstä eikä siihen kirjata mitään, mikä muistuttaisi
-            luottotietoa tai rekisterimerkintää. Se kertoo yhdestä vuokrasuhteesta.
+            Vuokranantaja voi halutessaan antaa suosituksen. Kielteistä arviota ei voi antaa:
+            vaihtoehtoja on kaksi, suositus tai ei suositusta, eikä ilman suositusta jäävään
+            todistukseen tule siitä mitään merkintää. Todistukseen ei kirjata mitään, mikä
+            muistuttaisi luottotietoa tai rekisterimerkintää. Se kertoo yhdestä vuokrasuhteesta.
           </p>
         </div>
       </Section>
