@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/*
+ * reilusoppari.fi – väripaletti ja typografia (CLAUDE.md kohta 5).
+ * Tailwind v4 lukee tokenit CSS:stä (@theme), ei tailwind.config.js:stä.
+ *
+ * Idea: kaksi väriä, kaksi osapuolta, yksi sopimus. `sky` on vuokranantaja,
+ * `coral` vuokralainen, ja kaikki yhteinen on `ink`-tummaa. Kun molemmat
+ * värit esiintyvät, ne ovat aina yhtä isoina.
+ */
+@theme {
+  --color-ink: #1b2a41;
+  /* Napin hover-tila: sama sävy tummennettuna, ei uusi väri paletissa. */
+  --color-ink-strong: #121d2e;
+  --color-sky: #3d8bff;
+  --color-coral: #ff6f59;
+  --color-paper: #ffffff;
+  --color-cloud: #f3f6fa;
+  /* Vain "kuitattu", "sinetöity", "tarkistettu" -tilat. */
+  --color-moss: #2e9e6b;
+  /* 1 px reunus – syvyys tehdään reunuksilla ja cloud-pinnoilla, ei varjoilla. */
+  --color-line: #dfe6f0;
+
+  --font-sans: var(--font-sans-local), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --container-content: 1080px;
+
+  /* Pyöristys 16 px paneeleissa, pilleri napeissa. Ei varjoja missään. */
+  --radius-panel: 16px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/*
+ * Typografia-asteikko (CLAUDE.md kohta 5): hero 800 / 52 px desktop,
+ * 34 px mobiili, rivinväli 1.05. Otsikot 700. Ei versaaleja.
+ */
+h1 {
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* Näkyvä näppäimistöfokus kaikkialla. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Leipätekstin rivinpituus enintään ~66 merkkiä (CLAUDE.md kohta 5). */
+.prose-measure {
+  max-width: 66ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Sivuston AINOA animaatio (CLAUDE.md kohta 5): hero-kytkin. Kun käyttäjä
+ * vaihtaa osapuolta, puhelimet vaihtavat paikkaa 300 ms:n liukuliikkeellä.
+ * Käyttäjän käynnistämä, mutta reduced-motion silti kunnioitetaan yllä
+ * olevalla globaalilla säännöllä – vaihto on silloin välitön.
+ */
+.party-swap {
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+ * Blogiartikkelien MDX-sisällön tyylit (Vaihe C). Suora lapsivalitsin (">")
+ * rajaa säännöt Markdownin omiin lohkoelementteihin koskematta MDX-
+ * komponenttien sisäiseen merkkaukseen, joka on aina tasoa syvemmällä.
+ */
+.article-body > h2 {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  color: var(--color-ink);
+}
+
+.article-body > h3 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  color: var(--color-ink);
+}
+
+.article-body > p {
+  margin-top: 1.25rem;
+}
+
+.article-body > ul,
+.article-body > ol {
+  margin-top: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.article-body > ul {
+  list-style: disc;
+}
+
+.article-body > ol {
+  list-style: decimal;
+}
+
+.article-body li + li {
+  margin-top: 0.5rem;
+}
+
+.article-body > blockquote {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--color-coral);
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.article-body a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-sky);
+  text-underline-offset: 3px;
+}
+
+.article-body a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.article-body code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-cloud);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.article-body > table {
+  margin-top: 1.5rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.article-body th,
+.article-body td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.article-body th {
+  background: var(--color-cloud);
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" role="img" aria-hidden="true">
+  <!-- Todistus: sinetoity A4, nimet peitetty palkeilla. -->
+  <g fill="none" stroke="#1B2A41" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="46" y="8" width="108" height="134" rx="8"/>
+    <path d="M64 34h72M64 52h72M64 70h48"/>
+    <path d="M64 108h44"/>
+  </g>
+  <rect x="64" y="30" width="46" height="8" rx="4" fill="#1B2A41"/>
+  <rect x="64" y="104" width="30" height="8" rx="4" fill="#1B2A41"/>
+  <circle cx="130" cy="112" r="16" fill="#2E9E6B"/>
+  <path d="M122 112l6 6 12-13" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

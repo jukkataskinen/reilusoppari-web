@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" role="img" aria-hidden="true">
+  <!-- Verolaskelma: kuitit kansiossa ja valmis yhteenveto. -->
+  <g fill="none" stroke="#1B2A41" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M14 46h58l10 14h104v70a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V46z"/>
+    <rect x="52" y="14" width="60" height="46" rx="6"/>
+    <path d="M66 30h32M66 44h20"/>
+    <path d="M110 96h50M110 112h32"/>
+  </g>
+  <rect x="110" y="92" width="34" height="8" rx="4" fill="#3D8BFF"/>
+</svg>

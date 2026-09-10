@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" role="img" aria-hidden="true">
+  <!-- Katselmus: puhelin, jossa kuva ovikellosta ja aikaleima. -->
+  <g fill="none" stroke="#1B2A41" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="54" y="10" width="92" height="130" rx="12"/>
+    <rect x="68" y="30" width="64" height="52" rx="6"/>
+    <circle cx="100" cy="56" r="13"/>
+    <path d="M100 47v9l6 4"/>
+    <path d="M68 100h64M68 114h40"/>
+  </g>
+  <circle cx="100" cy="56" r="5" fill="#3D8BFF"/>
+  <rect x="68" y="96" width="34" height="8" rx="4" fill="#3D8BFF"/>
+</svg>
