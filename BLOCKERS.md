@@ -1,10 +1,10 @@
 # BLOCKERS — reilusoppari-web
 
-## Projekti on TYÖLISTALLA, ei aloitettu (päivitetty 2026-09-10)
+## Tila 2026-09-10: repo pystyssä, vaihe A voi alkaa
 
 Rakennusohje (`CLAUDE.md`) on siirretty tänne Downloads-kansiosta 2026-09-10.
-Työtä ei ole aloitettu. Alkuperäisistä kolmesta esteestä (CLAUDE.md kohta 9)
-yksi on poistunut, kaksi on jäljellä.
+Alkuperäisistä kolmesta esteestä (CLAUDE.md kohta 9) kaksi on poistunut.
+Jäljellä on vain ympäristö (kohta 3), joka odottaa verkkotunnuksen aukeamista.
 
 ### ~~1. Nimi ja verkkotunnus~~ — SELVÄ (Jukka 2026-09-10)
 
@@ -16,18 +16,12 @@ yksi on poistunut, kaksi on jäljellä.
 
 Nimi on siis lukittu. Ei enää tarvitse palata tähän.
 
-### 2. Repo `reilusoppari-web` — JÄLJELLÄ
+### ~~2. Repo `reilusoppari-web`~~ — SELVÄ (2026-09-10)
 
-Tämä hakemisto **ei ole vielä git-repo**. Uusi chat ei voi committoida ennen
-kuin repo on olemassa.
-
-- Jos luot GitHubiin repon README:n kanssa: kloonaa se ja siirrä nämä kaksi
-  tiedostoa kloonin sisään.
-- Jos teet `git init` täällä ja lisäät remoten jälkikäteen: älä luo GitHubiin
-  README:tä, muuten historioita on kaksi.
-
-Kun repo on luotu, tässä oleva `CLAUDE.md` on jo oikeassa paikassa ja oikealla
-nimellä.
+Repo on luotu ja viety GitHubiin:
+<https://github.com/jukkataskinen/reilusoppari-web> (yksityinen).
+Ensimmäinen commit sisältää `CLAUDE.md`, `BLOCKERS.md`, `KUSTANNUKSET.md`
+ja `.gitignore`:n (kopio esinetti-webistä). Haara on `main`.
 
 ### 3. Ympäristö — JÄLJELLÄ
 
@@ -52,7 +46,7 @@ Verkkosivu odotuslistatilassa EI riipu siitä — **vaiheet A–C voi tehdä het
 repo on olemassa.** Tavoitelanseeraus CLAUDE.md:n mukaan on kesä 2027, eli tämä
 ei kilpaile eSinetin kanssa aikataulusta.
 
-## Ensimmäinen kehote kun repo on olemassa
+## Aloituskehote
 
 > Lue CLAUDE.md, BLOCKERS.md ja KUSTANNUKSET.md. Kopioi runko esinetti-web-reposta, luo PLAN.md
 > kohdan 8 pohjalta ja aloita vaihe A.
