@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const messages: Record<string, { title: string; body: string }> = {
   confirmed: {
     title: "Liittyminen vahvistettu",
-    body: "Kiitos! Olet nyt eSinetin odotuslistalla. Ilmoitamme sähköpostiisi, kun palvelu avautuu.",
+    body: "Kiitos! Olet nyt Reilusopparin odotuslistalla. Ilmoitamme sähköpostiisi, kun palvelu avautuu.",
   },
   expired: {
     title: "Linkki on vanhentunut",

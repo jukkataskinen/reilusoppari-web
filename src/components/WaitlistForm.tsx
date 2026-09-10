@@ -63,7 +63,9 @@ export function WaitlistForm({ defaultParty = "vuokranantaja" }: { defaultParty?
             return (
               <label
                 key={option}
-                className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
+                // Radio on sr-only, joten fokusrengas piirretään labeliin –
+                // muuten näppäimistökäyttäjä ei näkisi missä hän on.
+                className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-ink ${
                   selected
                     ? "border-ink bg-ink text-paper"
                     : "border-line bg-paper hover:border-ink/40"

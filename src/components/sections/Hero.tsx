@@ -145,7 +145,9 @@ export function Hero({ initialParty = "vuokranantaja" }: { initialParty?: Party 
 function PhonePanel({ tone, label }: { tone: "sky" | "coral"; label: string }) {
   const toneClass = tone === "sky" ? "bg-sky/10 border-sky/30" : "bg-coral/10 border-coral/30";
   return (
-    <div className={`rounded-[var(--radius-panel)] border px-4 py-16 text-center ${toneClass}`}>
+    // Nimi on paneelin YLÄREUNASSA, ei keskellä: kuvitus on keskellä
+    // paneelien päällä, ja keskitetty teksti jäisi sen alle.
+    <div className={`h-64 rounded-[var(--radius-panel)] border px-4 pt-4 text-center ${toneClass}`}>
       <span className="text-xs font-medium tracking-wide text-ink/70">{label}</span>
     </div>
   );

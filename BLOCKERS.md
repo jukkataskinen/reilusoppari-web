@@ -1,10 +1,11 @@
 # BLOCKERS — reilusoppari-web
 
-## Tila 2026-09-10: repo pystyssä, vaihe A voi alkaa
+## Tila 2026-09-10: vaiheet A ja B tehty, sivusto odottaa ympäristöä
 
-Rakennusohje (`CLAUDE.md`) on siirretty tänne Downloads-kansiosta 2026-09-10.
-Alkuperäisistä kolmesta esteestä (CLAUDE.md kohta 9) kaksi on poistunut.
-Jäljellä on vain ympäristö (kohta 3), joka odottaa verkkotunnuksen aukeamista.
+Sivusto on rakennettu vaiheiden A ja B osalta (ks. `PLAN.md`) ja se rakentuu,
+läpäisee testit ja on julkaistavissa odotuslistatilassa. Alkuperäisistä kolmesta
+esteestä (CLAUDE.md kohta 9) kaksi on poistunut. Jäljellä on ympäristö (kohta 3)
+sekä kaksi asiaa, jotka vaativat Jukan omaa työtä (kohdat 9.4 ja 9.5).
 
 ### ~~1. Nimi ja verkkotunnus~~ — SELVÄ (Jukka 2026-09-10)
 
@@ -23,13 +24,39 @@ Repo on luotu ja viety GitHubiin:
 Ensimmäinen commit sisältää `CLAUDE.md`, `BLOCKERS.md`, `KUSTANNUKSET.md`
 ja `.gitignore`:n (kopio esinetti-webistä). Haara on `main`.
 
-### 3. Ympäristö — JÄLJELLÄ
+### 3. Ympäristö — OSITTAIN
 
-Vercel-projekti, domain Verceliin, Resend-audience `reilusoppari-waitlist`,
-Turnstile, Plausible, env-muuttujat — samat kuin esinetti-webissä.
+- **Vercel-projekti on olemassa** ja repo on kytketty siihen (2026-09-10).
+- **Jäljellä:** domain Verceliin (odottaa verkkotunnuksen aukeamista, ks.
+  DNS-osio alempana), Resend-segmentti `reilusoppari-waitlist`, Turnstile,
+  Plausible ja ympäristömuuttujat.
 
-Domainin osalta tämä odottaa vain sitä, että verkkotunnus aukeaa. Ks. DNS-osio
-alempana ennen kuin koskee tietueisiin.
+Muuttujat ovat `.env.example`-tiedostossa. Ilman `RESEND_API_KEY`- ja
+`RESEND_SEGMENT_ID`-arvoja odotuslista näyttää selkeän virheilmoituksen sen
+sijaan, että kaatuisi – sivusto siis toimii jo nyt, mutta lomake ei vielä
+tallenna mitään.
+
+### 4. Tietosuoja ja käyttöehdot — JUKAN LUETTAVA (CLAUDE.md kohta 9.4)
+
+`/tietosuoja` ja `/kayttoehdot` ovat pohjia. Kolme kohtaa vaativat erityistä
+huolellisuutta, koska palvelu myydään kuluttajalle: peruutusoikeus (KSL 6 luku,
+etämyynti), kuvat kodista ja todistuksen omistajuus. Juristin tarkistusta on
+syytä harkita ennen lanseerausta. Ks. `DECISIONS.md`.
+
+Huom: tietosuojaselosteen odotuslistaosuus koskee käsittelyä, joka on TOTTA JO
+NYT — se ei voi odottaa lanseeraukseen asti.
+
+### 5. Blogin verotusartikkelit — JUKAN KIRJOITETTAVA (CLAUDE.md kohta 9.5)
+
+Artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset) ovat sivuston
+uskottavuuden ydin. Blogin rakenne on valmis, artikkelilista tyhjä. Ks. `PLAN.md`
+vaihe C: artikkelin lisääminen on kolme kohtaa.
+
+### 6. Leipäfontti — PIENI, MUTTA KIRJATTU
+
+CLAUDE.md lukitsee Plus Jakarta Sansin. Tiedostoa ei ole ladattu, joten
+paikalla on väliaikainen fontti. Vaihto on pelkän woff2-tiedoston korvaus,
+ei koodimuutos. Ks. `DECISIONS.md`.
 
 ## Kustannukset
 
@@ -46,13 +73,15 @@ Verkkosivu odotuslistatilassa EI riipu siitä — **vaiheet A–C voi tehdä het
 repo on olemassa.** Tavoitelanseeraus CLAUDE.md:n mukaan on kesä 2027, eli tämä
 ei kilpaile eSinetin kanssa aikataulusta.
 
-## Aloituskehote
+## Kehote seuraavalle chatille
 
-> Lue CLAUDE.md, BLOCKERS.md ja KUSTANNUKSET.md. Kopioi runko esinetti-web-reposta, luo PLAN.md
-> kohdan 8 pohjalta ja aloita vaihe A.
+Vaiheet A ja B ovat tehty, joten CLAUDE.md kohdan 9.2 alkuperäinen kehote on
+vanhentunut. Käytä tätä:
 
-(`BLOCKERS.md` on mainittava erikseen — CLAUDE.md:n oma kehote ei mainitse sitä,
-jolloin uusi chat ei näkisi tätä tilaa eikä alla olevaa DNS-korjausta.)
+> Lue CLAUDE.md, PLAN.md, DECISIONS.md ja BLOCKERS.md. Vaiheet A ja B ovat
+> valmiit. Aloita vaihe C: kirjoita blogiartikkelit CLAUDE.md kohdan 6
+> järjestyksessä, yksi kerrallaan, ja jätä artikkelit 6 ja 7 Jukan
+> kirjoitettaviksi.
 
 ## DNS: speksin kohta 9.1 on epätarkka (huomio 2026-09-10)
 
