@@ -4,18 +4,21 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
-## Leipäfontti: väliaikainen tiedosto (2026-09-10)
+## Leipäfontti: Plus Jakarta Sans, latin-osajoukko (2026-09-10)
 
-CLAUDE.md kohta 5 lukitsee leipäfontiksi **Plus Jakarta Sansin** itse
-hostattuna. Tiedostoa ei ole ladattu, joten `public/fonts/sans-variable.woff2`
-on toistaiseksi esinetti-webin Manrope-muuttujafontti samalla painovälillä
-(400–800).
+`public/fonts/sans-variable.woff2` on Plus Jakarta Sans -muuttujafontti
+(v12, painot 400–800), ladattu kertaalleen Google Fontsista ja tarjoiltu
+omasta domainista – ei CDN-kutsuja (CLAUDE.md kohta 5).
 
-Nimi on tarkoituksella geneerinen (`sans-variable.woff2`) eikä `manrope-…`:
-vaihto tehdään korvaamalla pelkkä tiedosto, eikä `src/lib/fonts.ts`,
-`globals.css` tai yksikään komponentti muutu. Fontti näyttää tällä hetkellä
-oikealta suunnalta mutta ei ole speksin fontti – tämä on kirjattava korjatuksi
-ennen lanseerausta.
+Ladattu osajoukko on **latin**, joka kattaa U+0000–00FF (siis ä, ö ja å),
+lainausmerkit ja ajatusviivan U+2000–206F -alueelta. Latin-ext jätettiin pois:
+se toisi lähinnä š- ja ž-kirjaimet, joita sivuston teksteissä ei ole, ja
+kaksinkertaistaisi latauksen. Jos sellaisia joskus tarvitaan, oikea korjaus on
+ladata latin-ext-tiedosto ja lisätä se omana `localFont`-määrittelynään
+fonttipinoon – ei vaihtaa tätä tiedostoa laajempaan.
+
+Tiedoston nimi on tarkoituksella geneerinen: fontin vaihto on pelkän woff2:n
+korvaus, eikä `globals.css` tai yksikään komponentti viittaa fontin nimeen.
 
 ## Hero-kuvitus on väritön, väri tulee paneelista (2026-09-10)
 

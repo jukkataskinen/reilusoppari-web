@@ -20,10 +20,8 @@ DoD: julkaistavissa odotuslistatilassa.
 - [x] Hero-kytkin: alaotsikko ja CTA vaihtuvat, puhelimet vaihtavat paikkaa
       300 ms:ssä, tila URL-parametrissa.
 - [x] Odotuslista: sähköposti + osapuoli + asuntojen määrä, kaksoisvarmistus.
+- [x] Leipäfontti Plus Jakarta Sans itse hostattuna (latin-osajoukko).
 - [x] Savutesti (17 testiä) ja yksikkötestit (31 testiä) vihreinä.
-
-**Jäljellä A:sta:** leipäfontti on väliaikainen. CLAUDE.md lukitsee Plus Jakarta
-Sansin, mutta tiedostoa ei ole ladattu – ks. DECISIONS.md.
 
 ---
 
@@ -72,7 +70,6 @@ Artikkelit 1–10 ovat CLAUDE.md kohdassa 6. **Huom kohta 9.5:** verotusartikkel
 
 | Asia | Syy |
 |---|---|
-| Plus Jakarta Sans | Fonttitiedostoa ei ole ladattu, paikalla väliaikainen fontti |
 | Blogiartikkelit | Vaihe C; kaksi niistä on Jukan kirjoitettavia |
 | Turnstile käytössä | Odotuslista käyttää honeypotia; Turnstile kytketään kun avaimet ovat olemassa |
 | Aidot käyttöliittymäkuvat | Sovellusta ei ole vielä olemassa (CLAUDE.md kohta 2) |

@@ -52,11 +52,10 @@ Artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset) ovat sivuston
 uskottavuuden ydin. Blogin rakenne on valmis, artikkelilista tyhjä. Ks. `PLAN.md`
 vaihe C: artikkelin lisääminen on kolme kohtaa.
 
-### 6. Leipäfontti — PIENI, MUTTA KIRJATTU
+### ~~6. Leipäfontti~~ — SELVÄ (2026-09-10)
 
-CLAUDE.md lukitsee Plus Jakarta Sansin. Tiedostoa ei ole ladattu, joten
-paikalla on väliaikainen fontti. Vaihto on pelkän woff2-tiedoston korvaus,
-ei koodimuutos. Ks. `DECISIONS.md`.
+Plus Jakarta Sans on ladattu itse hostattavaksi (`public/fonts/sans-variable.woff2`,
+latin-osajoukko, painot 400–800). Ei Google Fonts -CDN-kutsuja.
 
 ## Kustannukset
 

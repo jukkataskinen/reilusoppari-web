@@ -3,11 +3,10 @@ import localFont from "next/font/local";
 /**
  * Itse hostatut fontit (CLAUDE.md kohta 5: ei Google Fonts -CDN-kutsuja).
  *
- * HUOM `sans-variable.woff2`: CLAUDE.md lukitsee leipäfontiksi **Plus Jakarta
- * Sansin**. Tiedostoa ei ole vielä ladattu, joten paikalla on väliaikaisesti
- * esinetti-webin Manrope-muuttujafontti samalla painovälillä. Vaihto tehdään
- * korvaamalla pelkkä woff2-tiedosto – tämä tiedosto ja tokenit eivät muutu.
- * Ks. DECISIONS.md "Leipäfontti: väliaikainen tiedosto".
+ * `sans-variable.woff2` on **Plus Jakarta Sans** -muuttujafontti (latin-osajoukko,
+ * painot 400–800), ladattu kertaalleen Google Fontsista paikalliseksi
+ * tiedostoksi ja tarjoiltu omasta domainista. Osajoukko kattaa U+0000–00FF eli
+ * myös ä, ö ja å, sekä ajatusviivan ja lainausmerkit. Ks. DECISIONS.md.
  */
 export const sans = localFont({
   src: "../../public/fonts/sans-variable.woff2",
