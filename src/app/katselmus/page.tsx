@@ -8,7 +8,7 @@ import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Alku- ja loppukatselmus";
 const description =
-  "Molemmat kuvaavat samat huoneet, kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Muuttopäivänä katsotaan samoja kuvia.";
+  "Kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoituksellaan. Muuttopäivänä katsotaan samoja kuvia.";
 
 export const metadata: Metadata = {
   title,
@@ -51,8 +51,9 @@ export default function KatselmusPage() {
               mielipiteestä tulee riita.
             </p>
             <p className="mt-4">
-              Alkukatselmus poistaa koko kysymyksen. Molemmat kuvaavat samat huoneet ennen muuttoa,
-              ja kuvat menevät samaan liitteeseen. Muuttopäivänä ei muistella vaan katsotaan.
+              Alkukatselmus poistaa koko kysymyksen. Kumpikin kuvaa ennen muuttoa ne kohdat, jotka
+              itse pitää olennaisina, ja molemmat hyväksyvät koko kuvakokoelman allekirjoittaessaan
+              vuokrasopimuksen. Muuttopäivänä ei muistella vaan katsotaan.
             </p>
           </div>
           <figure className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">

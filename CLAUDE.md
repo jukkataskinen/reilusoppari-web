@@ -67,7 +67,7 @@ Navigaatio: logo · Miten toimii · Vuokranantajalle · Vuokralaiselle · Hinnat
 3. **Ainahan asunnoissa jotain on.** Tämä osio on sivun sydän ja sen teksti on sitova (Jukan kirjoittama):
    > Parketissa kulumaa? Ovikellon nappi jumii? Ainahan asunnoissa jotain on, kun eivät uusia ole. Turha niistä on kuitenkaan riidellä; otetaan kuva ja laitetaan se talteen niin ei tarvitse vikoja muistella. Reilua.
 
-   Vieressä kuvitus: puhelin, jossa kuva ovikellosta ja pieni "tallennettu 14.8. 16:02" -merkintä. Alle yksi asiallinen lause: "Alkukatselmus on osa sopimusta: molemmat kuvaavat samat huoneet, kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Muuttopäivänä katsotaan samoja kuvia." Ei sanaa "riita" tämän kappaleen ulkopuolella etusivulla.
+   Vieressä kuvitus: puhelin, jossa kuva ovikellosta ja pieni "tallennettu 14.8. 16:02" -merkintä. Alle yksi asiallinen lause: "Alkukatselmus on osa sopimusta: kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia." (Korjattu 2026-09-10, aiemmin "molemmat kuvaavat samat huoneet" – ks. DECISIONS.md.) Ei sanaa "riita" tämän kappaleen ulkopuolella etusivulla.
 
 4. **Molemmille jotain.** Kaksi palstaa rinnakkain, ei kortteja. Vuokranantaja: sopimus pankkitunnuksilla · kuvat todisteena · kuukausikuittaus yhdellä napilla · huoltokirja · kulut talteen ja verolaskelma keväällä (Plus). Vuokralainen: pankkitunnistettu vuokranantaja · omat kuvat samassa paikassa · ilmoitus kun vuokra on kuitattu · viat kirjattu, kukaan ei voi poistaa · vuokratodistus seuraavaan asuntoon. Palstojen pitää olla yhtä pitkät – se on viesti.
 5. **Vuokrakuittaus.** Teksti sitova (Jukan kirjoittama):

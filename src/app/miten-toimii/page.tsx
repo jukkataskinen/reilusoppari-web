@@ -37,9 +37,9 @@ const stages = [
       src: "/illustrations/katselmus.svg",
       alt: "Puhelin, jonka näytöllä on kuva ovikellosta",
     },
-    landlord: "Kuvaat huoneet ennen muuttoa ja merkitset tiedossa olevat viat.",
-    tenant: "Kuvaat samat huoneet omalta kannaltasi ja lisäät mitä huomaat.",
-    fact: "Kuvat aikaleimataan palvelimella, tiivistetään ja sinetöidään sopimuksen liitteeksi. Kumpikaan osapuoli ei voi muuttaa tai poistaa niitä.",
+    landlord: "Kuvaat ne kohdat, jotka itse pidät olennaisina, ja merkitset tiedossa olevat viat.",
+    tenant: "Kuvaat sen, minkä itse pidät olennaisena – et ole sidottu vuokranantajan listaan.",
+    fact: "Kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Molemmat hyväksyvät koko kuvakokoelman allekirjoittaessaan vuokrasopimuksen, eikä kumpikaan voi muuttaa tai poistaa kuvia jälkikäteen.",
   },
   {
     title: "Vuokrakuittaus",

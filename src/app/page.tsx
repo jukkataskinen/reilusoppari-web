@@ -38,7 +38,7 @@ export default async function HomePage({
       {/* Kohta 4.3 – sivun sydän. Sitaatti on sitova. */}
       <StoryBlock
         quote="Parketissa kulumaa? Ovikellon nappi jumii? Ainahan asunnoissa jotain on, kun eivät uusia ole. Turha niistä on kuitenkaan riidellä; otetaan kuva ja laitetaan se talteen niin ei tarvitse vikoja muistella. Reilua."
-        fact="Alkukatselmus on osa sopimusta: molemmat kuvaavat samat huoneet, kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Muuttopäivänä katsotaan samoja kuvia."
+        fact="Alkukatselmus on osa sopimusta: kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia."
         illustration={{
           src: "/illustrations/katselmus.svg",
           alt: "Puhelin, jonka näytöllä on kuva ovikellosta",

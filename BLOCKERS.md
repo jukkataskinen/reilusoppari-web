@@ -1,6 +1,6 @@
 # BLOCKERS — reilusoppari-web
 
-## Tila 2026-09-10: vaiheet A ja B tehty, sivusto odottaa ympäristöä
+## Tila 2026-09-10: vaiheet A ja B tehty, C 8/10, sivusto odottaa ympäristöä
 
 Sivusto on rakennettu vaiheiden A ja B osalta (ks. `PLAN.md`) ja se rakentuu,
 läpäisee testit ja on julkaistavissa odotuslistatilassa. Alkuperäisistä kolmesta
@@ -48,9 +48,14 @@ NYT — se ei voi odottaa lanseeraukseen asti.
 
 ### 5. Blogin verotusartikkelit — JUKAN KIRJOITETTAVA (CLAUDE.md kohta 9.5)
 
-Artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset) ovat sivuston
-uskottavuuden ydin. Blogin rakenne on valmis, artikkelilista tyhjä. Ks. `PLAN.md`
-vaihe C: artikkelin lisääminen on kolme kohtaa.
+Kymmenestä artikkelista **kahdeksan on kirjoitettu ja julkaistu**. Jäljellä ovat
+artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset), jotka Jukka kirjoittaa
+tai tarkistaa itse.
+
+Luonnospohjat runkoineen ovat valmiina hakemistossa `content/blogi/`
+nimillä `LUONNOS-vuokratulon-verotus-2027.mdx` ja
+`LUONNOS-vuokranantajan-matkakulut.mdx`. Ne eivät ole rekisterissä eivätkä
+näy sivustolla. Julkaisuohje on tiedostojen alussa ja `PLAN.md`:n vaiheessa C.
 
 ### ~~6. Leipäfontti~~ — SELVÄ (2026-09-10)
 
@@ -74,13 +79,11 @@ ei kilpaile eSinetin kanssa aikataulusta.
 
 ## Kehote seuraavalle chatille
 
-Vaiheet A ja B ovat tehty, joten CLAUDE.md kohdan 9.2 alkuperäinen kehote on
-vanhentunut. Käytä tätä:
+CLAUDE.md kohdan 9.2 alkuperäinen kehote on vanhentunut. Käytä tätä:
 
 > Lue CLAUDE.md, PLAN.md, DECISIONS.md ja BLOCKERS.md. Vaiheet A ja B ovat
-> valmiit. Aloita vaihe C: kirjoita blogiartikkelit CLAUDE.md kohdan 6
-> järjestyksessä, yksi kerrallaan, ja jätä artikkelit 6 ja 7 Jukan
-> kirjoitettaviksi.
+> valmiit ja vaiheesta C on tehty 8 artikkelia kymmenestä. Kerro, mitä
+> jäljellä olevista töistä kannattaa tehdä seuraavaksi.
 
 ## DNS: speksin kohta 9.1 on epätarkka (huomio 2026-09-10)
 

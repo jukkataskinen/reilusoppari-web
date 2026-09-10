@@ -34,6 +34,20 @@ for (const path of paths) {
   });
 }
 
+test("blogiartikkelit latautuvat ja niissä on UKK-osio", async ({ page }) => {
+  await page.goto("/blogi");
+
+  const links = page.locator('a[href^="/blogi/"]');
+  const count = await links.count();
+  expect(count).toBeGreaterThan(0);
+
+  // Ensimmäinen artikkeli riittää: kaikki käyttävät samaa sivupohjaa.
+  await links.first().click();
+  await expect(page.locator("h1")).toBeVisible();
+  await expect(page.getByText("Lyhyesti")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Usein kysytyt kysymykset" })).toBeVisible();
+});
+
 test("robots ja sitemap vastaavat", async ({ request }) => {
   for (const path of ["/robots.txt", "/sitemap.xml", "/rss.xml"]) {
     const response = await request.get(path);

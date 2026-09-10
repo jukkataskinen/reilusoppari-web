@@ -13,7 +13,7 @@ const steps = [
   },
   {
     title: "Kuvatkaa",
-    body: "Alkukatselmuksessa molemmat kuvaavat samat huoneet, ja kuvat sinetöidään sopimuksen liitteeksi.",
+    body: "Kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoituksellaan.",
   },
   {
     title: "Kuitatkaa",

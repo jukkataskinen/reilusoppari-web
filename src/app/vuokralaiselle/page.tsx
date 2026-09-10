@@ -75,8 +75,10 @@ export default function VuokralaisellePage() {
       <Section title="Miksi tämä on sinulle ilmainen">
         <div className="prose-measure text-ink/80">
           <p>
-            Koska palvelusta on hyötyä vain, jos molemmat käyttävät sitä. Kuvista ei ole todistetta,
-            jos vain toinen kuvaa. Kuittauksista ei ole hyötyä, jos vain toinen näkee ne. Siksi
+            Koska palvelu toimii vain, jos molemmat ovat mukana. Katselmuskuvista tulee osa
+            sopimusta siinä hetkessä, kun molemmat hyväksyvät ne allekirjoittaessaan
+            vuokrasopimuksen – ja hyväksyä voi vain se, joka on itse päässyt kuvaamaan sen, minkä
+            pitää olennaisena. Kuittauksista ei ole hyötyä, jos vain toinen näkee ne. Siksi
             vuokranantaja maksaa ja sinä et – etkä maksa myöhemminkään.
           </p>
           <p className="mt-4">

@@ -53,7 +53,7 @@ export const ukkFaq: FaqItem[] = [
   {
     question: "Mitä alkukatselmuksessa tehdään?",
     answer:
-      "Molemmat kuvaavat samat huoneet ennen muuttoa. Kuvat aikaleimataan palvelimella, tiivistetään ja sinetöidään sopimuksen liitteeksi. Muuttopäivänä katsotaan samoja kuvia, joten kummankaan ei tarvitse muistaa, oliko naarmu jo siinä.",
+      "Kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina. Kuvat aikaleimataan palvelimella, tiivistetään ja sinetöidään sopimuksen liitteeksi, ja molemmat hyväksyvät ne allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia, joten kummankaan ei tarvitse muistaa, oliko naarmu jo siinä.",
   },
   {
     question: "Miten vuokrakuittaus toimii?",

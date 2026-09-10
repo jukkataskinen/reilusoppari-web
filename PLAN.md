@@ -40,19 +40,42 @@ DoD: julkaistavissa odotuslistatilassa.
 
 ---
 
-## Vaihe C — blogi · **odottaa**
+## Vaihe C — blogi · **8/10 valmiina** (2026-09-10)
 
-Rakenne on valmis (`src/lib/blog/`, `/blogi`, `/blogi/[slug]`, RSS, MDX-
-komponentit). Artikkelilista on tyhjä, ja `/blogi` näyttää tyhjän tilan.
+Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 
-Artikkelin lisääminen on kolme kohtaa:
+| # | Slug | Sanoja |
+|---|---|---|
+| 1 | `vuokrasopimuspohja-2027` | 1007 |
+| 2 | `muuttotarkastus-vuokra-asunnossa` | 1174 |
+| 3 | `vuokravakuuden-palautus` | 1113 |
+| 4 | `vuokralaisen-tunnistaminen` | 976 |
+| 5 | `vuokrakuittaus-ilman-pankkiliittymaa` | 1052 |
+| 8 | `mita-suositukseen-saa-kirjoittaa` | 1128 |
+| 9 | `vuokrankorotus-indeksiehto-ja-ilmoitusaika` | 927 |
+| 10 | `vuokrasuhteen-paattyminen-reilusti` | 1109 |
 
-1. `content/blogi/<slug>.mdx` frontmatterilla (title, description, date, tags)
-2. rivi `POST_ORDER`- ja `POST_FRONTMATTER`-rakenteisiin `src/lib/blog/registry.ts`
-3. staattinen import ja rivi `CONTENT_BY_SLUG`:iin `src/lib/blog/posts.ts`
+**Jäljellä: artikkelit 6 ja 7** (vuokratulon verotus ja vähennykset). CLAUDE.md
+kohta 9.5: Jukka kirjoittaa tai tarkistaa ne itse, koska ne ovat sivuston
+uskottavuuden ydin. Luonnospohjat runkoineen ovat valmiina:
 
-Artikkelit 1–10 ovat CLAUDE.md kohdassa 6. **Huom kohta 9.5:** verotusartikkelit
-6 ja 7 Jukka kirjoittaa tai tarkistaa itse – ne ovat sivuston uskottavuuden ydin.
+- `content/blogi/LUONNOS-vuokratulon-verotus-2027.mdx`
+- `content/blogi/LUONNOS-vuokranantajan-matkakulut.mdx`
+
+Ne eivät ole rekisterissä eivätkä siis näy sivustolla. Julkaisu on kolme kohtaa:
+
+1. kirjoita sisältö ja poista `LUONNOS-`-etuliite tiedostonimestä
+2. lisää slug `POST_ORDER`- ja `POST_FRONTMATTER`-rakenteisiin
+   `src/lib/blog/registry.ts`:ssä
+3. lisää staattinen import ja rivi `CONTENT_BY_SLUG`:iin `src/lib/blog/posts.ts`
+
+`tests/unit/blog-frontmatter.test.ts` tarkistaa automaattisesti pituuden
+(900–1400 sanaa), description-mitan, sisäiset linkit ja sen, että frontmatter
+vastaa rekisteriä.
+
+**Päivämäärät:** kaikki artikkelit on päivätty 2026-09-10, koska ne on
+kirjoitettu samana päivänä eikä sivustoa ole julkaistu. Aseta todelliset
+julkaisupäivät, kun sivusto avataan.
 
 ---
 

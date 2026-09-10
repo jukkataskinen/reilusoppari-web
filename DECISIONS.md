@@ -4,6 +4,31 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Katselmuksen mekanismi: hyväksyntä, ei kuvaaja (2026-09-10, Jukan korjaus)
+
+Sivustolla luki useassa kohdassa, että "molemmat kuvaavat samat huoneet" ja
+että kuvista ei ole todistetta, jos vain toinen kuvaa. **Tämä oli väärin.**
+
+Oikea mekanismi on:
+
+> Kumpikin kuvaa ne kohdat, jotka **itse** pitää olennaisina, ja molemmat
+> hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen.
+
+Todistusarvo ei siis synny siitä, kuka on ottanut kuvat, vaan siitä että
+molemmat ovat hyväksyneet koko kokoelman allekirjoituksellaan osana sopimusta.
+Kuvaaminen ei ole koordinoitua eikä kumpikaan ole sidottu toisen listaan –
+vuokranantaja kuvaa yleensä pinnat ja kodinkoneet, vuokralainen sen, mikä
+häntä itseään huolestuttaa, ja yhdessä kokoelmasta tulee kattavampi.
+
+Korjattu näissä: etusivun asiallinen lause, `Steps`, `/katselmus`,
+`/miten-toimii`, `/vuokralaiselle`, `content/faq.ts` sekä blogiartikkelit
+1, 2 ja 3.
+
+**CLAUDE.md kohta 4.3 muutettiin tämän takia.** Speksin alkuperäinen lause oli
+"molemmat kuvaavat samat huoneet", ja se on korvattu yllä olevalla. Tämä on
+ainoa kohta, jossa speksin sitovaa tekstiä on muutettu, ja muutos on Jukan
+oma linjaus.
+
 ## Leipäfontti: Plus Jakarta Sans, latin-osajoukko (2026-09-10)
 
 `public/fonts/sans-variable.woff2` on Plus Jakarta Sans -muuttujafontti
