@@ -118,12 +118,12 @@ Navigaatio: logo · Miten toimii · Vuokranantajalle · Vuokralaiselle · Hinnat
 
 900–1 400 sanaa, käytännöllisiä, sinuttelevia, kirjanpitäjän tarkkuudella. Lakiviittaukset nimellä (AHVL 481/1995, KSL, eIDAS). Ei keksittyjä lukuja. Jokaiseen sisäinen linkki `/katselmus`- tai `/verolaskelma`-sivulle ja hintoihin.
 
-1. Vuokrasopimuspohja 2027 – mitä siinä pitää olla ja mitä ei kannata laittaa
+1. Vuokrasopimuspohja 2026 – mitä siinä pitää olla ja mitä ei kannata laittaa
 2. Muuttotarkastus vuokra-asunnossa: näin kuvaat asunnon niin, että kuvista on hyötyä
 3. Vuokravakuuden palautus – milloin vuokranantaja saa pidättää ja miten riita vältetään
 4. Vuokralaisen tunnistaminen: miksi pankkitunnistus suojaa molempia
 5. Vuokrakuittaus ilman pankkiliittymää – miksi kerran kuussa riittää
-6. Vuokratulon verotus 2027: vastikkeet, korjaukset ja se kuuluisa rahoitusvastike
+6. Vuokratulon verotus 2026: vastikkeet, korjaukset ja se kuuluisa rahoitusvastike
 7. Vuokranantajan matkakulut ja muut vähennykset, jotka jäävät usein tekemättä
 8. Mitä vuokranantaja saa kirjoittaa suositukseen – ja mitä vuokralainen voi vastata
 9. Vuokrankorotus: indeksiehto, ilmoitusaika ja tavallisimmat virheet

@@ -17,7 +17,7 @@ import type { PostFrontmatter } from "@/lib/blog/types";
  * Yhtä suurilla päivämäärillä listaus säilyttää tämän järjestyksen.
  */
 export const POST_ORDER: readonly string[] = [
-  "vuokrasopimuspohja-2027", // 1
+  "vuokrasopimuspohja-2026", // 1
   "muuttotarkastus-vuokra-asunnossa", // 2
   "vuokravakuuden-palautus", // 3
   "vuokralaisen-tunnistaminen", // 4
@@ -37,8 +37,8 @@ export type PostSlug = string;
  * varmistaa, etteivät kaksi lähdettä pääse eriytymään toisistaan.
  */
 export const POST_FRONTMATTER: Record<PostSlug, PostFrontmatter> = {
-  "vuokrasopimuspohja-2027": {
-    title: "Vuokrasopimuspohja 2027 – mitä siinä pitää olla ja mitä ei kannata laittaa",
+  "vuokrasopimuspohja-2026": {
+    title: "Vuokrasopimuspohja 2026 – mitä siinä pitää olla ja mitä ei kannata laittaa",
     description:
       "Mitä asuinhuoneiston vuokrasopimukseen kuuluu, mitkä ehdot ovat pätemättömiä ja mikä liite puuttuu lähes jokaisesta pohjasta.",
     date: "2026-09-10",

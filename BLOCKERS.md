@@ -66,7 +66,7 @@ artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset), jotka Jukka kirjoittaa
 tai tarkistaa itse.
 
 Luonnospohjat runkoineen ovat valmiina hakemistossa `content/blogi/`
-nimillä `LUONNOS-vuokratulon-verotus-2027.mdx` ja
+nimillä `LUONNOS-vuokratulon-verotus-2026.mdx` ja
 `LUONNOS-vuokranantajan-matkakulut.mdx`. Ne eivät ole rekisterissä eivätkä
 näy sivustolla. Julkaisuohje on tiedostojen alussa ja `PLAN.md`:n vaiheessa C.
 
@@ -99,7 +99,7 @@ Ennen kuin sovellusta aloitetaan, tarvitaan oma `CLAUDE.md` samaan tapaan
 kuin tällä sivustolla: tietomalli, käyttäjätyypit, vaiheet ja rajaukset.
 
 Verkkosivu odotuslistatilassa EI riipu tästä. Tavoitelanseeraus CLAUDE.md:n
-mukaan on kesä 2027.
+mukaan on lokakuu 2026.
 
 ## Kehote seuraavalle chatille
 

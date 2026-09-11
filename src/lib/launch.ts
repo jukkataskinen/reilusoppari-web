@@ -25,7 +25,7 @@ const DEFAULT_MODE: LaunchMode = "soon";
  * kertoa kuinka pitkästä odotuksesta on kyse. `soon`-tila ei lupaa
  * päivämäärää lainkaan.
  */
-export const LAUNCH_TARGET = "kesällä 2027";
+export const LAUNCH_TARGET = "lokakuussa 2026";
 
 export function getLaunchMode(): LaunchMode {
   const raw = process.env.LAUNCH_MODE?.trim().toLowerCase();

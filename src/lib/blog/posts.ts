@@ -9,7 +9,7 @@ import { POST_FRONTMATTER, POST_ORDER, isPostSlug, type PostSlug } from "@/lib/b
  * tarvita tiedostojärjestelmälukua, joka olisi altis Vercelin serverless-
  * funktioiden "output file tracing" -rajauksille dynaamisilla poluilla.
  */
-import * as post01 from "@content/blogi/vuokrasopimuspohja-2027.mdx";
+import * as post01 from "@content/blogi/vuokrasopimuspohja-2026.mdx";
 import * as post02 from "@content/blogi/muuttotarkastus-vuokra-asunnossa.mdx";
 import * as post03 from "@content/blogi/vuokravakuuden-palautus.mdx";
 import * as post04 from "@content/blogi/vuokralaisen-tunnistaminen.mdx";
@@ -21,7 +21,7 @@ import * as post08 from "@content/blogi/vuokrasuhteen-paattyminen-reilusti.mdx";
 type MDXContent = (props: MDXProps) => MDXElement;
 
 const CONTENT_BY_SLUG: Record<PostSlug, MDXContent> = {
-  "vuokrasopimuspohja-2027": post01.default,
+  "vuokrasopimuspohja-2026": post01.default,
   "muuttotarkastus-vuokra-asunnossa": post02.default,
   "vuokravakuuden-palautus": post03.default,
   "vuokralaisen-tunnistaminen": post04.default,

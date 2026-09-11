@@ -32,7 +32,7 @@ lisää — mutta älä ehdota Hobbya ratkaisuksi säästöön.
 Nollasta aloittaen: 20 + 20 + 9 = 49 $/kk ≈ **540 €/v** + domain.
 eSinetin päälle lisättynä: käytännössä vain Resend, **~220 €/v**.
 
-## Sovellus (app.reilusoppari.fi) — 2027
+## Sovellus (app.reilusoppari.fi) — lanseerauksesta alkaen
 
 Ajaa eSinetin moottorilla, joten pino on sama kuin `esinetti`-repossa.
 
@@ -65,4 +65,4 @@ Laskutus on dollareissa, joten euromääriin tulee kurssiheittoa kuukausittain.
 | Vaihe | Nollasta | eSinetin päälle |
 |---|---|---|
 | Sivusto nyt (odotuslista) | ~540 €/v | **~220 €/v** |
-| Sovellus 2027 alkaen | ~+300 €/v + tunnistukset | ~+0–300 €/v + tunnistukset |
+| Sovellus lanseerauksesta | ~+300 €/v + tunnistukset | ~+0–300 €/v + tunnistukset |

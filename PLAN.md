@@ -46,7 +46,7 @@ Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 
 | # | Slug | Sanoja |
 |---|---|---|
-| 1 | `vuokrasopimuspohja-2027` | 1007 |
+| 1 | `vuokrasopimuspohja-2026` | 1007 |
 | 2 | `muuttotarkastus-vuokra-asunnossa` | 1174 |
 | 3 | `vuokravakuuden-palautus` | 1113 |
 | 4 | `vuokralaisen-tunnistaminen` | 976 |
@@ -59,7 +59,7 @@ Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 kohta 9.5: Jukka kirjoittaa tai tarkistaa ne itse, koska ne ovat sivuston
 uskottavuuden ydin. Luonnospohjat runkoineen ovat valmiina:
 
-- `content/blogi/LUONNOS-vuokratulon-verotus-2027.mdx`
+- `content/blogi/LUONNOS-vuokratulon-verotus-2026.mdx`
 - `content/blogi/LUONNOS-vuokranantajan-matkakulut.mdx`
 
 Ne eivät ole rekisterissä eivätkä siis näy sivustolla. Julkaisu on kolme kohtaa:
@@ -79,7 +79,7 @@ julkaisupäivät, kun sivusto avataan.
 
 ---
 
-## Vaihe D — lanseeraus · **odottaa** (tavoite kesä 2027)
+## Vaihe D — lanseeraus · **odottaa** (tavoite lokakuu 2026)
 
 - [ ] `LAUNCH_MODE=live`
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)

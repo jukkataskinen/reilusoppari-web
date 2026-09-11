@@ -6,7 +6,7 @@ pankkitunnuksilla, alkukatselmus kuvin, vuokrakuittaus, huoltokirja,
 loppukatselmus ja todistus molemmille.
 
 Sivusto on **odotuslistatilassa** (`LAUNCH_MODE=waitlist`). Tavoitelanseeraus
-on kesä 2027.
+on lokakuu 2026.
 
 ## Dokumentit
 
