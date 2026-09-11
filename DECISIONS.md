@@ -4,6 +4,35 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Kanoninen osoite on www, ei apex (2026-09-11)
+
+CLAUDE.md kohta 2 linjasi `www → apex`. Toteutunut ratkaisu on päinvastainen:
+`reilusoppari.fi` ohjaa 308:lla osoitteeseen `www.reilusoppari.fi`, joka on
+kanoninen.
+
+Syyt: ohjaus oli jo tuohon suuntaan Vercelissä, sisarpalvelu `esinetti.fi`
+toimii samoin, ja kääntäminen olisi tarkoittanut muutosta molempiin ilman että
+kumpikaan suunta on teknisesti parempi. `NEXT_PUBLIC_SITE_URL` on siksi
+`https://www.reilusoppari.fi`, ja sivukartta, robots ja canonical-linkit
+seuraavat sitä. Todennettu livenä 2026-09-11.
+
+CLAUDE.md kohta 2 on päivitetty vastaamaan tätä.
+
+## Vercel-projektin framework oli `Other` (2026-09-11)
+
+Sivusto vastasi 404:llä jokaisessa polussa, vaikka build oli virheetön ja
+28 sivua syntyi. Syy: projekti luotiin ennen kuin repossa oli koodia, jolloin
+Vercel ei tunnistanut frameworkia, valitsi `Other` ja julkaisi `public/`-kansion
+staattisena sivustona. Asetus ei korjaannu itsestään, vaikka koodi tulee myöhemmin.
+
+Diagnoosi mittauksella: `public/`-kansion tiedostot (`/favicon.svg`,
+`/logo-mark.svg`) palauttivat 200, mutta `/_next/static/…` palautti 404.
+Se erottaa tämän tapauksen kaikista muista 404-syistä yksiselitteisesti.
+
+Korjaus: Framework Preset → `Next.js`, kaikki Override-kytkimet pois, redeploy
+ilman build-välimuistia. Jos vastaava tulee joskus vastaan, testaa ensin
+`public/`-kansion tiedosto — se kertoo heti kumpi vika on kyseessä.
+
 ## Katselmuksen mekanismi: hyväksyntä, ei kuvaaja (2026-09-10, Jukan korjaus)
 
 Sivustolla luki useassa kohdassa, että "molemmat kuvaavat samat huoneet" ja

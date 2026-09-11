@@ -24,17 +24,32 @@ Repo on luotu ja viety GitHubiin:
 Ensimmäinen commit sisältää `CLAUDE.md`, `BLOCKERS.md`, `KUSTANNUKSET.md`
 ja `.gitignore`:n (kopio esinetti-webistä). Haara on `main`.
 
-### 3. Ympäristö — OSITTAIN
+### 3. Ympäristö — SIVUSTO ON LIVENÄ (2026-09-11)
 
-- **Vercel-projekti on olemassa** ja repo on kytketty siihen (2026-09-10).
-- **Jäljellä:** domain Verceliin (odottaa verkkotunnuksen aukeamista, ks.
-  DNS-osio alempana), Resend-segmentti `reilusoppari-waitlist`, Turnstile,
-  Plausible ja ympäristömuuttujat.
+**<https://www.reilusoppari.fi> toimii.** Todennettu: kaikki 18 polkua vastaavat
+200, sivukartta, robots ja RSS kunnossa, canonical-linkit oikein, Plausible
+ladataan. `reilusoppari.fi` ohjaa 308:lla www-osoitteeseen.
 
-Muuttujat ovat `.env.example`-tiedostossa. Ilman `RESEND_API_KEY`- ja
-`RESEND_SEGMENT_ID`-arvoja odotuslista näyttää selkeän virheilmoituksen sen
-sijaan, että kaatuisi – sivusto siis toimii jo nyt, mutta lomake ei vielä
-tallenna mitään.
+Tehty:
+
+- Verkkotunnus rekisteröity, nimipalvelimet Vercelillä, DNS-vyöhyke luotu
+- Domain liitetty projektiin, TLS-varmenne myönnetty
+- Framework Preset korjattu `Other` → `Next.js` (ks. DECISIONS.md)
+- `NEXT_PUBLIC_SITE_URL` ja `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` asetettu
+
+**Jäljellä ennen kuin odotuslista tallentaa mitään:**
+
+| Palvelu | Muuttujat |
+|---|---|
+| Resend | `RESEND_API_KEY`, `RESEND_SEGMENT_ID` (segmentti `reilusoppari-waitlist`), `EMAIL_FROM` |
+| Kaksoisvarmistus | `WAITLIST_TOKEN_SECRET` |
+| Cloudflare Turnstile | `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` |
+
+Ilman Resend-arvoja lomake näyttää selkeän virheilmoituksen sen sijaan, että
+kaatuisi — sivusto siis toimii jo nyt, mutta liittyminen ei vielä onnistu.
+
+**Huom nimipalvelinsiirron seuraus:** Resendin domain-vahvistuksen vaatimat
+tietueet lisätään **Vercelin DNS-hallintaan**, ei rekisteröijälle.
 
 ### 4. Tietosuoja ja käyttöehdot — JUKAN LUETTAVA (CLAUDE.md kohta 9.4)
 
