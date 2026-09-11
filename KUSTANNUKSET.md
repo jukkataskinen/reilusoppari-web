@@ -41,6 +41,8 @@ Ajaa eSinetin moottorilla, joten pino on sama kuin `esinetti`-repossa.
 | Supabase | Free 0 € (2 projektia, tietokanta nukahtaa viikon käyttämättömyydestä → ei kelpaa tuotantoon); Pro 25 $/kk (~23 €) organisaatiolta | Pro sisältää useita projekteja, joten monivuokraajaisuus voi mahtua eSinetin tilaukseen |
 | Upstash Redis | Free-taso riittää pitkälle, sitten käytön mukaan | ~0–10 $/kk |
 | Vahva tunnistautuminen (Telia) | kuukausimaksu + hinta per tunnistus | **Tarjous pyytämättä.** Ainoa erä, joka kasvaa käyttäjämäärän mukana |
+| Apple Developer Program | 99 $/v (~92 €) | Pakollinen App Store -julkaisuun. Ei kertamaksua — lakkaa maksamasta ja sovellus poistuu kaupasta |
+| Google Play Developer | 25 $ kertamaksu (~23 €) | Kertamaksu tilistä, ei vuosimaksua |
 
 **Hinnoitteluriski, joka on ratkaistava ennen lanseerausta:** 29 €/vuokrasuhde
 kattaa sopimuksen, jossa tunnistautuu **kaksi** osapuolta, ja vuokrasuhde voi
@@ -66,3 +68,4 @@ Laskutus on dollareissa, joten euromääriin tulee kurssiheittoa kuukausittain.
 |---|---|---|
 | Sivusto nyt (odotuslista) | ~540 €/v | **~220 €/v** |
 | Sovellus lanseerauksesta | ~+300 €/v + tunnistukset | ~+0–300 €/v + tunnistukset |
+| Sovelluskaupat (iOS + Android) | ~+92 €/v + 23 € kerran | sama molemmissa — tilit ovat Adeptan, eivät projektikohtaisia |
