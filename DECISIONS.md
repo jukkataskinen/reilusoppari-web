@@ -4,6 +4,29 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Odotuslistaa ei kerätä – kolmas julkaisutila `soon` (2026-09-11, Jukan päätös)
+
+Odotuslista jäi tarpeettomaksi: eSinetti valmistuu lähipäivinä, ja Reilusoppari
+saadaan toimintaan ennen kuin listasta ehtisi olla hyötyä.
+
+Ongelma oli akuutti, ei teoreettinen: sivusto oli jo livenä ja näytti
+odotuslistalomaketta, jonka lähetys olisi epäonnistunut, koska Resend-asetuksia
+ei ollut. Rikkinäinen lomake on huonompi kuin ei lomaketta lainkaan.
+
+Ratkaisu: kolmas tila `soon`, josta tehtiin **oletus**. Ilman
+`LAUNCH_MODE`-muuttujaa sivusto ei siis voi näyttää lomaketta, joka ei toimi —
+tuotannossa ei tarvitse asettaa mitään, ja virhe korjaantuu seuraavassa
+deployssa itsestään.
+
+`waitlist` säilyy tuettuna koodipolkuna: lomake, skeema, kaksoisvarmistus ja
+Server Action ovat ennallaan ja e2e-testit ajavat ne omassa tilassaan
+(`playwright.config.ts` asettaa `LAUNCH_MODE=waitlist`). Jos listaa joskus
+tarvitaan, se on yhden ympäristömuuttujan takana.
+
+`soon`-tilassa CTA on "Katso miten toimii" → `/miten-toimii`, eikä
+päivämäärää luvata. Nappi ei saa luvata mitään, mitä ei voi pitää: palvelua ei
+voi aloittaa eikä listalle liittyä.
+
 ## Kanoninen osoite on www, ei apex (2026-09-11)
 
 CLAUDE.md kohta 2 linjasi `www → apex`. Toteutunut ratkaisu on päinvastainen:

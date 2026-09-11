@@ -26,7 +26,7 @@ Rennon ja hyväntuulisen raja: sinuttelu, huumori tilanteista (kynä joka ei toi
 |---|---|
 | Repo | `reilusoppari-web`, kopio `esinetti-web`-rungosta (Next.js 15, MDX-sisältö, Plausible, Resend, Turnstile). |
 | Domain | `reilusoppari.fi`, **apex → www** (`www.reilusoppari.fi` on kanoninen osoite; korjattu 2026-09-11, aiemmin tässä luki www → apex – ks. DECISIONS.md). Sovellus myöhemmin `app.reilusoppari.fi` (eSinetin moottori, oma brändi). |
-| Julkaisutila | `LAUNCH_MODE=waitlist` lanseeraukseen asti (tavoite kesä 2027). Odotuslistalomake kysyy: sähköposti + "Olen vuokranantaja / vuokralainen / molempia" + asuntojen määrä (vain vuokranantajalta). |
+| Julkaisutila | `LAUNCH_MODE=soon` (oletus, 2026-09-11 alkaen): palvelu avautuu pian, **odotuslistaa ei kerätä**. `waitlist`-tila on yhä tuettu koodipolku, jos listaa joskus tarvitaan. Odotuslistalomake kysyy: sähköposti + "Olen vuokranantaja / vuokralainen / molempia" + asuntojen määrä (vain vuokranantajalta). |
 | Hinnasto | `content/pricing.ts`: ensimmäinen vuokrasuhde 0 €; sitten 29 €/vuokrasuhde kertamaksuna (sisältää kaiken vuokrasuhteen ajan, enintään 5 v); Plus: kulut ja verolaskelma 12 €/asunto/v, veloitus vasta ensimmäistä laskelmaa tulostettaessa; 5+ asuntoa 15 €/asunto/v sisältää kaiken; vuokralaiselle aina 0 €. Hinnat sis. ALV 25,5 % – kuluttajahinnat näytetään verollisina. |
 | Suosittelu | "Tuo kaveri, molemmat saatte seuraavan sopimuksen ilmaiseksi." Näytetään sivustolla, toteutus sovelluksessa. |
 | Kieli | Suomi. Rakenne sallii sv/en myöhemmin. |

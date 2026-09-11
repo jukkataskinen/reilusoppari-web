@@ -10,8 +10,10 @@ type Party = "vuokranantaja" | "vuokralainen";
 const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; note: string }> = {
   vuokranantaja: {
     lead: "Reilusoppari hoitaa sopimuksen, kuvat asunnon kunnosta, vuokrakuittaukset ja lopuksi todistuksen – molemmille. Ensimmäinen vuokrasuhde on ilmainen.",
-    ctaLabel: "Liity odotuslistalle",
-    ctaHref: "/#odotuslista",
+    // Korvataan `landlordCta`-propsilla: teksti riippuu LAUNCH_MODE:sta, jota
+    // client-komponentti ei voi lukea. Nämä ovat vain tyypin täyttöä.
+    ctaLabel: "",
+    ctaHref: "",
     note: "Vuokralaiselle aina maksuton.",
   },
   vuokralainen: {
@@ -35,11 +37,22 @@ const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; not
  * vieritä sivua, joten kytkin tuntuu välittömältä.
  *
  * @param initialParty palvelimella luettu `?osapuoli=`-arvo.
+ * @param landlordCta vuokranantajan CTA:n teksti ja kohde. Tulee palvelimelta,
+ *   koska se riippuu LAUNCH_MODE:sta (ks. src/lib/launch.ts). Vuokralaisen CTA
+ *   on aina sama – hän pyytää vuokranantajaa, riippumatta julkaisutilasta.
  */
-export function Hero({ initialParty = "vuokranantaja" }: { initialParty?: Party }) {
+export function Hero({
+  initialParty = "vuokranantaja",
+  landlordCta,
+}: {
+  initialParty?: Party;
+  landlordCta: { label: string; href: string };
+}) {
   const [party, setParty] = useState<Party>(initialParty);
   const tenant = party === "vuokralainen";
-  const variant = copy[party];
+  const variant = tenant
+    ? copy.vuokralainen
+    : { ...copy.vuokranantaja, ctaLabel: landlordCta.label, ctaHref: landlordCta.href };
 
   function choose(next: Party) {
     setParty(next);

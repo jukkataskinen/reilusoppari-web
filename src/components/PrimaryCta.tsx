@@ -24,6 +24,10 @@ const sizeClasses: Record<PrimaryCtaSize, string> = {
  *
  * Yhteinen CTA on aina `ink` – ei `sky` eikä `coral`, koska nappi kuuluu
  * molemmille osapuolille (CLAUDE.md kohta 5).
+ *
+ * `soon`-tilassa nappi EI lupaa mitään, mitä ei voi pitää: palvelua ei voi
+ * vielä aloittaa eikä odotuslistalle voi liittyä, joten se ohjaa siihen mitä
+ * sivustolla oikeasti on.
  */
 export function PrimaryCta({
   className = "",
@@ -33,12 +37,22 @@ export function PrimaryCta({
   const mode = getLaunchMode();
   const tenant = party === "vuokralainen";
 
-  const href = tenant ? "/vuokralaiselle#pyyda" : mode === "live" ? getSignupUrl() : "/#odotuslista";
-  const label = tenant
-    ? "Pyydä vuokranantajaa käyttämään"
-    : mode === "live"
-      ? "Aloita ilmaiseksi"
-      : "Liity odotuslistalle";
+  let href: string;
+  let label: string;
+
+  if (tenant) {
+    href = "/vuokralaiselle#pyyda";
+    label = "Pyydä vuokranantajaa käyttämään";
+  } else if (mode === "live") {
+    href = getSignupUrl();
+    label = "Aloita ilmaiseksi";
+  } else if (mode === "waitlist") {
+    href = "/#odotuslista";
+    label = "Liity odotuslistalle";
+  } else {
+    href = "/miten-toimii";
+    label = "Katso miten toimii";
+  }
 
   return (
     <Link

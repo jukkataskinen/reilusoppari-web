@@ -16,6 +16,9 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
+    // LAUNCH_MODE=waitlist: oletus on `soon`, jossa odotuslistalomaketta ei ole.
+    // Lomake on silti tuettu koodipolku, joten e2e ajaa sen omassa tilassaan.
+    env: { LAUNCH_MODE: "waitlist" },
     command: "npm run build && npm run start -- -p 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: !process.env.CI,

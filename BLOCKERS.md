@@ -37,19 +37,17 @@ Tehty:
 - Framework Preset korjattu `Other` → `Next.js` (ks. DECISIONS.md)
 - `NEXT_PUBLIC_SITE_URL` ja `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` asetettu
 
-**Jäljellä ennen kuin odotuslista tallentaa mitään:**
+**Odotuslista on peruttu (Jukan päätös 2026-09-11).** Sitä ei kerätä, koska
+palvelu saadaan toimintaan ennen kuin listasta olisi hyötyä. Julkaisutila on
+nyt `soon`, joka on myös oletus — Verceliin ei tarvitse asettaa `LAUNCH_MODE`ia
+lainkaan.
 
-| Palvelu | Muuttujat |
-|---|---|
-| Resend | `RESEND_API_KEY`, `RESEND_SEGMENT_ID` (segmentti `reilusoppari-waitlist`), `EMAIL_FROM` |
-| Kaksoisvarmistus | `WAITLIST_TOKEN_SECRET` |
-| Cloudflare Turnstile | `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` |
+Tästä seuraa, että **Resend, Turnstile ja `WAITLIST_TOKEN_SECRET` eivät ole
+enää tarpeen** sivustolle. Koodipolku on tallella ja testattu, jos listaa
+joskus tarvitaan.
 
-Ilman Resend-arvoja lomake näyttää selkeän virheilmoituksen sen sijaan, että
-kaatuisi — sivusto siis toimii jo nyt, mutta liittyminen ei vielä onnistu.
-
-**Huom nimipalvelinsiirron seuraus:** Resendin domain-vahvistuksen vaatimat
-tietueet lisätään **Vercelin DNS-hallintaan**, ei rekisteröijälle.
+Seuraava ympäristötehtävä on vasta lanseerauksessa: `LAUNCH_MODE=live` ja
+`NEXT_PUBLIC_APP_URL`, kun `app.reilusoppari.fi` on olemassa.
 
 ### 4. Tietosuoja ja käyttöehdot — JUKAN LUETTAVA (CLAUDE.md kohta 9.4)
 
