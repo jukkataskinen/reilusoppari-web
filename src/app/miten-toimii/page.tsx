@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero } from "@/components/PageHero";
+import { ContractPreview } from "@/components/previews/ContractPreview";
+import { InspectionPreview } from "@/components/previews/InspectionPreview";
+import { ConfirmationPreview } from "@/components/previews/ConfirmationPreview";
+import { CertificatePreview } from "@/components/previews/CertificatePreview";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Miten Reilusoppari toimii";
@@ -19,58 +22,73 @@ export const metadata: Metadata = {
 };
 
 /**
- * Koko kaari kuvina (CLAUDE.md kohta 3). Vaiheet ovat aito sekvenssi, joten
- * ne on numeroitu. Jokaisessa vaiheessa kerrotaan erikseen mitä kumpikin
+ * Sopimus kummankin osapuolen näkymänä. Kortit ovat samankokoiset ja niiden
+ * alla on yksi yhteinen rivi – sama esitystapa kuin herossa, jotta lukija
+ * tunnistaa asiakirjan samaksi.
+ */
+function ContractPair() {
+  return (
+    <div>
+      <div className="grid grid-cols-2 items-stretch gap-3">
+        <ContractPreview role="landlord" />
+        <ContractPreview role="tenant" />
+      </div>
+      <p className="mt-3 rounded-[var(--radius-panel)] border border-line bg-cloud px-3 py-2.5 text-center text-[12px] text-ink/70">
+        Yksi sopimus · molemmat saavat saman kappaleen
+      </p>
+    </div>
+  );
+}
+
+/**
+ * Koko kaari asiakirjoina (CLAUDE.md kohta 3). Vaiheet ovat aito sekvenssi,
+ * joten ne on numeroitu. Jokaisessa vaiheessa kerrotaan erikseen mitä kumpikin
  * osapuoli tekee – sivu ei kerro tarinaa vain toiselle.
+ *
+ * Vaiheella on asiakirjanäkymä silloin, kun siinä syntyy asiakirja. Huoltokirja
+ * ja loppukatselmus jäävät ilman: huoltokirja on juokseva lista eikä asiakirja,
+ * ja loppukatselmuksen pöytäkirja näyttäisi alkukatselmuksen kopiolta, mikä
+ * hämärtäisi eron sen sijaan että selittäisi sen.
  */
 const stages = [
   {
     title: "Sopimus",
-    illustration: null,
+    preview: <ContractPair />,
     landlord: "Täytät vuokrasopimuksen ja lähetät sen allekirjoitettavaksi.",
     tenant: "Allekirjoitat pankkitunnuksilla tai mobiilivarmenteella omalla puhelimellasi.",
     fact: "Allekirjoitus on eIDAS-asetuksen mukainen kehittynyt sähköinen allekirjoitus, joka on laillisesti pätevä. Molemmat saavat saman kappaleen.",
   },
   {
     title: "Alkukatselmus",
-    illustration: {
-      src: "/illustrations/katselmus.svg",
-      alt: "Puhelin, jonka näytöllä on kuva ovikellosta",
-    },
+    preview: <InspectionPreview />,
     landlord: "Kuvaat ne kohdat, jotka itse pidät olennaisina, ja merkitset tiedossa olevat viat.",
     tenant: "Kuvaat sen, minkä itse pidät olennaisena – et ole sidottu vuokranantajan listaan.",
     fact: "Kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Molemmat hyväksyvät koko kuvakokoelman allekirjoittaessaan vuokrasopimuksen, eikä kumpikaan voi muuttaa tai poistaa kuvia jälkikäteen.",
   },
   {
     title: "Vuokrakuittaus",
-    illustration: {
-      src: "/illustrations/kuittaus.svg",
-      alt: "Ilmoitus, jossa kysytään maksoiko vuokralainen vuokran",
-    },
+    preview: <ConfirmationPreview />,
     landlord: "Saat kerran kuussa kysymyksen ja vastaat kyllä, ei vielä tai osittain.",
     tenant: "Näet kuittauksen heti ja voit kommentoida sitä.",
     fact: "Kuittaukset ovat vuokranantajan omia merkintöjä, jotka vuokralainen näkee ja voi kommentoida. Pankkitiliä ei liitetä palveluun.",
   },
   {
     title: "Huoltokirja",
-    illustration: null,
+    preview: null,
     landlord: "Kirjaat korjaukset ja näet, mitä on ilmoitettu ja milloin.",
     tenant: "Ilmoitat viasta, ja ilmoitus jää talteen aikaleimalla.",
     fact: "Sama lista näkyy molemmille koko vuokrasuhteen ajan: milloin ilmoitettiin, milloin korjattiin ja mitä sovittiin.",
   },
   {
     title: "Loppukatselmus",
-    illustration: null,
+    preview: null,
     landlord: "Käytte huoneet läpi ja vertaatte alkukuviin.",
     tenant: "Näet samat kuvat kuin vuokranantaja – ei muistelua kummallakaan.",
     fact: "Vakuudesta ja mahdollisista korjauksista sovitaan samojen kuvien äärellä. Sopimus ei muutu jälkikäteen.",
   },
   {
     title: "Todistus",
-    illustration: {
-      src: "/illustrations/todistus.svg",
-      alt: "Sinetöity todistus, jossa nimet on peitetty",
-    },
+    preview: <CertificatePreview />,
     landlord: "Saat oman todistuksesi: vakuus palautettu ajallaan, viat korjattu.",
     tenant: "Saat vuokratodistuksen, jonka voit näyttää seuraavalle vuokranantajalle.",
     fact: "Todistuksen numerot tulevat kuittauksista automaattisesti. Todistus on sen omistajan oma asiakirja, ja aitouden voi tarkistaa linkistä.",
@@ -110,17 +128,8 @@ export default function MitenToimiiPage() {
                     </div>
                   </div>
 
-                  {stage.illustration && (
-                    <div className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-cloud p-6">
-                      <Image
-                        src={stage.illustration.src}
-                        alt={stage.illustration.alt}
-                        width={280}
-                        height={210}
-                        unoptimized
-                        className="w-full max-w-[240px]"
-                      />
-                    </div>
+                  {stage.preview && (
+                    <div className="mx-auto w-full max-w-[340px]">{stage.preview}</div>
                   )}
                 </div>
               </li>

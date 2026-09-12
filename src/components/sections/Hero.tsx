@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Container } from "@/components/Container";
+import { ContractPreview } from "@/components/previews/ContractPreview";
 
 type Party = "vuokranantaja" | "vuokralainen";
 
@@ -27,10 +27,26 @@ const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; not
 /**
  * Etusivun hero (CLAUDE.md kohta 4.1).
  *
- * Kytkin vaihtaa alaotsikon ja CTA:n, ja puhelimet vaihtavat paikkaa 300 ms:n
- * liukuliikkeellä – sivuston ainoa animaatio (kohta 5). Liike on käyttäjän
- * käynnistämä, mutta globaali reduced-motion-sääntö globals.css:ssä tekee
- * vaihdosta silti välittömän, jos käyttäjä on niin asettanut.
+ * ===========================================================================
+ * KAKSIPUOLINEN NÄKYMÄ: KAKSI SOPIMUSKORTTIA
+ *
+ * Oikealla on sama vuokrasopimus kahtena näkymänä – vuokranantajan ja
+ * vuokralaisen. Kortit ovat samankokoiset ja niiden alla on yksi yhteinen
+ * rivi, joka sitoo ne yhdeksi asiakirjaksi. Kaksi osapuolta, yksi sopimus.
+ *
+ * Aiemmin tässä oli kaksi tyhjää väripaneelia ja niiden päällä SVG-kuvitus.
+ * Se kertoi rakenteen muttei sisältöä: lukija näki, että osapuolia on kaksi,
+ * muttei sitä mitä palvelu tekee. Kortit näyttävät sopimuksen kentät –
+ * vuokra, alkamispäivä, vastapuoli – ja hinnan juuri sille osapuolelle.
+ *
+ * Kytkin vaihtaa alaotsikon, CTA:n ja korttien järjestyksen: valittu osapuoli
+ * on aina vasemmalla, lähempänä lukijaa. Liike on 300 ms:n liukuliike ja
+ * sivuston ainoa animaatio (kohta 5). Se on käyttäjän käynnistämä, mutta
+ * globaali reduced-motion-sääntö globals.css:ssä tekee vaihdosta silti
+ * välittömän, jos käyttäjä on niin asettanut.
+ *
+ * Siirtymä on `100% + 0.75rem`, koska korttien välissä on `gap-3`. Pelkkä
+ * `translate-x-full` jättäisi kortit päällekkäin gapin verran.
  *
  * Kytkimen tila muistetaan URL-parametrissa (`?osapuoli=`), ei evästeessä
  * (kohta 4.1). replaceState-kutsu ei aiheuta uudelleenrenderöintiä eikä
@@ -40,6 +56,7 @@ const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; not
  * @param landlordCta vuokranantajan CTA:n teksti ja kohde. Tulee palvelimelta,
  *   koska se riippuu LAUNCH_MODE:sta (ks. src/lib/launch.ts). Vuokralaisen CTA
  *   on aina sama – hän pyytää vuokranantajaa, riippumatta julkaisutilasta.
+ * ===========================================================================
  */
 export function Hero({
   initialParty = "vuokranantaja",
@@ -81,8 +98,8 @@ export function Hero({
                   type="button"
                   onClick={() => choose(option)}
                   aria-pressed={party === option}
-                  className={`rounded-full px-4 py-1.5 text-sm transition-colors ${
-                    party === option ? "bg-ink text-paper" : "text-ink hover:bg-cloud"
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    party === option ? "bg-ink text-paper" : "text-ink/70 hover:text-ink"
                   }`}
                 >
                   {option === "vuokranantaja" ? "Olen vuokranantaja" : "Olen vuokralainen"}
@@ -111,57 +128,32 @@ export function Hero({
             <p className="mt-4 text-sm text-ink/70">{variant.note}</p>
           </div>
 
-          {/*
-            Kaksipuolinen näkymä: kaksi puhelinta, keskellä sama sopimus.
-            Puhelimet vaihtavat paikkaa, kun osapuoli vaihtuu – valittu
-            osapuoli on aina vasemmalla, lähempänä lukijaa.
-          */}
-          <div className="relative">
-            <div className="grid grid-cols-2 items-center">
+          <div>
+            <div className="grid grid-cols-2 items-stretch gap-3">
               <div
-                className={`party-swap ${tenant ? "translate-x-full" : "translate-x-0"}`}
-                aria-hidden="true"
+                className={`party-swap ${tenant ? "translate-x-[calc(100%+0.75rem)]" : "translate-x-0"}`}
               >
-                <PhonePanel tone="sky" label="Vuokranantaja" />
+                <ContractPreview role="landlord" />
               </div>
               <div
-                className={`party-swap ${tenant ? "-translate-x-full" : "translate-x-0"}`}
-                aria-hidden="true"
+                className={`party-swap ${tenant ? "-translate-x-[calc(100%+0.75rem)]" : "translate-x-0"}`}
               >
-                <PhonePanel tone="coral" label="Vuokralainen" />
+                <ContractPreview role="tenant" />
               </div>
             </div>
 
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <Image
-                src="/illustrations/hero-kaksoisnakyma.svg"
-                alt="Kaksi puhelinta ja niiden välissä sama vuokrasopimus"
-                width={320}
-                height={240}
-                priority
-                unoptimized
-                className="w-[78%] max-w-[340px]"
-              />
-            </div>
+            {/*
+              Yhteinen rivi korttien alla. Tämä on se, mikä tekee kahdesta
+              kortista yhden sopimuksen – ilman sitä ne olisivat kaksi eri
+              asiakirjaa vierekkäin.
+            */}
+            <p className="mt-3 rounded-[var(--radius-panel)] border border-line bg-cloud px-4 py-3 text-center text-[13px] text-ink/70">
+              Yksi sopimus · allekirjoitettu pankkitunnuksilla{" "}
+              <span className="font-mono">14.8.2026</span>
+            </p>
           </div>
         </div>
       </Container>
     </section>
-  );
-}
-
-/**
- * Puhelimen taustapaneeli. Molemmat ovat tarkoituksella täsmälleen saman
- * kokoiset – kun molemmat värit esiintyvät, ne ovat aina yhtä isoina
- * (CLAUDE.md kohta 5).
- */
-function PhonePanel({ tone, label }: { tone: "sky" | "coral"; label: string }) {
-  const toneClass = tone === "sky" ? "bg-sky/10 border-sky/30" : "bg-coral/10 border-coral/30";
-  return (
-    // Nimi on paneelin YLÄREUNASSA, ei keskellä: kuvitus on keskellä
-    // paneelien päällä, ja keskitetty teksti jäisi sen alle.
-    <div className={`h-64 rounded-[var(--radius-panel)] border px-4 pt-4 text-center ${toneClass}`}>
-      <span className="text-xs font-medium tracking-wide text-ink/70">{label}</span>
-    </div>
   );
 }

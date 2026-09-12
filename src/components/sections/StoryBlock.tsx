@@ -9,7 +9,16 @@ interface StoryBlockProps {
   quote: string;
   /** Yksi asiallinen lause, joka kertoo mitä palvelu oikeasti tekee. */
   fact: string;
-  illustration: { src: string; alt: string };
+  /**
+   * Asiakirjanäkymä (`src/components/previews/`). Tämä on ensisijainen tapa
+   * kuvittaa osio: lukija näkee, mitä asiakirjassa oikeasti lukee.
+   *
+   * Näkymä tuo oman reunuksensa, joten sitä ei kehystetä uudelleen –
+   * kaksinkertainen reunus näyttäisi vahingolta.
+   */
+  preview?: React.ReactNode;
+  /** Viivakuvitus vaihtoehtona, kun asiakirjaa ei ole näytettäväksi. */
+  illustration?: { src: string; alt: string };
   /** Kuvateksti kuvituksen alla, esim. aikaleima. */
   caption?: string;
   /** Vuorottelu paper / cloud (CLAUDE.md kohta 5). */
@@ -20,13 +29,14 @@ interface StoryBlockProps {
 }
 
 /**
- * Etusivun kertomusosio: sitova sitaatti, sen vieressä kuvitus ja alla yksi
+ * Etusivun kertomusosio: sitova sitaatti, sen vieressä asiakirja ja alla yksi
  * asiallinen lause. Sama rakenne toistuu kolmesti (katselmus, kuittaus,
  * todistus), joten se on yksi komponentti – ei kolmea lähes samaa.
  */
 export function StoryBlock({
   quote,
   fact,
+  preview,
   illustration,
   caption,
   tone = "paper",
@@ -45,16 +55,20 @@ export function StoryBlock({
             {children}
           </div>
           <figure className={reverse ? "md:order-1" : undefined}>
-            <div className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">
-              <Image
-                src={illustration.src}
-                alt={illustration.alt}
-                width={320}
-                height={240}
-                unoptimized
-                className="w-full max-w-[300px]"
-              />
-            </div>
+            {preview ? (
+              <div className="mx-auto w-full max-w-[360px]">{preview}</div>
+            ) : illustration ? (
+              <div className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">
+                <Image
+                  src={illustration.src}
+                  alt={illustration.alt}
+                  width={320}
+                  height={240}
+                  unoptimized
+                  className="w-full max-w-[300px]"
+                />
+              </div>
+            ) : null}
             {caption && (
               <figcaption className="mt-3 text-center font-mono text-xs text-ink/60">
                 {caption}

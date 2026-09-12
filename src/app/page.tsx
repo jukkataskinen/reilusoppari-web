@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { Hero } from "@/components/sections/Hero";
+import { InspectionPreview } from "@/components/previews/InspectionPreview";
+import { ConfirmationPreview } from "@/components/previews/ConfirmationPreview";
+import { CertificatePreview } from "@/components/previews/CertificatePreview";
 import { Steps } from "@/components/sections/Steps";
 import { StoryBlock } from "@/components/sections/StoryBlock";
 import { MolemmilleJotain } from "@/components/sections/MolemmilleJotain";
@@ -50,11 +53,7 @@ export default async function HomePage({
       <StoryBlock
         quote="Parketissa kulumaa? Ovikellon nappi jumii? Ainahan asunnoissa jotain on, kun eivät uusia ole. Turha niistä on kuitenkaan riidellä; otetaan kuva ja laitetaan se talteen niin ei tarvitse vikoja muistella. Reilua."
         fact="Alkukatselmus on osa sopimusta: kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia."
-        illustration={{
-          src: "/illustrations/katselmus.svg",
-          alt: "Puhelin, jonka näytöllä on kuva ovikellosta",
-        }}
-        caption="tallennettu 14.8. 16:02"
+        preview={<InspectionPreview />}
       >
         <p className="mt-4">
           <Link href="/katselmus" className="font-medium underline underline-offset-4">
@@ -69,11 +68,7 @@ export default async function HomePage({
       <StoryBlock
         quote="Olikos sen Liisan tämän kuun vuokra jo tullut? No joo, yleensä se tulee ajallaan niin kuin nytkin. Laitetaan siitä viesti menemään. Reilua."
         fact="Vuokralainen näkee kuittauksen heti, ja vuoden päästä kummallakin on sama maksuhistoria – ilman pankkitiliä, ilman perintätoimistoa."
-        illustration={{
-          src: "/illustrations/kuittaus.svg",
-          alt: "Ilmoitus, jossa kysytään maksoiko vuokralainen vuokran, ja kolme vastausvaihtoehtoa",
-        }}
-        caption="Maksoiko Liisa 850 € eräpäivään 2.9. mennessä?"
+        preview={<ConfirmationPreview />}
         reverse
       />
 
@@ -81,10 +76,7 @@ export default async function HomePage({
       <StoryBlock
         quote="Sitten kun on aika muuttaa seuraavaan kotiin niin muistoksi saat yhteenvedon vuokrien maksusta ajallaan ja vuokranantajan terveiset. Allekirjoitettu dokumentti hyvästä vuokrasuhteesta on kovaa valuuttaa, kun näytät sen seuraavalle vuokranantajalle."
         fact="Todistus on sinun: sinä päätät, kenelle sen näytät. Aitouden voi tarkistaa linkistä."
-        illustration={{
-          src: "/illustrations/todistus.svg",
-          alt: "Sinetöity todistus, jossa nimet on peitetty",
-        }}
+        preview={<CertificatePreview />}
         tone="cloud"
       >
         <p className="mt-4 text-ink/70">

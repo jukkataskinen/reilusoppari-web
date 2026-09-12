@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
+import { CertificatePreview } from "@/components/previews/CertificatePreview";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Vuokratodistus";
@@ -51,15 +51,11 @@ export default function TodistusPage() {
               </div>
             ))}
           </dl>
-          <figure className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">
-            <Image
-              src="/illustrations/todistus.svg"
-              alt="Sinetöity todistus, jossa nimet on peitetty"
-              width={300}
-              height={225}
-              unoptimized
-              className="w-full max-w-[240px]"
-            />
+          <figure className="mx-auto w-full max-w-[360px]">
+            <CertificatePreview />
+            <figcaption className="mt-3 text-center text-xs text-ink/60">
+              Nimet on peitetty esimerkissä.
+            </figcaption>
           </figure>
         </div>
       </Section>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
+import { InspectionPreview } from "@/components/previews/InspectionPreview";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Alku- ja loppukatselmus";
@@ -56,15 +56,8 @@ export default function KatselmusPage() {
               vuokrasopimuksen. Muuttopäivänä ei muistella vaan katsotaan.
             </p>
           </div>
-          <figure className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">
-            <Image
-              src="/illustrations/katselmus.svg"
-              alt="Puhelin, jonka näytöllä on kuva ovikellosta ja tallennusaika"
-              width={300}
-              height={225}
-              unoptimized
-              className="w-full max-w-[260px]"
-            />
+          <figure className="mx-auto w-full max-w-[360px]">
+            <InspectionPreview />
           </figure>
         </div>
       </Section>

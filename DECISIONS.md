@@ -172,3 +172,46 @@ Käyttöehdoissa peruutusoikeus on kirjoitettu kuluttajansuojalain etämyynnin
 mukaan: oikeus voi lakata vain, jos kuluttaja on antanut nimenomaisen
 suostumuksen suorituksen aloittamiseen ja saanut tiedon oikeuden menettämisestä.
 Molemmat sivut ovat pohjia, jotka Jukan on hyväksyttävä (CLAUDE.md kohta 9.4).
+
+## Asiakirjat näytetään sellaisina kuin ne ovat (2026-09-12)
+
+Jukka pyysi heroon kaksi sopimuskorttia ja muihinkin kohtiin konkreettisempia
+kuvia – erityisesti katselmusraportista ja vuokralaisen loppuraportista.
+Taustalla oli `reilusoppari-web-visual-v1`-kokeilu, jossa heroon oli tehty
+oikean näköinen sopimuskortti.
+
+**Kokeilusta otettiin idea, ei tiedostoja.** Sen hero oli konkreettisempi kuin
+vanha, mutta se rikkoi viittä kohdan 5 sääntöä: varjot, liukuvärit, versaalit,
+värjätty yksittäinen sana otsikossa ja napin hover-nosto. Lisäksi se poisti
+osapuolikytkimen liikkeen ja siten koko kaksipuolisen näkymän – jäljelle jäi
+yksi sopimus ilman kahta osapuolta. Sen paletti myös haalensi `sky`n ja
+`coral`in pastelliksi koko sivustolla, mikä olisi pudottanut lomakkeen
+virheilmoitusten kontrastin 2,7:1 → 1,7:1.
+
+**Ratkaisu: kaksi sopimuskorttia.** Sama sopimus kahtena näkymänä, kortit
+samankokoiset, alla yksi yhteinen rivi. Kytkin vaihtaa korttien paikkaa kuten
+puhelinpaneelit ennen, joten sivuston ainoa animaatio säilyy. Kaksi osapuolta,
+yksi sopimus – nyt niin, että lukija näkee myös mitä sopimuksessa lukee.
+
+**Sama tehtiin neljälle muulle asiakirjalle:** katselmuspöytäkirja,
+vuokratodistus, kuittausilmoitus ja verolaskelma. Ne ovat komponentteja eivätkä
+SVG-kuvia, koska kuvana sama sisältö olisi sumeaa pienessä koossa ja
+vanhentuisi hiljaa tuotteen sanaston muuttuessa.
+
+Kaksi yksityiskohtaa, jotka eivät ole kosmeettisia:
+
+- **Todistuksen nimet on peitetty** (kohta 4.6). Todistus on yksityinen
+  asiakirja, jonka omistaja päättää kenelle sen näyttää. Kokonainen todistus
+  nimineen markkinointisivulla kertoisi asiakirjasta toista kuin palvelu itse.
+- **Verolaskelmassa ei ole kilometririviä.** Se paljastaisi laskelmasta
+  km-taksan, joka muuttuu vuosittain – sivu kertoisi hiljaa väärää lukua.
+  Varoitus "ei veroneuvontaa" on mukana, koska se on asiakirjassakin.
+
+Kuvaruuduissa on kaksiväri-viivakuvitus (liesi, lattia, jääkaappi). Ensimmäinen
+versio luki väärin: lattia näytti tiiliseinältä ja hana veneeltä. Lautoja
+ohennettiin ja hana korvattiin jääkaapilla. Harmaa suorakaide olisi ollut
+helpompi mutta näyttäisi puuttuvalta kuvalta.
+
+`public/illustrations/`-SVG:t jäävät paikoilleen, vaikka neljä viidestä on nyt
+käyttämättä. Ne ovat pieniä, ja poistaminen on helppo tehdä myöhemmin – niiden
+mahdollinen käyttö sosiaalisen median kuvissa on Jukan päätettävissä.

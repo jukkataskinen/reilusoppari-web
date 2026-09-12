@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
+import { TaxReportPreview } from "@/components/previews/TaxReportPreview";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { pricing } from "@content/pricing";
 import { formatEuroAuto } from "@/lib/format";
@@ -57,15 +57,8 @@ export default function VerolaskelmaPage() {
               on aina sinulla, ja laskelman tarkoitus on tehdä siitä nopeaa ja tarkistettavaa.
             </p>
           </div>
-          <figure className="flex justify-center rounded-[var(--radius-panel)] border border-line bg-paper p-8">
-            <Image
-              src="/illustrations/verolaskelma.svg"
-              alt="Kuitit kansiossa ja valmis yhteenveto"
-              width={300}
-              height={225}
-              unoptimized
-              className="w-full max-w-[260px]"
-            />
+          <figure className="mx-auto w-full max-w-[340px]">
+            <TaxReportPreview />
           </figure>
         </div>
       </Section>
