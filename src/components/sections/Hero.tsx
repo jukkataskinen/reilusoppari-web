@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { ContractPreview } from "@/components/previews/ContractPreview";
+import { DocumentPage } from "@/components/previews/DocumentPage";
 
 type Party = "vuokranantaja" | "vuokralainen";
 
@@ -28,25 +28,31 @@ const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; not
  * Etusivun hero (CLAUDE.md kohta 4.1).
  *
  * ===========================================================================
- * KAKSIPUOLINEN NÄKYMÄ: KAKSI SOPIMUSKORTTIA
+ * KAKSIPUOLINEN NÄKYMÄ: YKSI SOPIMUS, KAKSI ALLEKIRJOITTAJAA
  *
- * Oikealla on sama vuokrasopimus kahtena näkymänä – vuokranantajan ja
- * vuokralaisen. Kortit ovat samankokoiset ja niiden alla on yksi yhteinen
- * rivi, joka sitoo ne yhdeksi asiakirjaksi. Kaksi osapuolta, yksi sopimus.
+ * Oikealla on sovelluksen OIKEA vuokrasopimus (`DocumentPage`) ja sen alla
+ * kaksi allekirjoittajaa. Asiakirja on yksi, koska niin se on oikeastikin –
+ * osapuolia on kaksi, ei sopimuksia.
  *
- * Aiemmin tässä oli kaksi tyhjää väripaneelia ja niiden päällä SVG-kuvitus.
- * Se kertoi rakenteen muttei sisältöä: lukija näki, että osapuolia on kaksi,
- * muttei sitä mitä palvelu tekee. Kortit näyttävät sopimuksen kentät –
- * vuokra, alkamispäivä, vastapuoli – ja hinnan juuri sille osapuolelle.
+ * Aiemmin tässä oli kaksi sivustolle tehtyä sopimuskorttia. Ne kertoivat
+ * saman asian mutta olivat mukaelma: sovelluksen pohjan muuttuessa kortit
+ * eivät olisi muuttuneet. Nyt lukija näkee saman asiakirjan, jonka hän itse
+ * saa.
  *
- * Kytkin vaihtaa alaotsikon, CTA:n ja korttien järjestyksen: valittu osapuoli
- * on aina vasemmalla, lähempänä lukijaa. Liike on 300 ms:n liukuliike ja
- * sivuston ainoa animaatio (kohta 5). Se on käyttäjän käynnistämä, mutta
- * globaali reduced-motion-sääntö globals.css:ssä tekee vaihdosta silti
- * välittömän, jos käyttäjä on niin asettanut.
+ * Kytkin vaihtaa alaotsikon, CTA:n ja allekirjoittajien järjestyksen: valittu
+ * osapuoli on aina vasemmalla, lähempänä lukijaa. Liike on 300 ms:n
+ * liukuliike ja sivuston ainoa animaatio (kohta 5). Se on käyttäjän
+ * käynnistämä, mutta globaali reduced-motion-sääntö globals.css:ssä tekee
+ * vaihdosta silti välittömän, jos käyttäjä on niin asettanut.
  *
- * Siirtymä on `100% + 0.75rem`, koska korttien välissä on `gap-3`. Pelkkä
- * `translate-x-full` jättäisi kortit päällekkäin gapin verran.
+ * Siirtymä on `100% + 0.75rem`, koska paneelien välissä on `gap-3`. Pelkkä
+ * `translate-x-full` jättäisi ne päällekkäin gapin verran.
+ *
+ * NIMET OVAT ASIAKIRJAN NIMET
+ *
+ * Matti Virtanen ja Maija Meikäläinen ovat samat henkilöt kuin kuvassa
+ * näkyvässä sopimuksessa. Eri nimet allekirjoitusrivillä tekisivät kuvasta
+ * ja sen selitteestä kaksi eri sopimusta.
  *
  * Kytkimen tila muistetaan URL-parametrissa (`?osapuoli=`), ei evästeessä
  * (kohta 4.1). replaceState-kutsu ei aiheuta uudelleenrenderöintiä eikä
@@ -128,32 +134,62 @@ export function Hero({
             <p className="mt-4 text-sm text-ink/70">{variant.note}</p>
           </div>
 
-          <div>
-            <div className="grid grid-cols-2 items-stretch gap-3">
+          <div className="mx-auto w-full max-w-[380px]">
+            <DocumentPage name="vuokrasopimus" caption={false} priority />
+
+            {/*
+              Allekirjoittajat asiakirjan alla, kuten sopimuksen omalla
+              allekirjoitusrivillä. Nämä vaihtavat paikkaa kytkimestä: valittu
+              osapuoli on aina vasemmalla.
+            */}
+            <div className="mt-3 grid grid-cols-2 items-stretch gap-3">
               <div
                 className={`party-swap ${tenant ? "translate-x-[calc(100%+0.75rem)]" : "translate-x-0"}`}
               >
-                <ContractPreview role="landlord" />
+                <Signer role="landlord" />
               </div>
               <div
                 className={`party-swap ${tenant ? "-translate-x-[calc(100%+0.75rem)]" : "translate-x-0"}`}
               >
-                <ContractPreview role="tenant" />
+                <Signer role="tenant" />
               </div>
             </div>
 
-            {/*
-              Yhteinen rivi korttien alla. Tämä on se, mikä tekee kahdesta
-              kortista yhden sopimuksen – ilman sitä ne olisivat kaksi eri
-              asiakirjaa vierekkäin.
-            */}
             <p className="mt-3 rounded-[var(--radius-panel)] border border-line bg-cloud px-4 py-3 text-center text-[13px] text-ink/70">
-              Yksi sopimus · allekirjoitettu pankkitunnuksilla{" "}
-              <span className="font-mono">14.8.2026</span>
+              Yksi sopimus · molemmat allekirjoittavat pankkitunnuksilla
             </p>
           </div>
         </div>
       </Container>
     </section>
+  );
+}
+
+/**
+ * Allekirjoittaja: tunnusväri, rooli, nimi ja se mitä palvelu maksaa juuri
+ * tälle osapuolelle. Paneelit ovat täsmälleen samankokoiset – kun molemmat
+ * värit esiintyvät, ne esiintyvät yhtä isoina (CLAUDE.md 5).
+ */
+function Signer({ role }: { role: "landlord" | "tenant" }) {
+  const landlord = role === "landlord";
+
+  return (
+    <div className="h-full rounded-[var(--radius-panel)] border border-line bg-paper px-3 py-2.5">
+      <p className="flex items-center gap-1.5 text-[11px] text-ink/60">
+        <span
+          aria-hidden="true"
+          className={`inline-block h-2 w-2 shrink-0 rounded-full ${
+            landlord ? "bg-sky" : "bg-coral"
+          }`}
+        />
+        {landlord ? "Vuokranantaja" : "Vuokralainen"}
+      </p>
+      <p className="mt-1 text-[13px] font-semibold">
+        {landlord ? "Matti Virtanen" : "Maija Meikäläinen"}
+      </p>
+      <p className="mt-1 text-[11px] text-ink/70">
+        {landlord ? "Ensimmäinen vuokrasuhde 0 €" : "Sinulle aina maksuton"}
+      </p>
+    </div>
   );
 }

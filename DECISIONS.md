@@ -262,3 +262,14 @@ Todistuksen nimet näkyvät nyt kokonaan, toisin kuin kohta 4.6 aiemmin vaati.
 Perustelu kääntyi: esimerkkihenkilöt ovat tunnistettavasti keksittyjä, ja
 todistuksen arvo on juuri siinä, että siinä lukee jonkun nimi. Peitetty nimi
 teki esimerkistä varovaisen kohdassa, jossa tuotteen pitää näyttää vahvalta.
+
+**Lisäys samana iltana: myös hero sai oikean sopimuksen.** Heron kaksi
+sopimuskorttia korvattiin oikealla asiakirjalla, ja osapuolikytkin siirrettiin
+asiakirjan alle allekirjoittajapaneeleihin. Ne vaihtavat paikkaa kuten kortit
+ennen, joten sivuston ainoa animaatio säilyy.
+
+Rakenne on nyt myös totuudenmukaisempi kuin ennen: sopimuksia ei ole kahta.
+Kaksi korttia esitti saman asiakirjan kahtena kappaleena; oikeasti asiakirja on
+yksi ja allekirjoittajia kaksi. Allekirjoittajien nimet otettiin kuvassa
+näkyvästä sopimuksesta – eri nimet olisivat tehneet kuvasta ja sen selitteestä
+kaksi eri sopimusta.
