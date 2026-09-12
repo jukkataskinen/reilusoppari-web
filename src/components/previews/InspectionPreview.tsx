@@ -1,42 +1,59 @@
-import { Glyph, PartyDot, Sheet, SheetHead } from "./parts";
+import { PartyDot, Sheet, SheetHead } from "./parts";
 
 /**
- * Katselmuspöytäkirja sellaisena kuin se oikeasti on.
+ * Katselmuspöytäkirja.
  *
  * ===========================================================================
- * MITÄ TÄMÄ NÄYTTÄÄ
+ * EI PIIRRETTYJÄ VALOKUVIA
  *
- * Pöytäkirja on huoneluettelo: huone, sen kuvat, kunkin kuvan selite, kuvaaja
- * ja palvelimen vastaanottoaika. Esimerkissä näytetään yksi huone kokonaan –
- * kuusi riviä kuutta huonetta olisi taulukko, ei kuva.
+ * Ensimmäisessä versiossa kuvaruuduissa oli viivapiirrokset liedestä,
+ * lattiasta ja jääkaapista. Ne näyttivät lelulta: piirros, joka esittää
+ * valokuvaa, ei ole kumpikaan. Pöytäkirjassa kuva on todiste, ja piirretty
+ * todiste on sisäisesti ristiriitainen.
  *
- * KUVAAJA NÄKYY JOKA KUVASSA
+ * Nyt pöytäkirja esitetään samalla tavalla kuin todistus ja verolaskelma:
+ * riveinä, joissa on selite, kuvaaja ja tiivisteen alku. Se on asiakirjan
+ * oikea sisältö eikä sen kuvitus – ja juuri tiiviste tekee kuvasta todisteen
+ * eikä muistikuvan.
+ *
+ * KUVAAJA NÄKYY JOKA RIVILLÄ
  *
  * Väripiste kertoo, kumpi osapuoli kuvan otti. Se on koko tuotteen ero
- * tavalliseen muuttotarkastukseen: vuokralainen kuvaa omansa, eikä hänen
- * kuvansa ole alaviite vaan samanarvoinen rivi.
+ * tavalliseen muuttotarkastukseen: vuokralaisen kuva ei ole alaviite vaan
+ * samanarvoinen rivi.
  *
- * TIIVISTE ON MUKANA
+ * KAKSI TILAA, EI KUUTTA
  *
- * Pöytäkirjassa lukee kuvan tiivisteen alku. Se on se, mikä tekee kuvasta
- * todisteen eikä muistikuvan, ja siksi se näkyy myös esimerkissä.
+ * Asunnossa on kuusi tilaa (luku näkyy alarivillä), mutta esimerkissä
+ * näytetään kaksi. Kuusi olisi taulukko, ei kuva siitä miltä asiakirja
+ * näyttää.
  *
- * EI KORISTEITA
- *
- * Pöytäkirjassa kuva on todiste. Koristeita ei ole – sama sääntö kuin
- * sovelluksen omissa asiakirjoissa.
+ * Jos oikeita valokuvia joskus lisätään, ne tulevat näiden rivien viereen –
+ * eivät niiden tilalle. Rivi tiivisteineen on se, mikä asiakirjassa pitää.
  * ===========================================================================
  */
 
-const photos = [
-  { glyph: "liesi", note: "Liesi ja uuni, toimivat", who: "landlord", hash: "a1f3c8" },
-  { glyph: "lattia", note: "Naarmu kaapin edessä", who: "tenant", hash: "7b20de" },
-  { glyph: "jaakaappi", note: "Jääkaapin ovessa kolhu", who: "tenant", hash: "4c9a11" },
+const rooms = [
+  {
+    name: "Eteinen",
+    photos: [
+      { note: "Ovikellon nappi jumittaa", who: "tenant", hash: "9d40b2" },
+      { note: "Parketissa kulumaa oven edessä", who: "tenant", hash: "2e77af" },
+    ],
+  },
+  {
+    name: "Keittiö",
+    photos: [
+      { note: "Liesi ja uuni, toimivat", who: "landlord", hash: "a1f3c8" },
+      { note: "Naarmu kaapin edessä", who: "tenant", hash: "7b20de" },
+      { note: "Jääkaapin ovessa kolhu", who: "landlord", hash: "4c9a11" },
+    ],
+  },
 ] as const;
 
 export function InspectionPreview() {
   return (
-    <Sheet label="Alkukatselmuksen pöytäkirja: keittiö, kolme kuvaa selitteineen, kuvaajineen ja tiivisteineen. Lukittu 14.8.2026 klo 16.02, yhteensä 12 kuvaa kuudesta tilasta.">
+    <Sheet label="Alkukatselmuksen pöytäkirja: eteinen ja keittiö, viisi kuvaa selitteineen, kuvaajineen ja tiivisteineen. Lukittu 14.8.2026 klo 16.02, yhteensä 12 kuvaa kuudesta tilasta.">
       <SheetHead
         kicker="Katselmuspöytäkirja"
         title="Alkukatselmus"
@@ -44,24 +61,26 @@ export function InspectionPreview() {
         badge={{ text: "lukittu", done: true }}
       />
 
-      <p className="mt-3 text-[12px] font-semibold">Keittiö</p>
+      {rooms.map((room) => (
+        <div key={room.name} className="mt-3">
+          <p className="text-[12px] font-semibold">{room.name}</p>
 
-      <ul className="mt-2 grid grid-cols-3 gap-2">
-        {photos.map((photo) => (
-          <li key={photo.hash}>
-            <div className="h-[58px] rounded-lg border border-line bg-cloud p-1.5">
-              <Glyph name={photo.glyph} role={photo.who} />
-            </div>
-            <p className="mt-1.5 flex items-start gap-1 text-[10px] leading-snug text-ink/70">
-              <span className="mt-1">
-                <PartyDot role={photo.who} />
-              </span>
-              {photo.note}
-            </p>
-            <p className="mt-0.5 font-mono text-[9px] text-ink/45">{photo.hash}…</p>
-          </li>
-        ))}
-      </ul>
+          <ul className="mt-1 divide-y divide-line border-t border-line">
+            {room.photos.map((photo) => (
+              <li key={photo.hash} className="flex items-baseline justify-between gap-3 py-1.5">
+                <span className="flex min-w-0 items-baseline gap-1.5 text-[12px] text-ink/70">
+                  <span className="translate-y-[-1px]">
+                    <PartyDot role={photo.who} />
+                  </span>
+                  {photo.note}
+                </span>
+                {/* Tiiviste on aina monospacea, kuten tarkistuskoodit muuallakin. */}
+                <span className="shrink-0 font-mono text-[11px] text-ink/45">{photo.hash}…</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
       <div className="mt-3 flex items-center justify-between gap-3 border-t border-line pt-3 text-[10px] text-ink/55">
         <span>12 kuvaa · 6 tilaa</span>

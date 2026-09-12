@@ -207,10 +207,21 @@ Kaksi yksityiskohtaa, jotka eivät ole kosmeettisia:
   km-taksan, joka muuttuu vuosittain – sivu kertoisi hiljaa väärää lukua.
   Varoitus "ei veroneuvontaa" on mukana, koska se on asiakirjassakin.
 
-Kuvaruuduissa on kaksiväri-viivakuvitus (liesi, lattia, jääkaappi). Ensimmäinen
-versio luki väärin: lattia näytti tiiliseinältä ja hana veneeltä. Lautoja
-ohennettiin ja hana korvattiin jääkaapilla. Harmaa suorakaide olisi ollut
-helpompi mutta näyttäisi puuttuvalta kuvalta.
+**Korjaus samana päivänä: piirretyt valokuvat pois.** Katselmuspöytäkirjassa
+oli aluksi kuvaruudut viivapiirroksin (liesi, lattia, jääkaappi). Jukan arvio
+oli suora: "nuo kuvat ovat ihan naurettavia". Hän oli oikeassa, ja syy on
+periaatteellinen eikä tyylillinen: **pöytäkirjassa kuva on todiste, ja piirretty
+todiste on sisäisesti ristiriitainen.** Piirros, joka esittää valokuvaa, ei ole
+kumpikaan.
+
+Pöytäkirja esitetään nyt samalla tavalla kuin todistus ja verolaskelma –
+riveinä, joissa on selite, kuvaajan tunnusväri ja tiivisteen alku. Se on
+asiakirjan oikea sisältö eikä sen kuvitus. Jukan oma arvio vahvisti suunnan:
+"nämä alimmaiset ovat parempia", ja juuri ne kaksi olivat pelkkää
+asiakirjatietoa ilman keksittyä kuvitusta.
+
+Jos oikeita valokuvia joskus lisätään, ne tulevat rivien viereen eivätkä niiden
+tilalle: rivi tiivisteineen on se, mikä asiakirjassa pitää.
 
 `public/illustrations/`-SVG:t jäävät paikoilleen, vaikka neljä viidestä on nyt
 käyttämättä. Ne ovat pieniä, ja poistaminen on helppo tehdä myöhemmin – niiden
