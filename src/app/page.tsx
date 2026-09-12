@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/sections/Hero";
-import { InspectionPreview } from "@/components/previews/InspectionPreview";
 import { ConfirmationPreview } from "@/components/previews/ConfirmationPreview";
-import { CertificatePreview } from "@/components/previews/CertificatePreview";
+import { DocumentPage } from "@/components/previews/DocumentPage";
 import { Steps } from "@/components/sections/Steps";
 import { StoryBlock } from "@/components/sections/StoryBlock";
 import { MolemmilleJotain } from "@/components/sections/MolemmilleJotain";
@@ -53,7 +52,7 @@ export default async function HomePage({
       <StoryBlock
         quote="Parketissa kulumaa? Ovikellon nappi jumii? Ainahan asunnoissa jotain on, kun eivät uusia ole. Turha niistä on kuitenkaan riidellä; otetaan kuva ja laitetaan se talteen niin ei tarvitse vikoja muistella. Reilua."
         fact="Alkukatselmus on osa sopimusta: kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia."
-        preview={<InspectionPreview />}
+        preview={<DocumentPage name="alkukatselmus" />}
       >
         <p className="mt-4">
           <Link href="/katselmus" className="font-medium underline underline-offset-4">
@@ -76,7 +75,7 @@ export default async function HomePage({
       <StoryBlock
         quote="Sitten kun on aika muuttaa seuraavaan kotiin niin muistoksi saat yhteenvedon vuokrien maksusta ajallaan ja vuokranantajan terveiset. Allekirjoitettu dokumentti hyvästä vuokrasuhteesta on kovaa valuuttaa, kun näytät sen seuraavalle vuokranantajalle."
         fact="Todistus on sinun: sinä päätät, kenelle sen näytät. Aitouden voi tarkistaa linkistä."
-        preview={<CertificatePreview />}
+        preview={<DocumentPage name="vuokratodistus" />}
         tone="cloud"
       >
         <p className="mt-4 text-ink/70">

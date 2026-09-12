@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
-import { InspectionPreview } from "@/components/previews/InspectionPreview";
+import { DocumentPage } from "@/components/previews/DocumentPage";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Alku- ja loppukatselmus";
@@ -56,9 +56,9 @@ export default function KatselmusPage() {
               vuokrasopimuksen. Muuttopäivänä ei muistella vaan katsotaan.
             </p>
           </div>
-          <figure className="mx-auto w-full max-w-[360px]">
-            <InspectionPreview />
-          </figure>
+          <div className="mx-auto w-full max-w-[380px]">
+            <DocumentPage name="alkukatselmus" />
+          </div>
         </div>
       </Section>
 

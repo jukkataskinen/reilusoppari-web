@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
-import { CertificatePreview } from "@/components/previews/CertificatePreview";
+import { DocumentPage } from "@/components/previews/DocumentPage";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Vuokratodistus";
@@ -51,12 +51,9 @@ export default function TodistusPage() {
               </div>
             ))}
           </dl>
-          <figure className="mx-auto w-full max-w-[360px]">
-            <CertificatePreview />
-            <figcaption className="mt-3 text-center text-xs text-ink/60">
-              Nimet on peitetty esimerkissä.
-            </figcaption>
-          </figure>
+          <div className="mx-auto w-full max-w-[380px]">
+            <DocumentPage name="vuokratodistus" />
+          </div>
         </div>
       </Section>
 

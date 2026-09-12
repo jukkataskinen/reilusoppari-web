@@ -6,13 +6,12 @@ import type { ReactNode } from "react";
  * ===========================================================================
  * MIKSI NÄMÄ OVAT KOMPONENTTEJA EIVÄTKÄ KUVIA
  *
- * Sivustolla näytetään neljä asiakirjaa: vuokrasopimus, katselmuspöytäkirja,
- * vuokratodistus ja kuittausilmoitus. Ne ovat tuotteen konkreettinen sisältö,
- * ja lukijan pitää nähdä mitä niissä oikeasti lukee.
- *
- * SVG-kuvituksena sama sisältö olisi sumeaa pienessä koossa, kääntämätöntä ja
- * vanhentuisi heti kun tuotteen sanasto muuttuu. Merkkauksena se skaalautuu,
- * noudattaa samaa palettia kuin muu sivusto ja pysyy yhdessä totuudessa.
+ * Vuokrasopimus, katselmuspöytäkirja ja vuokratodistus näytetään sivustolla
+ * sovelluksen OIKEINA asiakirjoina (`DocumentPage`). Nämä osat jäävät niille
+ * näkymille, joista ei ole PDF:ää: heron sopimuskorteille (osapuolikytkin
+ * tarvitsee kaksi vaihtuvaa näkymää), kuittausilmoitukselle (se on puhelimen
+ * ilmoitus, ei asiakirja) ja verolaskelmalle (pohja on olemassa, mutta
+ * esimerkkitiedostoa ei vielä tehdä).
  *
  * ESIMERKKIDATA ON TUNNISTETTAVASTI ESIMERKKIÄ
  *
@@ -88,33 +87,6 @@ export function SheetHead({
   );
 }
 
-/** Kenttä: selite pienellä, arvo sen alla. */
-export function Field({
-  label,
-  value,
-  mono = false,
-}: {
-  label: string;
-  value: string;
-  mono?: boolean;
-}) {
-  return (
-    <div className="rounded-lg border border-line px-2.5 py-2">
-      <p className="text-[10px] text-ink/50">{label}</p>
-      <p className={`mt-0.5 text-[13px] font-semibold ${mono ? "font-mono" : ""}`}>{value}</p>
-    </div>
-  );
-}
-
-/** Rivi, jossa selite vasemmalla ja luku oikealla. Käytetään todistuksessa. */
-export function StatRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-baseline justify-between gap-3 py-1.5">
-      <span className="text-[12px] text-ink/70">{label}</span>
-      <span className="text-[12px] font-semibold">{value}</span>
-    </div>
-  );
-}
 
 /**
  * Osapuolen tunnusväri pisteenä: `sky` vuokranantaja, `coral` vuokralainen.
@@ -133,13 +105,3 @@ export function PartyDot({ role }: { role: "landlord" | "tenant" }) {
   );
 }
 
-/**
- * Peitetty nimi.
- *
- * Todistuksen esimerkissä nimet on peitetty (CLAUDE.md 4.6). Se ei ole
- * pelkkä kuvituskikka: todistus on yksityinen asiakirja, ja markkinointisivu
- * näyttää siitä juuri sen verran kuin lukijan pitää nähdä.
- */
-export function Covered({ width = "w-28" }: { width?: string }) {
-  return <span aria-hidden="true" className={`inline-block h-3 rounded-sm bg-cloud ${width}`} />;
-}

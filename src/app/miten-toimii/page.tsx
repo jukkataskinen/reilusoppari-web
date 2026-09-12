@@ -4,10 +4,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero } from "@/components/PageHero";
-import { ContractPreview } from "@/components/previews/ContractPreview";
-import { InspectionPreview } from "@/components/previews/InspectionPreview";
 import { ConfirmationPreview } from "@/components/previews/ConfirmationPreview";
-import { CertificatePreview } from "@/components/previews/CertificatePreview";
+import { DocumentPage } from "@/components/previews/DocumentPage";
 import { CtaSection } from "@/components/sections/CtaSection";
 
 const title = "Miten Reilusoppari toimii";
@@ -22,25 +20,6 @@ export const metadata: Metadata = {
 };
 
 /**
- * Sopimus kummankin osapuolen näkymänä. Kortit ovat samankokoiset ja niiden
- * alla on yksi yhteinen rivi – sama esitystapa kuin herossa, jotta lukija
- * tunnistaa asiakirjan samaksi.
- */
-function ContractPair() {
-  return (
-    <div>
-      <div className="grid grid-cols-2 items-stretch gap-3">
-        <ContractPreview role="landlord" />
-        <ContractPreview role="tenant" />
-      </div>
-      <p className="mt-3 rounded-[var(--radius-panel)] border border-line bg-cloud px-3 py-2.5 text-center text-[12px] text-ink/70">
-        Yksi sopimus · molemmat saavat saman kappaleen
-      </p>
-    </div>
-  );
-}
-
-/**
  * Koko kaari asiakirjoina (CLAUDE.md kohta 3). Vaiheet ovat aito sekvenssi,
  * joten ne on numeroitu. Jokaisessa vaiheessa kerrotaan erikseen mitä kumpikin
  * osapuoli tekee – sivu ei kerro tarinaa vain toiselle.
@@ -53,14 +32,14 @@ function ContractPair() {
 const stages = [
   {
     title: "Sopimus",
-    preview: <ContractPair />,
+    preview: <DocumentPage name="vuokrasopimus" />,
     landlord: "Täytät vuokrasopimuksen ja lähetät sen allekirjoitettavaksi.",
     tenant: "Allekirjoitat pankkitunnuksilla tai mobiilivarmenteella omalla puhelimellasi.",
     fact: "Allekirjoitus on eIDAS-asetuksen mukainen kehittynyt sähköinen allekirjoitus, joka on laillisesti pätevä. Molemmat saavat saman kappaleen.",
   },
   {
     title: "Alkukatselmus",
-    preview: <InspectionPreview />,
+    preview: <DocumentPage name="alkukatselmus" />,
     landlord: "Kuvaat ne kohdat, jotka itse pidät olennaisina, ja merkitset tiedossa olevat viat.",
     tenant: "Kuvaat sen, minkä itse pidät olennaisena – et ole sidottu vuokranantajan listaan.",
     fact: "Kuvat aikaleimataan ja sinetöidään sopimuksen liitteeksi. Molemmat hyväksyvät koko kuvakokoelman allekirjoittaessaan vuokrasopimuksen, eikä kumpikaan voi muuttaa tai poistaa kuvia jälkikäteen.",
@@ -88,7 +67,7 @@ const stages = [
   },
   {
     title: "Todistus",
-    preview: <CertificatePreview />,
+    preview: <DocumentPage name="vuokratodistus" />,
     landlord: "Saat oman todistuksesi: vakuus palautettu ajallaan, viat korjattu.",
     tenant: "Saat vuokratodistuksen, jonka voit näyttää seuraavalle vuokranantajalle.",
     fact: "Todistuksen numerot tulevat kuittauksista automaattisesti. Todistus on sen omistajan oma asiakirja, ja aitouden voi tarkistaa linkistä.",

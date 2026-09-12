@@ -226,3 +226,39 @@ tilalle: rivi tiivisteineen on se, mikä asiakirjassa pitää.
 `public/illustrations/`-SVG:t jäävät paikoilleen, vaikka neljä viidestä on nyt
 käyttämättä. Ne ovat pieniä, ja poistaminen on helppo tehdä myöhemmin – niiden
 mahdollinen käyttö sosiaalisen median kuvissa on Jukan päätettävissä.
+
+## Sivustolla näytetään oikeat asiakirjat (2026-09-12, sama päivä)
+
+Jukka näytti luonnoksensa vuokrasopimuksesta ja vuokrasuhdetodistuksesta:
+"nämä ovat nettiin ja tuotantoonkin aivan erinomaisia".
+
+Olennainen havainto: **ne oli jo toteutettu.** `reilusoppari`-repon
+`src/documents/` on kirjoitettu juuri näiden luonnosten pohjalta
+(`src/documents/README.md`), ja `npm run samples` tuottaa valmiit PDF:t.
+Puute ei ollut tuotannossa vaan sivustolla, joka näytti samoista
+asiakirjoista sivustoa varten tehtyjä korttiversioita.
+
+Kortit poistettiin ja tilalle tulivat oikeiden PDF-pohjien sivut
+(`public/asiakirjat/`, komponentti `DocumentPage`). Syy ei ole ulkonäkö vaan
+se, että kaksi toteutusta samasta asiakirjasta on kaksi totuutta: kun pohja
+muuttuu, sivusto ei muutu, eikä eroa huomaa kukaan ennen kuin asiakas huomaa.
+
+Tämä ratkaisi samalla katselmuspöytäkirjan, joka oli koko päivän ongelma.
+Piirretyt valokuvat olivat väärä vastaus kysymykseen, johon oikea vastaus oli
+"näytä oikea pöytäkirja".
+
+**Hinta:** kuvat eivät synny tässä repossa, joten ne voivat jäädä jälkeen.
+Päivityskomento on kirjattu sekä `DocumentPage`-komponenttiin että
+sovelluksen `src/documents/README.md`:hen. Vaihtoehto olisi ollut renderöidä
+PDF:t sivuston buildissa, mutta se toisi sivustolle riippuvuuden sovelluksen
+koko asiakirjakoodiin – kolmesta PNG-tiedostosta ei kannata maksaa sitä.
+
+Merkkauksena tehtyjä näkymiä jäi kolme, kullakin syynsä: heron sopimuskortit
+(kytkin tarvitsee kaksi vaihtuvaa näkymää), kuittausilmoitus (puhelimen
+ilmoitus, ei asiakirja) ja verolaskelma (pohja on olemassa, esimerkkiä ei
+vielä tehdä).
+
+Todistuksen nimet näkyvät nyt kokonaan, toisin kuin kohta 4.6 aiemmin vaati.
+Perustelu kääntyi: esimerkkihenkilöt ovat tunnistettavasti keksittyjä, ja
+todistuksen arvo on juuri siinä, että siinä lukee jonkun nimi. Peitetty nimi
+teki esimerkistä varovaisen kohdassa, jossa tuotteen pitää näyttää vahvalta.
