@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
 import { LAUNCH_TARGET } from "@/lib/launch";
+import { companyLegalName } from "@content/company";
 
 const title = "Tietosuoja";
 const description =
@@ -50,7 +51,7 @@ export default function TietosuojaPage() {
           <div className="article-body prose-measure">
             <h2>Rekisterinpitäjä</h2>
             <p>
-              Adepta Oy (Y-tunnus 2237131-2), Joutsa. Yhteydenotot tietosuoja-asioissa: liity
+              {companyLegalName()}. Yhteydenotot tietosuoja-asioissa: liity
               odotuslistalle ja vastaa vahvistusviestiin, tai käytä yhteystietosivun ohjetta.
             </p>
 

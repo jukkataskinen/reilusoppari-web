@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { faqPageSchema, breadcrumbListSchema, organizationSchema } from "@/lib/schema";
+import { company } from "@content/company";
 
 describe("faqPageSchema", () => {
   it("muodostaa FAQPage-skeeman kysymyksistä", () => {
@@ -27,6 +28,7 @@ describe("organizationSchema", () => {
   it("sisältää nimen ja emo-organisaation", () => {
     const schema = organizationSchema();
     expect(schema.name).toBe("Reilusoppari");
-    expect(schema.parentOrganization.name).toBe("Adepta Oy");
+    expect(schema.parentOrganization.name).toBe(company.name);
+    expect(schema.parentOrganization.identifier).toBe(company.businessId);
   });
 });

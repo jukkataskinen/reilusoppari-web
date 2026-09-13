@@ -140,3 +140,45 @@ varmenne myönnetään automaattisesti.
 
 **Sama koskee `esinetti.fi`:tä.** Se on täsmälleen samassa tilassa: delegointi
 Verceliin, `Query refused`, ei toimi. Tarkistettu samalla kertaa.
+
+---
+
+## Yhtiövaihdos: kaksi kohtaa vaatii Jukan vastauksen (2026-09-13)
+
+Reilusoppari on nyt Adepta Tilat Oy:n (2145627-7) tuote ja eSinetti Adepta
+Oy:n (2237131-2). Nimi ja Y-tunnus on vaihdettu kaikkialle
+(`content/company.ts`), mutta kaksi asiaa jäi auki.
+
+### 1. Onko Adepta Tilat Oy:n kotipaikka Joutsa?
+
+Sivustolla lukee nyt Joutsa, koska se oli Adepta Oy:n kotipaikka eikä
+uudesta ollut tietoa. Kotipaikka esiintyy **käyttöehdoissa ja
+tietosuojaselosteessa** eli teksteissä, joissa väärä tieto on virhe eikä
+kirjoitusvirhe. Jos kotipaikka on toinen, se vaihdetaan yhdestä paikasta
+(`content/company.ts`).
+
+Samalla: yhteystietosivun kuvaus sanoi ennen "suomalainen tilitoimisto".
+Vaihdoin sen muotoon "suomalainen yritys", koska en tiedä mitä Adepta Tilat
+Oy tekee. Jos oikea kuvaus on jokin muu, kerro.
+
+### 2. eSinetti puuttuu tietosuojaselosteesta
+
+Tämä ei ole muotoseikka. Kun Reilusoppari ja eSinetti olivat saman yhtiön
+tuotteita, allekirjoitus ja tunnistautuminen tapahtuivat rekisterinpitäjän
+sisällä. Nyt eSinetti on **eri oikeushenkilö**, joka käsittelee
+tunnistautumis- ja allekirjoitustietoja Adepta Tilat Oy:n lukuun. Se tekee
+siitä henkilötietojen käsittelijän.
+
+Seloste listaa käsittelijöinä vain Resendin ja Vercelin. Siihen tarvitaan:
+
+- eSinetti (Adepta Oy) käsittelijänä, ja mitä se käsittelee: nimi,
+  syntymäaika, tunnistautumisen aikaleima, allekirjoitetut asiakirjat
+- maininta käsittelysopimuksesta yhtiöiden välillä (GDPR 28 art. vaatii
+  kirjallisen sopimuksen myös konsernin sisällä)
+
+Sama koskee käyttöehtoja: ehdoissa lukee nyt, että allekirjoitusmoottorin
+tarjoaa eri yhtiö, mutta vastuunjakoa niiden välillä ei ole kuvattu.
+
+**Teksti on juridista sisältöä eli Jukan vastuulla**, kuten muutkin
+selosteen ja ehtojen kohdat. Tämä on merkintä siitä, että kohta on nyt
+puutteellinen – ei ehdotus sanamuodoksi.

@@ -3,9 +3,10 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { company, signingProvider } from "@content/company";
 
 const title = "Yhteystiedot";
-const description = "Reilusopparin takana on Adepta Oy, suomalainen tilitoimisto Joutsasta.";
+const description = `Reilusopparin takana on ${company.name}, suomalainen yritys ${company.domicile}sta.`;
 
 export const metadata: Metadata = {
   title,
@@ -27,15 +28,24 @@ export default function YhteystiedotPage() {
       <PageHero
         eyebrow="Yhteystiedot"
         title="Kuka tämän takana on"
-        lead="Reilusopparin on kehittänyt suomalainen tilitoimistoyrittäjä. Sama talo pyörittää eSinetti-allekirjoituspalvelua, jonka moottorilla Reilusoppari toimii."
+        lead="Reilusopparin on kehittänyt suomalainen tilitoimistoyrittäjä. Allekirjoitusmoottorina toimii eSinetti, joka on saman yrittäjän toisen yhtiön palvelu."
       />
 
       <Section title="Yritys">
         <dl className="divide-y divide-line border-y border-line">
-          <Row label="Yritys" value="Adepta Oy" />
-          <Row label="Y-tunnus" value="2237131-2" />
-          <Row label="Kotipaikka" value="Joutsa" />
+          <Row label="Yritys" value={company.name} />
+          <Row label="Y-tunnus" value={company.businessId} />
+          <Row label="Kotipaikka" value={company.domicile} />
           <Row label="Palvelu" value="Reilusoppari (reilusoppari.fi)" />
+          {/*
+            eSinetti on eri yhtiön tuote, ja se kerrotaan tässä eikä
+            alaviitteenä: allekirjoitus ja tunnistautuminen ovat se kohta,
+            jossa käyttäjän tiedot siirtyvät toiselle yritykselle.
+          */}
+          <Row
+            label="Allekirjoitusmoottori"
+            value={`${signingProvider.product} · ${signingProvider.name} (Y-tunnus ${signingProvider.businessId})`}
+          />
         </dl>
       </Section>
 

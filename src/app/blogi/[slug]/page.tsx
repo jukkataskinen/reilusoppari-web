@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog/posts";
 import { formatArticleDate } from "@/lib/blog/format-date";
 import { siteUrl } from "@/lib/site";
+import { company } from "@content/company";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -51,8 +52,8 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: frontmatter.date,
     dateModified: frontmatter.updated ?? frontmatter.date,
     inLanguage: "fi-FI",
-    author: { "@type": "Organization", name: "Adepta Oy", url: siteUrl },
-    publisher: { "@type": "Organization", name: "Adepta Oy", url: siteUrl },
+    author: { "@type": "Organization", name: company.name, url: siteUrl },
+    publisher: { "@type": "Organization", name: company.name, url: siteUrl },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 

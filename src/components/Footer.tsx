@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { company } from "@content/company";
 
 /**
  * Alatunniste. Kaksi kohderyhmäsaraketta ovat samanpituiset ja samassa
@@ -77,9 +78,11 @@ export function Footer() {
             </a>
             .
           </p>
-          <p className="mt-2">Adepta Oy · Y-tunnus 2237131-2 · Joutsa</p>
+          <p className="mt-2">
+            {company.name} · Y-tunnus {company.businessId} · {company.domicile}
+          </p>
           <p className="mt-1">
-            &copy; {new Date().getFullYear()} Adepta Oy. Kaikki oikeudet pidätetään.
+            &copy; {new Date().getFullYear()} {company.name}. Kaikki oikeudet pidätetään.
           </p>
         </div>
       </div>

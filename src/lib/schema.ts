@@ -6,6 +6,7 @@
  * (yksi totuuden lähde sivuston julkiselle osoitteelle NEXT_PUBLIC_SITE_URL:sta).
  */
 import { getSiteUrl } from "@/lib/resend";
+import { company } from "@content/company";
 import { pricing } from "@content/pricing";
 import type { FaqItem } from "@content/faq";
 
@@ -27,8 +28,8 @@ export function organizationSchema() {
       "Reilusoppari on vuokranantajan ja vuokralaisen yhteinen työkalu koko vuokrasuhteen ajaksi: sopimus, katselmus, vuokrakuittaus ja todistus.",
     parentOrganization: {
       "@type": "Organization",
-      name: "Adepta Oy",
-      identifier: "2237131-2",
+      name: company.name,
+      identifier: company.businessId,
     },
   };
 }

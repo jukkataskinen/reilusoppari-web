@@ -6,6 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { pricing } from "@content/pricing";
 import { formatEuroAuto } from "@/lib/format";
 import { LAUNCH_TARGET } from "@/lib/launch";
+import { companyLegalName, signingProvider } from "@content/company";
 
 const title = "Käyttöehdot";
 const description =
@@ -56,7 +57,7 @@ export default function KayttoehdotPage() {
           <div className="article-body prose-measure">
             <h2>1. Palveluntarjoaja ja soveltamisala</h2>
             <p>
-              Palvelun tarjoaa Adepta Oy (Y-tunnus 2237131-2), Joutsa. Näitä ehtoja sovelletaan
+              Palvelun tarjoaa {companyLegalName()}. Näitä ehtoja sovelletaan
               Reilusoppari-palvelun käyttöön ja reilusoppari.fi-sivustoon. Palvelua käytetään
               vuokrasuhteen hallintaan: sopimus, katselmukset, vuokrakuittaukset, huoltokirja ja
               todistukset.
@@ -103,7 +104,7 @@ export default function KayttoehdotPage() {
             <p>
               Vuokrasopimus allekirjoitetaan vahvan sähköisen tunnistamisen avulla, ja allekirjoitus
               on eIDAS-asetuksen (910/2014) mukainen kehittynyt sähköinen allekirjoitus.
-              Allekirjoitusmoottorina toimii eSinetti. Palvelu ei ota kantaa vuokrasopimuksen
+              Allekirjoitusmoottorina toimii {signingProvider.product}, jonka tarjoaa {signingProvider.name} – eri yhtiö kuin palveluntarjoaja. Palvelu ei ota kantaa vuokrasopimuksen
               sisällön lainmukaisuuteen; siitä vastaavat osapuolet itse.
             </p>
 
