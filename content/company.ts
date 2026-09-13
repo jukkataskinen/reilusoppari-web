@@ -27,8 +27,38 @@
 export const company = {
   name: "Adepta Tilat Oy",
   businessId: "2145627-7",
-  domicile: "Joutsa",
+
+  /**
+   * Käyntiosoite. Tämä näytetään, ei kotipaikkaa (Jukan linjaus 2026-09-13).
+   *
+   * Perustelu on käytännöllinen ja osuu yhteen sääntelyn kanssa: osoite
+   * kertoo lukijalle mihin voi ottaa yhteyttä, kotipaikka ei kerro mitään.
+   * Tietosuoja-asetus vaatii rekisterinpitäjältä nimenomaan tunnistetiedot
+   * ja yhteystiedot – ei kaupparekisterin kotipaikkaa.
+   */
+  address: {
+    street: "Yhdystie 4",
+    postalCode: "19650",
+    city: "Joutsa",
+  },
+
+  /**
+   * Virallinen kotipaikka kaupparekisterissä. Kirjattu tähän, mutta sitä EI
+   * näytetä sivustolla.
+   *
+   * Merkitystä sillä olisi vain, jos käyttöehdoissa nimettäisiin oikeuspaikka
+   * ("riidat ratkaistaan X:n käräjäoikeudessa"). Nykyisissä ehdoissa niin ei
+   * tehdä: kohdassa 10 sovelletaan Suomen lakia ja kuluttaja ohjataan
+   * kuluttajariitalautakuntaan. Jos oikeuspaikka joskus kirjataan, se on
+   * tämä – ei käyntiosoitteen kaupunki.
+   */
+  domicile: "Kuopio",
 } as const;
+
+/** "Yhdystie 4, 19650 Joutsa" */
+export function companyAddress(): string {
+  return `${company.address.street}, ${company.address.postalCode} ${company.address.city}`;
+}
 
 /** Allekirjoitusmoottorin tarjoaja. Eri yhtiö kuin `company`. */
 export const signingProvider = {
@@ -38,9 +68,13 @@ export const signingProvider = {
   url: "https://esinetti.fi",
 } as const;
 
-/** "Adepta Tilat Oy (Y-tunnus 2145627-7), Joutsa" – juridisten tekstien muoto. */
+/**
+ * "Adepta Tilat Oy (Y-tunnus 2145627-7), Yhdystie 4, 19650 Joutsa" –
+ * juridisten tekstien muoto: nimi, tunniste ja osoite, johon voi ottaa
+ * yhteyttä.
+ */
 export function companyLegalName(): string {
-  return `${company.name} (Y-tunnus ${company.businessId}), ${company.domicile}`;
+  return `${company.name} (Y-tunnus ${company.businessId}), ${companyAddress()}`;
 }
 
 /**

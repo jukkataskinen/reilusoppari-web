@@ -31,7 +31,7 @@ Rennon ja hyväntuulisen raja: sinuttelu, huumori tilanteista (kynä joka ei toi
 | Suosittelu | "Tuo kaveri, molemmat saatte seuraavan sopimuksen ilmaiseksi." Näytetään sivustolla, toteutus sovelluksessa. |
 | Kieli | Suomi. Rakenne sallii sv/en myöhemmin. |
 | Kuvitus | Oma kuvitustyyli (kohta 5), ei stock-kuvia, ei valokuvia ihmisistä. Aidot käyttöliittymäkuvat vasta kun sovellus on olemassa. |
-| Oikeushenkilö | **Adepta Tilat Oy, Y-tunnus 2145627-7, Joutsa** (Jukan linjaus 2026-09-13). eSinetti on **eri yhtiön** (Adepta Oy, 2237131-2) tuote, joten sitä ei saa esittää samana talona. Tiedot ovat yhdessä paikassa: `content/company.ts` – älä kovakoodaa nimeä tai Y-tunnusta sivuihin. Alatunnisteessa "Reilusoppari toimii eSinetti-allekirjoitusmoottorilla" linkkinä. |
+| Oikeushenkilö | **Adepta Tilat Oy, Y-tunnus 2145627-7** (Jukan linjaus 2026-09-13). Sivustolla näytetään käyntiosoite Yhdystie 4, 19650 Joutsa – **ei** kotipaikkaa (Kuopio), koska osoite kertoo mihin voi ottaa yhteyttä ja kotipaikka ei kerro mitään. eSinetti on **eri yhtiön** (Adepta Oy, 2237131-2) tuote, joten sitä ei saa esittää samana talona. Tiedot ovat yhdessä paikassa: `content/company.ts` – älä kovakoodaa nimeä tai Y-tunnusta sivuihin. Alatunnisteessa "Reilusoppari toimii eSinetti-allekirjoitusmoottorilla" linkkinä. |
 | Sallitut väittämät | Kohta 7. Sitovat. |
 
 ---

@@ -3,10 +3,10 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
 import { CtaSection } from "@/components/sections/CtaSection";
-import { company, signingProvider } from "@content/company";
+import { company, companyAddress, signingProvider } from "@content/company";
 
 const title = "Yhteystiedot";
-const description = `Reilusopparin takana on ${company.name}, suomalainen yritys ${company.domicile}sta.`;
+const description = `Reilusopparin takana on ${company.name}. Yhteystiedot ja Y-tunnus tällä sivulla.`;
 
 export const metadata: Metadata = {
   title,
@@ -35,7 +35,7 @@ export default function YhteystiedotPage() {
         <dl className="divide-y divide-line border-y border-line">
           <Row label="Yritys" value={company.name} />
           <Row label="Y-tunnus" value={company.businessId} />
-          <Row label="Kotipaikka" value={company.domicile} />
+          <Row label="Käyntiosoite" value={companyAddress()} />
           <Row label="Palvelu" value="Reilusoppari (reilusoppari.fi)" />
           {/*
             eSinetti on eri yhtiön tuote, ja se kerrotaan tässä eikä

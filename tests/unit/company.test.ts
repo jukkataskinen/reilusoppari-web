@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { company, companyLegalName, isValidBusinessId, signingProvider } from "@content/company";
+import {
+  company,
+  companyAddress,
+  companyLegalName,
+  isValidBusinessId,
+  signingProvider,
+} from "@content/company";
 
 /*
   Y-tunnus esiintyy käyttöehdoissa ja tietosuojaselosteessa. Yksi väärä numero
@@ -20,11 +26,25 @@ describe("yhtiötiedot", () => {
     expect(company.name).not.toBe(signingProvider.name);
   });
 
-  it("juridinen muoto sisältää nimen, Y-tunnuksen ja kotipaikan", () => {
+  it("juridinen muoto sisältää nimen, Y-tunnuksen ja käyntiosoitteen", () => {
     const teksti = companyLegalName();
     expect(teksti).toContain(company.name);
     expect(teksti).toContain(company.businessId);
-    expect(teksti).toContain(company.domicile);
+    expect(teksti).toContain(companyAddress());
+  });
+
+  /*
+    Kotipaikka on kirjattu mutta sitä ei näytetä (Jukan linjaus 2026-09-13).
+    Osoite kertoo lukijalle mihin voi ottaa yhteyttä, kotipaikka ei kerro
+    mitään. Testi vartioi, ettei kotipaikka livahda juridisiin teksteihin
+    osoitteen tilalle.
+  */
+  it("kotipaikka ei näy juridisessa muodossa", () => {
+    expect(companyLegalName()).not.toContain(company.domicile);
+  });
+
+  it("käyntiosoite on kokonainen: katu, postinumero ja kaupunki", () => {
+    expect(companyAddress()).toBe("Yhdystie 4, 19650 Joutsa");
   });
 });
 

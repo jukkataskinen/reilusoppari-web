@@ -149,17 +149,17 @@ Reilusoppari on nyt Adepta Tilat Oy:n (2145627-7) tuote ja eSinetti Adepta
 Oy:n (2237131-2). Nimi ja Y-tunnus on vaihdettu kaikkialle
 (`content/company.ts`), mutta kaksi asiaa jäi auki.
 
-### 1. Onko Adepta Tilat Oy:n kotipaikka Joutsa?
+### 1. Kotipaikka ja osoite — RATKAISTU 2026-09-13
 
-Sivustolla lukee nyt Joutsa, koska se oli Adepta Oy:n kotipaikka eikä
-uudesta ollut tietoa. Kotipaikka esiintyy **käyttöehdoissa ja
-tietosuojaselosteessa** eli teksteissä, joissa väärä tieto on virhe eikä
-kirjoitusvirhe. Jos kotipaikka on toinen, se vaihdetaan yhdestä paikasta
-(`content/company.ts`).
+Virallinen kotipaikka on **Kuopio**, mutta sitä ei näytetä. Jukan linjaus:
+kotipaikka ei ole olennainen tieto, selkeät yhteystiedot ovat. Sivustolla
+näkyy käyntiosoite **Yhdystie 4, 19650 Joutsa** – alatunnisteessa,
+yhteystiedoissa, käyttöehdoissa ja tietosuojaselosteessa.
 
-Samalla: yhteystietosivun kuvaus sanoi ennen "suomalainen tilitoimisto".
-Vaihdoin sen muotoon "suomalainen yritys", koska en tiedä mitä Adepta Tilat
-Oy tekee. Jos oikea kuvaus on jokin muu, kerro.
+Tämä osuu yhteen sääntelyn kanssa: tietosuoja-asetus vaatii
+rekisterinpitäjältä yhteystiedot, ei kaupparekisterin kotipaikkaa.
+Kotipaikka on kirjattu `content/company.ts`:ään sitä varten, jos
+käyttöehtoihin joskus kirjataan oikeuspaikka – nyt niin ei tehdä.
 
 ### 2. eSinetti puuttuu tietosuojaselosteesta
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { company } from "@content/company";
+import { company, companyAddress } from "@content/company";
 
 /**
  * Alatunniste. Kaksi kohderyhmäsaraketta ovat samanpituiset ja samassa
@@ -79,7 +79,7 @@ export function Footer() {
             .
           </p>
           <p className="mt-2">
-            {company.name} · Y-tunnus {company.businessId} · {company.domicile}
+            {company.name} · Y-tunnus {company.businessId} · {companyAddress()}
           </p>
           <p className="mt-1">
             &copy; {new Date().getFullYear()} {company.name}. Kaikki oikeudet pidätetään.
