@@ -40,9 +40,42 @@ Ajaa eSinetin moottorilla, joten pino on sama kuin `esinetti`-repossa.
 |---|---|---|
 | Supabase | Free 0 € (2 projektia, tietokanta nukahtaa viikon käyttämättömyydestä → ei kelpaa tuotantoon); Pro 25 $/kk (~23 €) organisaatiolta | Pro sisältää useita projekteja, joten monivuokraajaisuus voi mahtua eSinetin tilaukseen |
 | Upstash Redis | Free-taso riittää pitkälle, sitten käytön mukaan | ~0–10 $/kk |
-| Vahva tunnistautuminen (Telia) | kuukausimaksu + hinta per tunnistus | **Tarjous pyytämättä.** Ainoa erä, joka kasvaa käyttäjämäärän mukana |
-| Apple Developer Program | 99 $/v (~92 €) | Pakollinen App Store -julkaisuun. Ei kertamaksua — lakkaa maksamasta ja sovellus poistuu kaupasta |
-| Google Play Developer | 25 $ kertamaksu (~23 €) | Kertamaksu tilistä, ei vuosimaksua |
+| Vahva tunnistautuminen (Telia) | kuukausimaksu + hinta per tunnistus | **Tarjous pyytämättä.** Kasvaa käyttäjämäärän mukana |
+| Auth0 (kirjautuminen) | **0 €** ilmaistasolla | Ks. alla: maksullinen taso olisi 4-numeroinen |
+| ~~Apple Developer Program~~ | ~~99 $/v~~ | **Ei tarvita** (2026-09-11): push-ilmoitukset toimivat PWA:na, kun iPhone-käyttäjä lisää sovelluksen kotivalikkoon |
+| ~~Google Play Developer~~ | ~~25 $~~ | **Ei tarvita** samasta syystä |
+
+### Auth0:n hinnoittelu — todennettu 2026-09-14
+
+Auth0:n ilmaistaso antaa **yhden tenantin ja 25 000 kuukausittaista
+käyttäjää**. Maksullinen taso antaa lisää tenantteja mutta **pudottaa
+käyttäjäkaton** ja veloittaa siitä käytön mukaan:
+
+| Taso | Käyttäjiä/kk | Tenantteja | Hinta |
+|---|---|---|---|
+| Free | **25 000** | 1 | **0 $** |
+| Essentials | 500 | 3 | 35 $/kk |
+| Essentials | 2 500 | 3 | 175 $/kk (~1 950 €/v) |
+| Essentials | **5 000** | 3 | **350 $/kk (~3 900 €/v)** |
+| Professional | 2 500 | 12 | 545 $/kk |
+
+Tavoite on 5 000 vuokrasopimusta vuodessa, eli noin 10 000 ihmistä. Rivi
+"5 000 käyttäjää" on siis se, jota vasten hinta on luettava: **~3 900 €/v**
+pelkästä kirjautumisesta.
+
+**Päätös 2026-09-14: pysytään ilmaistasolla.** Reilusoppari saa oman
+Auth0-tilin (Adepta Tilat Oy), jolla on oma ilmaistason tenantti. Se ratkaisi
+samalla tenanttien erottelun, joka oli alun perin syy harkita maksamista:
+arvio 35 $/kk osoittautui vääräksi, koska se hinta koskee vain 500 käyttäjää.
+
+Kaksi tiliä vastaa myös yhtiörakennetta: Reilusoppari on Adepta Tilat Oy:n
+ja eSinetti Adepta Oy:n tuote.
+
+**Mitä ilmaistasolla ei saa:** omaa kirjautumisdomainia. Osoite on
+`reilusoppari.eu.auth0.com` eikä `auth.reilusoppari.fi`. Ei estä mitään eikä
+vaikuta turvallisuuteen, mutta näkyy käyttäjälle osoiterivillä. Jos se joskus
+halutaan, kannattaa samalla katsoa muitakin vaihtoehtoja kuin Auth0 — tuon
+taulukon perusteella kirjautumisesta tulisi yksi suurimmista kuluista.
 
 **Hinnoitteluriski, joka on ratkaistava ennen lanseerausta:** 29 €/vuokrasuhde
 kattaa sopimuksen, jossa tunnistautuu **kaksi** osapuolta, ja vuokrasuhde voi
@@ -68,4 +101,4 @@ Laskutus on dollareissa, joten euromääriin tulee kurssiheittoa kuukausittain.
 |---|---|---|
 | Sivusto nyt (odotuslista) | ~540 €/v | **~220 €/v** |
 | Sovellus lanseerauksesta | ~+300 €/v + tunnistukset | ~+0–300 €/v + tunnistukset |
-| Sovelluskaupat (iOS + Android) | ~+92 €/v + 23 € kerran | sama molemmissa — tilit ovat Adeptan, eivät projektikohtaisia |
+| ~~Sovelluskaupat~~ | ~~+92 €/v~~ | Poistettu: PWA riittää |
