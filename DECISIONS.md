@@ -4,6 +4,25 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Live-siirto yhdellä muuttujalla ja eSinetti-luonnos (2026-09-26, yötyö)
+
+**Päätös:** vuokranantajan CTA päätetään yhdessä funktiossa
+(`getLandlordCta()`, `src/lib/launch.ts`). Aiemmin sama päättely oli sekä
+`PrimaryCta`:ssa että etusivulla, jolloin live-siirrossa toinen olisi voinut
+jäädä vanhaan tilaan. `LAUNCH_MODE=live` riittää; tuotannon arvoa ei muutettu.
+
+**Luonnos:** tietosuojaselosteeseen eSinetti (Adepta Oy) käsittelijänä ja
+käyttöehtoihin vastuunjako. Juridista sisältöä, joten **Jukka tarkistaa
+ennen mergeä** (BLOCKERS.md). Luonnoksessa asiakkaan sopimuskumppani on
+vain Adepta Tilat Oy, joka vastaa myös allekirjoituksesta: kuluttajan ei
+kuulu selvittää kahden yhtiön välistä rajaa. `signingProvider.productGenitive`
+lisättiin, koska "eSinetti" + "n" taipuisi väärin.
+
+**Poistettu PLANista:** "Riippuvuus: eSinetin monivuokraajaisuus ja
+brändäys valmiina" – tehty BLOCKERSin mukaan (eSinetin vaihe 3).
+
+---
+
 ## Odotuslistaa ei kerätä – kolmas julkaisutila `soon` (2026-09-11, Jukan päätös)
 
 Odotuslista jäi tarpeettomaksi: eSinetti valmistuu lähipäivinä, ja Reilusoppari

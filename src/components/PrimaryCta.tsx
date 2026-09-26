@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLaunchMode, getSignupUrl } from "@/lib/launch";
+import { getLandlordCta } from "@/lib/launch";
 
 type PrimaryCtaSize = "md" | "lg";
 
@@ -34,25 +34,10 @@ export function PrimaryCta({
   size = "md",
   party = "vuokranantaja",
 }: PrimaryCtaProps) {
-  const mode = getLaunchMode();
-  const tenant = party === "vuokralainen";
-
-  let href: string;
-  let label: string;
-
-  if (tenant) {
-    href = "/vuokralaiselle#pyyda";
-    label = "Pyydä vuokranantajaa käyttämään";
-  } else if (mode === "live") {
-    href = getSignupUrl();
-    label = "Aloita ilmaiseksi";
-  } else if (mode === "waitlist") {
-    href = "/#odotuslista";
-    label = "Liity odotuslistalle";
-  } else {
-    href = "/miten-toimii";
-    label = "Katso miten toimii";
-  }
+  const { href, label } =
+    party === "vuokralainen"
+      ? { href: "/vuokralaiselle#pyyda", label: "Pyydä vuokranantajaa käyttämään" }
+      : getLandlordCta();
 
   return (
     <Link

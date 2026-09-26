@@ -65,6 +65,8 @@ export const signingProvider = {
   name: "Adepta Oy",
   businessId: "2237131-2",
   product: "eSinetti",
+  // Taivutus käsin: "eSinetti" + "n" olisi väärin (sinetti → sinetin).
+  productGenitive: "eSinetin",
   url: "https://esinetti.fi",
 } as const;
 

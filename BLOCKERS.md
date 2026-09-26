@@ -75,6 +75,42 @@ näy sivustolla. Julkaisuohje on tiedostojen alussa ja `PLAN.md`:n vaiheessa C.
 Plus Jakarta Sans on ladattu itse hostattavaksi (`public/fonts/sans-variable.woff2`,
 latin-osajoukko, painot 400–800). Ei Google Fonts -CDN-kutsuja.
 
+## eSinetti tietosuojaselosteessa ja käyttöehdoissa — LUONNOS, JUKKA TARKISTAA ENNEN MERGEÄ (2026-09-26)
+
+Yötyössä (haara `yotyo-2026-09-26`) kirjoitettiin luonnos kohtaan, joka
+alempana "Yhtiövaihdos"-osion kohdassa 2 todettiin puutteelliseksi:
+
+- `/tietosuoja`: uusi kohta "Allekirjoitus ja tunnistautuminen: eSinetti
+  käsittelijänä" (Osa 2): Adepta Oy käsittelijänä, käsiteltävät tiedot,
+  henkilötunnusta ei tallenneta, alihankkijat eSinetin tietoturvasivulla,
+  säilytys ja rekisteröidyn pyynnöt.
+- `/kayttoehdot` kohta 5: vastuunjako. Sopimus vain Adepta Tilat Oy:n kanssa,
+  joka vastaa myös allekirjoituksesta; Adepta Oy alihankkijana ja
+  käsittelijänä; virheilmoitukset Adepta Tilat Oy:lle.
+
+**Tarkista ennen mergeä (merge julkaisee):**
+
+1. **Käsittelysopimus.** Luonnos sanoo, että yhtiöiden välillä *on*
+   kirjallinen käsittelysopimus (GDPR 28 art.). Jos sitä ei ole vielä
+   allekirjoitettu, tee se ensin tai muuta lause.
+2. **Säilytys.** Luonnos sanoo, että aitouden todistavat tiedot voidaan
+   säilyttää pidempään kuin muu aineisto. eSinetissä tiiviste,
+   allekirjoitustiedot ja tapahtumaloki säilyvät pysyvästi (esinetti.fi/tietoturva).
+   Pysyvä säilytys voi olla liikaa kuluttajapalvelussa – päätä aika.
+3. **Päivitetty-päivä** on vaihdettu 26.9.2026:ksi molemmilla sivuilla.
+
+Sanamuoto on luonnos, ei juristin tarkistama. Muut selosteen ja ehtojen
+kohdat ovat ennallaan.
+
+## Yhteydenottotapa puuttuu (2026-09-26)
+
+Yhteystietosivu ja tietosuojaseloste neuvovat ottamaan yhteyttä
+"liittymällä odotuslistalle", mutta odotuslista on peruttu (tila `soon`).
+Sivustolla ei siis ole tällä hetkellä yhtään yhteydenottotapaa, ja
+tietosuoja-asetus vaatii rekisterinpitäjän yhteystiedot. Tarvitaan
+sähköpostiosoite (esim. `tietosuoja@` tai `asiakaspalvelu@reilusoppari.fi`)
+tai lomake. Sähköposti vaatii MX-tietueet Vercelin DNS:ään (ks. alempana).
+
 ## Kustannukset
 
 Ks. `KUSTANNUKSET.md` — palvelut, hinnat, ALV-käsittely ja sääntö siitä, ettei
@@ -100,6 +136,11 @@ kuin tällä sivustolla: tietomalli, käyttäjätyypit, vaiheet ja rajaukset.
 
 Verkkosivu odotuslistatilassa EI riipu tästä. Tavoitelanseeraus CLAUDE.md:n
 mukaan on lokakuu 2026.
+
+**Live-siirto sivustolla on yksi muuttuja** (2026-09-26): `LAUNCH_MODE=live`
+Vercelissä. `NEXT_PUBLIC_APP_URL` on valinnainen, oletus
+`https://app.reilusoppari.fi`, ja rekisteröitymispolku on `/aloita`. Ennen
+vaihtoa: tietosuoja ja käyttöehdot live-muotoon (PLAN Vaihe D).
 
 ## Kehote seuraavalle chatille
 

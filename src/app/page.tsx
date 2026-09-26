@@ -11,7 +11,7 @@ import { Faq } from "@/components/sections/Faq";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema, softwareApplicationSchema } from "@/lib/schema";
-import { getLaunchMode, getSignupUrl } from "@/lib/launch";
+import { getLandlordCta } from "@/lib/launch";
 
 /**
  * Etusivu (CLAUDE.md kohta 4). Osioiden järjestys on speksin mukainen eikä
@@ -30,14 +30,8 @@ export default async function HomePage({
   const initialParty = params.osapuoli === "vuokralainen" ? "vuokralainen" : "vuokranantaja";
 
   // Hero on client-komponentti eikä voi lukea LAUNCH_MODE:a, joten CTA
-  // ratkaistaan täällä. Sama logiikka kuin PrimaryCta:ssa.
-  const mode = getLaunchMode();
-  const landlordCta =
-    mode === "live"
-      ? { label: "Aloita ilmaiseksi", href: getSignupUrl() }
-      : mode === "waitlist"
-        ? { label: "Liity odotuslistalle", href: "/#odotuslista" }
-        : { label: "Katso miten toimii", href: "/miten-toimii" };
+  // ratkaistaan täällä samalla funktiolla kuin PrimaryCta:ssa.
+  const landlordCta = getLandlordCta();
 
   return (
     <>

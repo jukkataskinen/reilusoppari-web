@@ -51,3 +51,18 @@ export function getAppUrl(): string {
 export function getSignupUrl(): string {
   return `${getAppUrl()}/aloita`;
 }
+
+/**
+ * Vuokranantajan ensisijainen CTA. Yksi paikka, jotta live-siirto on yksi
+ * muuttuja: `LAUNCH_MODE=live` vaihtaa sekä `PrimaryCta`:n että heron
+ * napin. Aiemmin sama päättely oli kahdessa paikassa (PrimaryCta ja
+ * etusivu), ja toinen olisi voinut jäädä vanhaan tilaan.
+ *
+ * `NEXT_PUBLIC_APP_URL` on valinnainen: oletus on app.reilusoppari.fi.
+ */
+export function getLandlordCta(): { label: string; href: string } {
+  const mode = getLaunchMode();
+  if (mode === "live") return { label: "Aloita ilmaiseksi", href: getSignupUrl() };
+  if (mode === "waitlist") return { label: "Liity odotuslistalle", href: "/#odotuslista" };
+  return { label: "Katso miten toimii", href: "/miten-toimii" };
+}

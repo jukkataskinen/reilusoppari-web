@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { pricing } from "@content/pricing";
 import { formatEuroAuto } from "@/lib/format";
 import { LAUNCH_TARGET } from "@/lib/launch";
-import { companyLegalName, signingProvider } from "@content/company";
+import { company, companyLegalName, signingProvider } from "@content/company";
 
 const title = "Käyttöehdot";
 const description =
@@ -34,8 +34,12 @@ export const metadata: Metadata = {
  *  2. Kuvat kodista. Ks. tietosuojaseloste – aineistoon on kahden osapuolen
  *     oikeus, joten poisto ei voi olla yksipuolinen.
  *  3. Todistuksen omistajuus. Todistus on saajansa oma asiakirja.
+ *
+ * LUONNOS 2026-09-26 (yötyö, haara yotyo-2026-09-26): kohdan 5 vastuunjako
+ * eSinetin (Adepta Oy) kanssa on Clauden luonnos. Jukka tarkistaa sen
+ * ennen mergeä mainiin. Ks. BLOCKERS.md.
  */
-const UPDATED = "10.9.2026";
+const UPDATED = "26.9.2026";
 
 export default function KayttoehdotPage() {
   return (
@@ -107,6 +111,28 @@ export default function KayttoehdotPage() {
               Allekirjoitusmoottorina toimii {signingProvider.product}, jonka tarjoaa {signingProvider.name} – eri yhtiö kuin palveluntarjoaja. Palvelu ei ota kantaa vuokrasopimuksen
               sisällön lainmukaisuuteen; siitä vastaavat osapuolet itse.
             </p>
+            <p>Vastuunjako {signingProvider.productGenitive} kanssa on seuraava:</p>
+            <ul>
+              <li>
+                Sopimuksesi on vain {company.name}:n kanssa. {company.name} vastaa sinulle koko
+                palvelusta, myös allekirjoituksesta ja tunnistautumisesta, eikä sinun tarvitse
+                hyväksyä {signingProvider.productGenitive} omia käyttöehtoja.
+              </li>
+              <li>
+                {signingProvider.name} toimii {company.name}:n alihankkijana ja henkilötietojen
+                käsittelijänä. Se käsittelee allekirjoituksen tietoja vain Reilusopparia varten, ks.{" "}
+                <Link href="/tietosuoja">tietosuojaseloste</Link>.
+              </li>
+              <li>
+                Jos allekirjoituksessa tai tunnistautumisessa on virhe, ilmoita siitä{" "}
+                {company.name}:lle. Selvitämme asian {signingProvider.productGenitive} kanssa, eikä sinun
+                tarvitse itse olla yhteydessä {signingProvider.product}iin.
+              </li>
+              <li>
+                Tunnistautuminen tehdään omilla pankkitunnuksillasi tai mobiilivarmenteellasi. Niiden
+                säilyttämisestä vastaat itse pankkisi tai operaattorisi ehtojen mukaan.
+              </li>
+            </ul>
 
             <h2>6. Aineisto ja sen omistajuus</h2>
             <p>

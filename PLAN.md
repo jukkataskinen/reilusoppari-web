@@ -81,11 +81,21 @@ julkaisupäivät, kun sivusto avataan.
 
 ## Vaihe D — lanseeraus · **odottaa** (tavoite lokakuu 2026)
 
-- [ ] `LAUNCH_MODE=live`
+- [x] Live-siirto on yksi muuttuja (2026-09-26): `getLandlordCta()` päättää
+      vuokranantajan CTA:n sekä `PrimaryCta`:ssa että heron napissa.
+      `NEXT_PUBLIC_APP_URL` on valinnainen (oletus `https://app.reilusoppari.fi`).
+      Yksikkötesti varmistaa, että pelkkä `LAUNCH_MODE=live` vaihtaa CTA:n.
+- [x] Luonnos: eSinetti (Adepta Oy) käsittelijänä tietosuojaselosteessa ja
+      vastuunjako käyttöehtojen kohdassa 5 (2026-09-26) — **Jukka tarkistaa
+      ennen mergeä**, ks. BLOCKERS.md
+- [ ] Tietosuojaseloste ja käyttöehdot live-muotoon ennen `LAUNCH_MODE=live`:
+      "avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
+      ovat julkaisua edeltävää tekstiä (Jukan juridista sisältöä)
+- [ ] Yhteydenottotapa: yhteystietosivu ohjaa odotuslistalle, jota ei enää ole
+      (BLOCKERS.md)
+- [ ] `LAUNCH_MODE=live` Vercelissä (Jukka)
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)
-- [ ] Sovelluksen linkit ja `NEXT_PUBLIC_APP_URL`
 - [ ] Suosittelupolku testattu päästä päähän
-- [ ] Riippuvuus: eSinetin monivuokraajaisuus ja brändäys valmiina
 
 ---
 
