@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
 import { LAUNCH_TARGET } from "@/lib/launch";
-import { companyLegalName } from "@content/company";
+import { company, companyLegalName, signingProvider } from "@content/company";
 
 const title = "Tietosuoja";
 const description =
@@ -28,8 +28,15 @@ export const metadata: Metadata = {
  * TOTTA JO NYT, joten se on kuvattava täsmällisesti. Palvelun käsittely
  * alkaa vasta lanseerauksessa, ja se on merkitty sellaiseksi – seloste ei
  * saa väittää, että palvelussa käsiteltäisiin tietoja tänään.
+ *
+ * Kohta "Allekirjoitus ja tunnistautuminen: eSinetti käsittelijänä"
+ * (26.9.2026, korjattu 27.9.2026): käsittelysopimus solmitaan ennen
+ * avaamista, henkilötunnus on mukana salatussa tunnistustodisteessa, ja
+ * Vercelin ajoalue on Yhdysvallat (esinetti/docs/sopimukset/alihankkijat-luonnos.md).
+ * Jos eSinetti siirtyy EU-ajoalueelle tai lakkaa säilyttämästä todistetta,
+ * päivitä kohta. Ks. BLOCKERS.md.
  */
-const UPDATED = "10.9.2026";
+const UPDATED = "27.9.2026";
 
 export default function TietosuojaPage() {
   return (
@@ -109,6 +116,50 @@ export default function TietosuojaPage() {
               (pankkitunnukset tai mobiilivarmenne). Tunnistautumisesta tallennetaan tunnistetiedot,
               jotka ovat tarpeen allekirjoituksen todistamiseksi. Henkilötunnus käsitellään vain
               siltä osin kuin tunnistaminen sitä edellyttää.
+            </p>
+
+            <h3>Allekirjoitus ja tunnistautuminen: eSinetti käsittelijänä</h3>
+            <p>
+              Vuokrasopimuksen allekirjoitus ja siihen liittyvä vahva tunnistautuminen tehdään
+              {" "}{signingProvider.product}-palvelulla. Sen tarjoaa {signingProvider.name} (Y-tunnus{" "}
+              {signingProvider.businessId}), joka on eri yhtiö kuin {company.name}.{" "}
+              {signingProvider.name} käsittelee näitä tietoja henkilötietojen käsittelijänä{" "}
+              {company.name}:n lukuun ja sen ohjeiden mukaan, ei omiin tarkoituksiinsa. Käsittelystä
+              sovitaan yhtiöiden välillä tietosuoja-asetuksen 28 artiklan mukaisella kirjallisella
+              sopimuksella ennen kuin palvelu avautuu.
+            </p>
+            <p>{signingProvider.product} käsittelee allekirjoituksessa seuraavia tietoja:</p>
+            <ul>
+              <li>allekirjoittajan nimi ja syntymäaika sellaisina kuin tunnistuspalvelu ne kertoo</li>
+              <li>sähköpostiosoite, johon allekirjoituspyyntö lähetetään</li>
+              <li>
+                tunnistautumisen aika ja tapa sekä tunnistuksen välittäjän allekirjoittama todiste
+                tunnistautumisesta
+              </li>
+              <li>allekirjoitettava asiakirja liitteineen, myös katselmuskuvat</li>
+            </ul>
+            <p>
+              Tunnistuksessa välitetään myös henkilötunnus. {signingProvider.product} laskee siitä
+              tunnisteen, josta henkilötunnusta ei voi palauttaa, ja syntymäajan. Lisäksi se
+              säilyttää tunnistuksen välittäjän antaman todisteen salattuna, ja siinä henkilötunnus
+              on mukana. Allekirjoitettu asiakirja sinetöidään ja aikaleimataan. Aikaleimapalvelulle
+              lähtee vain asiakirjan tiiviste, ei sen sisältöä.
+            </p>
+            <p>
+              {signingProvider.product} käyttää omia alihankkijoitaan (esimerkiksi tunnistuksen
+              välittäjä, tietokanta ja sovelluksen ajoympäristö). Tietokanta ja asiakirjat
+              säilytetään EU:ssa (Irlanti). Sovelluksen ajoympäristö voi käsitellä tietoja
+              pyyntöjen ajan myös EU:n ulkopuolella, Yhdysvalloissa. Siirto perustuu EU:n komission
+              hyväksymiin vakiolausekkeisiin tai EU:n ja Yhdysvaltojen tietosuojakehykseen.
+              Alihankkijat on lueteltu {signingProvider.productGenitive} tietoturvasivulla{" "}
+              <a href={`${signingProvider.url}/tietoturva`}>{signingProvider.url.replace("https://", "")}/tietoturva</a>.
+            </p>
+            <p>
+              Allekirjoituksen tiedot säilytetään yhtä kauan kuin muukin vuokrasuhteen aineisto (ks.
+              kuvat kodista alla). Tiedot, joilla allekirjoituksen aitous todistetaan, voidaan
+              säilyttää pidempään, jotta aitous on tarkistettavissa myös myöhemmin. Oikeuksiasi
+              koskevat pyynnöt osoitetaan {company.name}:lle, myös silloin kun ne koskevat
+              allekirjoituksen tietoja.
             </p>
 
             <h3>Kuvat kodista</h3>
