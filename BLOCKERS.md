@@ -75,7 +75,9 @@ näy sivustolla. Julkaisuohje on tiedostojen alussa ja `PLAN.md`:n vaiheessa C.
 Plus Jakarta Sans on ladattu itse hostattavaksi (`public/fonts/sans-variable.woff2`,
 latin-osajoukko, painot 400–800). Ei Google Fonts -CDN-kutsuja.
 
-## eSinetti tietosuojaselosteessa ja käyttöehdoissa — LUONNOS, JUKKA TARKISTAA ENNEN MERGEÄ (2026-09-26)
+## eSinetti tietosuojaselosteessa ja käyttöehdoissa — LUONNOS, EI JULKAISTU (2026-09-26)
+
+Katselmoinnissa 27.9.2026 luonnos jätettiin pois sivuilta, koska kolme väitettä ei pidä paikkaansa (käsittelysopimus, henkilötunnus, EU). Luonnos ja korjattavat kohdat: `docs/luonnos-esinetti-tietosuoja-ja-ehdot.md`.
 
 Yötyössä (haara `yotyo-2026-09-26`) kirjoitettiin luonnos kohtaan, joka
 alempana "Yhtiövaihdos"-osion kohdassa 2 todettiin puutteelliseksi:
