@@ -83,8 +83,11 @@ export default function TietosuojaPage() {
                 kuukautta palvelun avaamisen jälkeen.
               </li>
               <li>
-                <strong>Käsittelijät:</strong> sähköpostien lähetykseen käytetään Resendiä ja
-                sivuston tarjoiluun Verceliä. Tiedot käsitellään EU:ssa.
+                <strong>Käsittelijät:</strong> sähköpostien lähetykseen ja odotuslistan osoitteiden
+                säilytykseen käytetään Resendiä ja sivuston tarjoiluun Verceliä. Molemmat ovat
+                yhdysvaltalaisia yrityksiä, ja tiedot käsitellään myös Yhdysvalloissa. Siirto
+                perustuu EU:n komission hyväksymiin vakiolausekkeisiin tai EU:n ja Yhdysvaltojen
+                tietosuojakehykseen.
               </li>
               <li>
                 <strong>Peruutus:</strong> jokaisessa viestissä on peruutuslinkki, ja peruutus
