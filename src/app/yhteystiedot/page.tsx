@@ -51,13 +51,18 @@ export default function YhteystiedotPage() {
 
       <Section title="Yhteydenotot" tone="cloud">
         <div className="prose-measure text-ink/80">
+          {/*
+            Odotuslista ei ole auki (LAUNCH_MODE soon), joten aiempi ohje
+            "jätä osoitteesi odotuslistalle" ei toiminut (27.9.2026).
+            Sähköpostiosoite lisätään, kun se on päätetty (BLOCKERS.md).
+          */}
           <p>
-            Palvelu on rakenteilla, ja odotuslistalle liittyneille kerrotaan sähköpostilla, kun se
-            avautuu. Jos haluat kysyä jotain jo nyt, jätä sähköpostiosoitteesi odotuslistalle ja
-            mainitse asiasi vastausviestissä.
+            Palvelu on rakenteilla. Voit ottaa yhteyttä kirjeitse osoitteeseen {company.name},{" "}
+            {companyAddress()}.
           </p>
           <p className="mt-4">
-            Tietosuojaan liittyvissä asioissa yhteydenottotavat kuvataan tietosuojaselosteessa.
+            Tietosuoja-asioissa merkitse kuoreen tai kirjeeseen &quot;Tietosuoja&quot;. Tarkemmin
+            tietosuojaselosteessa.
           </p>
         </div>
       </Section>

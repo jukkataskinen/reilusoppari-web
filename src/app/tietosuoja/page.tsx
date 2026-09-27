@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
-import { LAUNCH_TARGET } from "@/lib/launch";
+import { getLaunchMode, LAUNCH_TARGET } from "@/lib/launch";
 import { company, companyLegalName, signingProvider } from "@content/company";
 
 const title = "Tietosuoja";
 const description =
-  "Miten Reilusoppari käsittelee henkilötietoja: odotuslista nyt, ja palvelun tiedot kun palvelu avautuu.";
+  "Miten Reilusoppari käsittelee henkilötietoja: odotuslista, kun se on auki, ja palvelun tiedot, kun palvelu avautuu.";
 
 export const metadata: Metadata = {
   title,
@@ -24,8 +24,9 @@ export const metadata: Metadata = {
  * harkita. Erityistä huolellisuutta vaativat kohdat: kuvat kodista,
  * molempien osapuolten oikeudet samaan aineistoon ja todistuksen omistajuus.
  *
- * Sivu on jaettu kahteen osaan tarkoituksella. Odotuslistan käsittely on
- * TOTTA JO NYT, joten se on kuvattava täsmällisesti. Palvelun käsittely
+ * Sivu on jaettu kahteen osaan tarkoituksella. Odotuslistan kohta seuraa
+ * LAUNCH_MODEa: vain waitlist-tilassa lista on auki ja kerää osoitteita, ja
+ * muissa tiloissa seloste ei saa väittää niin (korjattu 27.9.2026). Palvelun käsittely
  * alkaa vasta lanseerauksessa, ja se on merkitty sellaiseksi – seloste ei
  * saa väittää, että palvelussa käsiteltäisiin tietoja tänään.
  *
@@ -39,6 +40,7 @@ export const metadata: Metadata = {
 const UPDATED = "27.9.2026";
 
 export default function TietosuojaPage() {
+  const waitlistOpen = getLaunchMode() === "waitlist";
   return (
     <>
       <Breadcrumbs
@@ -50,7 +52,11 @@ export default function TietosuojaPage() {
       <PageHero
         eyebrow={`Päivitetty ${UPDATED}`}
         title="Tietosuojaseloste"
-        lead="Reilusoppari kerää kahdenlaisia tietoja: odotuslistan sähköpostiosoitteita nyt, ja vuokrasuhteen tietoja sitten kun palvelu avautuu. Tässä molemmat erikseen."
+        lead={
+          waitlistOpen
+            ? "Reilusoppari kerää kahdenlaisia tietoja: odotuslistan sähköpostiosoitteita nyt, ja vuokrasuhteen tietoja sitten kun palvelu avautuu. Tässä molemmat erikseen."
+            : "Sivusto ei kerää nyt henkilötietoja. Tässä kuvataan, miten tietoja käsitellään odotuslistalla, jos se avataan, ja palvelussa, kun se avautuu."
+        }
       />
 
       <section className="bg-paper py-12 md:py-[72px]">
@@ -58,11 +64,17 @@ export default function TietosuojaPage() {
           <div className="article-body prose-measure">
             <h2>Rekisterinpitäjä</h2>
             <p>
-              {companyLegalName()}. Yhteydenotot tietosuoja-asioissa: liity
-              odotuslistalle ja vastaa vahvistusviestiin, tai käytä yhteystietosivun ohjetta.
+              {companyLegalName()}. Yhteydenotot tietosuoja-asioissa kirjeitse tähän
+              osoitteeseen. Merkitse kuoreen tai kirjeeseen &quot;Tietosuoja&quot;.
             </p>
 
-            <h2>Osa 1: Odotuslista (voimassa nyt)</h2>
+            <h2>Osa 1: Odotuslista {waitlistOpen ? "(voimassa nyt)" : "(ei käytössä nyt)"}</h2>
+            {!waitlistOpen && (
+              <p>
+                Odotuslista ei ole nyt auki, eikä sivusto kerää sähköpostiosoitteita. Jos lista
+                avataan, tietoja käsitellään alla kuvatulla tavalla.
+              </p>
+            )}
             <p>
               Kun liityt odotuslistalle, käsittelemme seuraavia tietoja: sähköpostiosoite, valinta
               siitä oletko vuokranantaja, vuokralainen vai molempia, sekä vapaaehtoisesti antamasi
@@ -222,8 +234,9 @@ export default function TietosuojaPage() {
 
             <h2>Muutokset</h2>
             <p>
-              Tätä selostetta täydennetään ennen palvelun avaamista. Merkittävistä muutoksista
-              kerrotaan odotuslistalle liittyneille sähköpostitse.
+              Tätä selostetta täydennetään ennen palvelun avaamista. Merkittävät muutokset
+              päivitetään tälle sivulle, ja jos odotuslista on auki, niistä kerrotaan listalle
+              liittyneille sähköpostitse.
             </p>
 
             <p>
