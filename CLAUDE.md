@@ -2,6 +2,14 @@
 
 Tämä on repon `reilusoppari-web` `CLAUDE.md`. Sivusto on Reilusoppari-palvelun julkinen sivusto. Tekninen pohja, työskentelyprotokolla, `LAUNCH_MODE`, lomakkeet, analytiikka, turvaotsakkeet ja laatuvaatimukset ovat **samat kuin `esinetti-web`-repossa** – kopioi sen runko ja tämä tiedosto korvaa vain sisällön, sävyn ja ilmeen. Älä kysy käyttäjältä mitään, mikä on tässä päätetty; kirjaa muut päätökset `DECISIONS.md`:ään.
 
+**Työ PR:inä, ei koskaan suoraan mainiin** (Jukan päätös 4.10.2026; ohittaa esinetti-webin ohjeen, jos ne eroavat). Push mainiin julkaisee sivuston.
+
+- Tee työ omassa haarassa: `git switch -c claude/<aihe>` ennen ensimmäistä muutosta.
+- `git add -A && git commit -m "[kuvaus]"`, sitten `node scripts/pr.mjs --otsikko "[otsikko]" --kuvaus <tiedosto.md>`. Skripti pushaa haaran ja avaa PR:n. Automaattinen yhdistäminen kytketään vain, kun mainin haarasuojaus on päällä, jolloin PR yhdistyy vasta vihreällä CI:llä (`.github/workflows/ci.yml`: lint, typecheck, test, build); muuten PR jää auki Jukalle.
+- PR:n kuvaus on Jukalle, joka lukee sen puhelimella eikä ole koodari. Kirjoita arkikielellä kolme kohtaa: **Mitä muuttui** (kävijän näkökulmasta), **Miten tarkistat** (mitä Vercelin esikatselussa kannattaa katsoa), **Riskit** (koskeeko lomakkeita, sähköposteja tai henkilötietoja). Ei teknistä jargonia.
+- Muutokset kansioon `.github/`: lisää `--ei-automaattista`, jolloin Jukka hyväksyy ne itse.
+- Älä koskaan pushaa mainiin, älä yhdistä PR:iä itse äläkä muuta GitHubin asetuksia.
+
 ---
 
 ## 1. Mikä Reilusoppari on ja miltä sen pitää tuntua

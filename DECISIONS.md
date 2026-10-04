@@ -292,3 +292,11 @@ Kaksi korttia esitti saman asiakirjan kahtena kappaleena; oikeasti asiakirja on
 yksi ja allekirjoittajia kaksi. Allekirjoittajien nimet otettiin kuvassa
 näkyvästä sopimuksesta – eri nimet olisivat tehneet kuvasta ja sen selitteestä
 kaksi eri sopimusta.
+
+## 2026-10-04 — Työ PR:inä, ei suoraan mainiin; CI sivustolle
+
+**Päätös (Jukka):** Claude ei enää pushaa mainiin. Työ tehdään haarassa
+`claude/<aihe>` ja viedään PR:nä (`scripts/pr.mjs`, sama kuin eSinetissä).
+Sivusto sai CI:n (lint, typecheck, test, build), jotta PR:llä on tarkistukset.
+**Perustelu:** push mainiin julkaisee sivuston, ja Jukka tarkistaa PR:t
+puhelimella. Automaattinen yhdistäminen tarvitsee vihreän CI:n.
