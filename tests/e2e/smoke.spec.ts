@@ -84,3 +84,22 @@ test("odotuslistalomake validoi sähköpostin", async ({ page }) => {
 
   await expect(page.getByText("Anna kelvollinen sähköpostiosoite.")).toBeVisible();
 });
+
+test("yhteydenottolomake näkyy ja validoi liian lyhyen viestin", async ({ page }) => {
+  await page.goto("/yhteystiedot");
+  await page.getByLabel("Nimi").fill("Testi Testinen");
+  await page.getByLabel("Sähköposti").fill("testi@esimerkki.fi");
+  await page.getByLabel("Viesti").fill("Lyhyt");
+  await page.getByRole("button", { name: "Lähetä viesti" }).click();
+  await expect(page.getByText("Kerro asiasi vähän tarkemmin")).toBeVisible();
+});
+
+test("yhteydenottolomake menee läpi testitilassa lähettämättä mitään", async ({ page }) => {
+  // Playwright käynnistää palvelimen CONTACT_DELIVERY=mock -asetuksella.
+  await page.goto("/yhteystiedot");
+  await page.getByLabel("Nimi").fill("Testi Testinen");
+  await page.getByLabel("Sähköposti").fill("testi@esimerkki.fi");
+  await page.getByLabel("Viesti").fill("Haluaisin kysyä vuokrasopimuksen allekirjoittamisesta.");
+  await page.getByRole("button", { name: "Lähetä viesti" }).click();
+  await expect(page.getByText("Testitila: viestiä ei lähetetty.")).toBeVisible();
+});

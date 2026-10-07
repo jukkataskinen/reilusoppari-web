@@ -64,8 +64,9 @@ export default function TietosuojaPage() {
           <div className="article-body prose-measure">
             <h2>Rekisterinpitäjä</h2>
             <p>
-              {companyLegalName()}. Yhteydenotot tietosuoja-asioissa kirjeitse tähän
-              osoitteeseen. Merkitse kuoreen tai kirjeeseen &quot;Tietosuoja&quot;.
+              {companyLegalName()}. Yhteydenotot tietosuoja-asioissa{" "}
+              <Link href="/yhteystiedot">yhteystiedot-sivun lomakkeella</Link> tai kirjeitse tähän
+              osoitteeseen. Merkitse kuoreen tai viestin aiheeksi &quot;Tietosuoja&quot;.
             </p>
 
             <h2>Osa 1: Odotuslista {waitlistOpen ? "(voimassa nyt)" : "(ei käytössä nyt)"}</h2>

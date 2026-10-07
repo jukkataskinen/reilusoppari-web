@@ -28,6 +28,20 @@ export function getContactEmail(): string | null {
   return process.env.REILUSOPPARI_CONTACT_EMAIL?.trim() || null;
 }
 
+/**
+ * Yhteydenottolomakkeen testitila: viesti hyväksytään mutta sitä ei lähetetä.
+ * Päällä, kun `CONTACT_DELIVERY=mock` (savutesti asettaa tämän, jottei
+ * paikallinen .env.local-avain koskaan lähetä testiviestiä) tai kun
+ * Resend-avainta ei ole eikä ajo ole Vercelin tuotanto. Tuotannossa
+ * puuttuva avain näkyy edelleen virheenä, jottei yhteydenotto katoa
+ * hiljaa. Sama rakenne kuin sisarprojektin (esinetti-web) vastaava.
+ */
+export function isContactDeliveryMock(): boolean {
+  if (process.env.CONTACT_DELIVERY?.trim().toLowerCase() === "mock") return true;
+  const hasKey = Boolean(process.env.RESEND_API_KEY?.trim());
+  return !hasKey && process.env.VERCEL_ENV !== "production";
+}
+
 export function getSiteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://reilusoppari.fi";
 }

@@ -4,6 +4,45 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Yhteydenottolomake korvasi "liity odotuslistalle" -tekstin (2026-10-07, yötyö)
+
+**Tausta:** BLOCKERS.md:n mukaan `/yhteystiedot` neuvoi ottamaan yhteyttä
+liittymällä odotuslistalle, jota ei enää ole (`LAUNCH_MODE=soon` ei näytä
+lomaketta). Sivulla oli siis vain postiosoite, vaikka infrastruktuuri
+(`getContactEmail()`, `getEmailFromAddress()` `src/lib/resend.ts`:ssä) oli
+jo olemassa käyttämättömänä – PLAN.md:n Vaihe D listaa tämän avoimena
+tehtävänä ("Yhteydenottotapa").
+
+**Päätös:** rakennettiin yhteydenottolomake täsmälleen sisarprojektin
+(esinetti-web) `ContactForm`/`sendContactMessage`-rakenteella: zod-validointi
+(`src/lib/contact-schema.ts`), Server Action (`src/app/actions/contact.ts`),
+honeypot, Turnstile laiskasti (ohittuu kunnes `TURNSTILE_SECRET_KEY` on
+asetettu), ja testitila `CONTACT_DELIVERY=mock` (uusi `isContactDeliveryMock()`
+`src/lib/resend.ts`:ssä, identtinen esinetti-webin kanssa). Ei
+organisaatiokenttää – Reilusoppari on kuluttajatuote, ei B2B.
+
+**Miksi ei vaadi Jukan päätöstä:** `REILUSOPPARI_CONTACT_EMAIL` (vastaanottaja)
+voi olla mikä tahansa olemassa oleva sähköpostiosoite, ei välttämättä
+`@reilusoppari.fi` – se ei vaadi domainin MX-tietueita, vain lähettävän puolen
+(Resendin) SPF/DKIM-vahvistuksen, joka koskee `EMAIL_FROM`-osoitetta, ei
+vastaanottajaa. BLOCKERS.md:n aiempi "tarvitaan MX-tietueet" -huomio koski
+nimenomaan oman `@reilusoppari.fi`-postilaatikon *vastaanottamista*, ei
+lomakkeen lähettämistä ulos. Kunnes Jukka asettaa `RESEND_API_KEY` ja
+`REILUSOPPARI_CONTACT_EMAIL` Verceliin, lomake toimii paikallisesti/esikatselussa
+testitilassa (ks. BLOCKERS.md).
+
+`getEmailFromAddress()`:ia käytetään lähettäjäosoitteena (ei kovakoodattua
+merkkijonoa, toisin kuin esinetti-webin vastaavassa – siellä lähettäjä on
+kovakoodattu `yhteydenotto@esinetti.fi`:ksi, mikä on sen oma, ei korjattu
+tässä repossa).
+
+Tietosuojaselosteen "Rekisterinpitäjä"-kohtaan lisättiin maininta lomakkeesta
+kirjeen rinnalle – tämä on kontaktikanavan lisäys, ei juridisen sisällön
+muutos, joten ei vaadi erillistä Jukan hyväksyntää CLAUDE.md:n kohdan 9.4
+mielessä (muu selosteen sisältö ennallaan).
+
+---
+
 ## Live-siirto yhdellä muuttujalla ja eSinetti-luonnos (2026-09-26, yötyö)
 
 **Päätös:** vuokranantajan CTA päätetään yhdessä funktiossa

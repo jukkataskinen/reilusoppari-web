@@ -104,14 +104,28 @@ alempana "Yhtiövaihdos"-osion kohdassa 2 todettiin puutteelliseksi:
 Sanamuoto on luonnos, ei juristin tarkistama. Muut selosteen ja ehtojen
 kohdat ovat ennallaan.
 
-## Yhteydenottotapa puuttuu (2026-09-26)
+## ~~Yhteydenottotapa puuttuu~~ — LOMAKE RAKENNETTU (2026-10-07, yötyö)
 
-Yhteystietosivu ja tietosuojaseloste neuvovat ottamaan yhteyttä
-"liittymällä odotuslistalle", mutta odotuslista on peruttu (tila `soon`).
-Sivustolla ei siis ole tällä hetkellä yhtään yhteydenottotapaa, ja
-tietosuoja-asetus vaatii rekisterinpitäjän yhteystiedot. Tarvitaan
-sähköpostiosoite (esim. `tietosuoja@` tai `asiakaspalvelu@reilusoppari.fi`)
-tai lomake. Sähköposti vaatii MX-tietueet Vercelin DNS:ään (ks. alempana).
+`/yhteystiedot` sai yhteydenottolomakkeen (nimi, sähköposti, viesti), joka
+lähettää Resendin kautta – sama rakenne kuin esinetti-webin lomake, ks.
+DECISIONS.md. Kirjeosoite jäi rinnalle.
+
+**Jukan tehtäväksi jää vain ympäristö**, ei MX-tietueita: lomakkeen
+vastaanottajaosoite (`REILUSOPPARI_CONTACT_EMAIL`) voi olla mikä tahansa
+olemassa oleva sähköposti (esim. Jukan omansa), ei tarvitse olla
+`@reilusoppari.fi`. Tarvitaan Verceliin:
+
+1. **`RESEND_API_KEY`** – sama Resend-tili käy. Täysi oikeustaso tarvitaan
+   vain, jos joskus myös kontaktilista otetaan käyttöön (ks. esinetti-webin
+   vastaava huomio DECISIONS.md:ssä); pelkkä lähetys riittää yhteydenottoon.
+2. **`REILUSOPPARI_CONTACT_EMAIL`** – minne viestit menevät.
+3. **`EMAIL_FROM`** vasta sitten kun `reilusoppari.fi` on vahvistettu
+   Resendissä (SPF/DKIM) – ennen sitä lomake lähettää Resendin
+   testidomainista, mikä toimii mutta ei ole lopullinen.
+
+Kunnes muuttujat on asetettu, lomake näyttää virheen lähetysyrityksellä
+(`CONTACT_DELIVERY=mock` ei ole tuotannossa päällä, ks. `.env.example`) –
+tarkista tämä Vercelin esikatselussa, ennen kuin lomake viedään livenä.
 
 ## Kustannukset
 
