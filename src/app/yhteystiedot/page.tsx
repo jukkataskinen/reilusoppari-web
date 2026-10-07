@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { OgImageMeta } from "@/components/OgImageMeta";
 import { PageHero, Section } from "@/components/PageHero";
 import { CtaSection } from "@/components/sections/CtaSection";
+import { ContactForm } from "@/components/ContactForm";
+import { getTurnstileSiteKey } from "@/lib/turnstile";
 import { company, companyAddress, signingProvider } from "@content/company";
 
 const title = "Yhteystiedot";
@@ -15,7 +18,10 @@ export const metadata: Metadata = {
   openGraph: { title, description, type: "website" },
 };
 
-export default function YhteystiedotPage() {
+export default async function YhteystiedotPage() {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const turnstileSiteKey = getTurnstileSiteKey();
+
   return (
     <>
       <OgImageMeta title={title} eyebrow="Yhteystiedot" alt="Reilusopparin yhteystiedot" />
@@ -50,20 +56,25 @@ export default function YhteystiedotPage() {
       </Section>
 
       <Section title="Yhteydenotot" tone="cloud">
-        <div className="prose-measure text-ink/80">
-          {/*
-            Odotuslista ei ole auki (LAUNCH_MODE soon), joten aiempi ohje
-            "jätä osoitteesi odotuslistalle" ei toiminut (27.9.2026).
-            Sähköpostiosoite lisätään, kun se on päätetty (BLOCKERS.md).
-          */}
-          <p>
-            Palvelu on rakenteilla. Voit ottaa yhteyttä kirjeitse osoitteeseen {company.name},{" "}
-            {companyAddress()}.
-          </p>
-          <p className="mt-4">
-            Tietosuoja-asioissa merkitse kuoreen tai kirjeeseen &quot;Tietosuoja&quot;. Tarkemmin
-            tietosuojaselosteessa.
-          </p>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr]">
+          <div className="max-w-xl">
+            <ContactForm turnstileSiteKey={turnstileSiteKey} nonce={nonce} />
+          </div>
+          <div className="prose-measure text-ink/80">
+            {/*
+              Lomake lähettää viestin suoraan. Kirjeitse-vaihtoehto jää
+              rinnalle niille, jotka eivät halua käyttää lomaketta – ja
+              tietosuojaselosteen vaatimille yhteystiedoille on oltava
+              osoite myös ilman lomaketta (27.9.2026, ks. BLOCKERS.md).
+            */}
+            <p>
+              Voit myös kirjoittaa kirjeitse osoitteeseen {company.name}, {companyAddress()}.
+            </p>
+            <p className="mt-4">
+              Tietosuoja-asioissa merkitse kuoreen tai viestin aiheeksi &quot;Tietosuoja&quot;.
+              Tarkemmin tietosuojaselosteessa.
+            </p>
+          </div>
         </div>
       </Section>
 

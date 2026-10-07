@@ -91,8 +91,12 @@ julkaisupäivät, kun sivusto avataan.
 - [ ] Tietosuojaseloste ja käyttöehdot live-muotoon ennen `LAUNCH_MODE=live`:
       "avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
       ovat julkaisua edeltävää tekstiä (Jukan juridista sisältöä)
-- [ ] Yhteydenottotapa: yhteystietosivu ohjaa odotuslistalle, jota ei enää ole
-      (BLOCKERS.md)
+- [x] Yhteydenottotapa (2026-10-07): `/yhteystiedot` sai toimivan
+      yhteydenottolomakkeen (nimi, sähköposti, viesti + honeypot + Turnstile-runko),
+      samalla rakenteella kuin esinetti-webin lomake. Korvaa vanhan tekstin, joka
+      ohjasi odotuslistalle, jota ei enää ole. Kirjeosoite jäi rinnalle. Lähettäjä
+      voi olla mikä tahansa osoite (ei vaadi MX-tietueita) – ks. DECISIONS.md ja
+      BLOCKERS.md.
 - [ ] `LAUNCH_MODE=live` Vercelissä (Jukka)
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)
 - [ ] Suosittelupolku testattu päästä päähän

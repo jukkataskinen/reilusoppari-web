@@ -18,7 +18,9 @@ export default defineConfig({
   webServer: {
     // LAUNCH_MODE=waitlist: oletus on `soon`, jossa odotuslistalomaketta ei ole.
     // Lomake on silti tuettu koodipolku, joten e2e ajaa sen omassa tilassaan.
-    env: { LAUNCH_MODE: "waitlist" },
+    // CONTACT_DELIVERY=mock: yhteydenottolomake hyväksyy viestin mutta ei
+    // lähetä sitä, vaikka .env.local sisältäisi Resend-avaimen.
+    env: { LAUNCH_MODE: "waitlist", CONTACT_DELIVERY: "mock" },
     command: "npm run build && npm run start -- -p 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: !process.env.CI,
