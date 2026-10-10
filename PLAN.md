@@ -91,8 +91,11 @@ julkaisupäivät, kun sivusto avataan.
 - [ ] Tietosuojaseloste ja käyttöehdot live-muotoon ennen `LAUNCH_MODE=live`:
       "avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
       ovat julkaisua edeltävää tekstiä (Jukan juridista sisältöä)
-- [ ] Yhteydenottotapa: yhteystietosivu ohjaa odotuslistalle, jota ei enää ole
-      (BLOCKERS.md)
+- [x] Yhteydenottotapa: yhteystietosivu ja tietosuojaseloste ohjasivat
+      odotuslistalle, jota ei enää ole — korjattu 27.9.2026 (commit `656c6e2`):
+      yhteydenotto kirjeitse käyntiosoitteeseen, kunnes sähköpostiosoite on
+      päätetty (vaatii MX-tietueet Vercelin DNS:ään, Jukan tehtävä). PLAN.md
+      ja BLOCKERS.md eivät tätä ennen vastanneet toteutunutta tilaa.
 - [ ] `LAUNCH_MODE=live` Vercelissä (Jukka)
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)
 - [ ] Suosittelupolku testattu päästä päähän

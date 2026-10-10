@@ -104,14 +104,22 @@ alempana "Yhtiövaihdos"-osion kohdassa 2 todettiin puutteelliseksi:
 Sanamuoto on luonnos, ei juristin tarkistama. Muut selosteen ja ehtojen
 kohdat ovat ennallaan.
 
-## Yhteydenottotapa puuttuu (2026-09-26)
+## Yhteydenottotapa — KORJATTU VÄLIAIKAISESTI (2026-09-27)
 
-Yhteystietosivu ja tietosuojaseloste neuvovat ottamaan yhteyttä
+Yhteystietosivu ja tietosuojaseloste neuvoivat ottamaan yhteyttä
 "liittymällä odotuslistalle", mutta odotuslista on peruttu (tila `soon`).
-Sivustolla ei siis ole tällä hetkellä yhtään yhteydenottotapaa, ja
-tietosuoja-asetus vaatii rekisterinpitäjän yhteystiedot. Tarvitaan
-sähköpostiosoite (esim. `tietosuoja@` tai `asiakaspalvelu@reilusoppari.fi`)
-tai lomake. Sähköposti vaatii MX-tietueet Vercelin DNS:ään (ks. alempana).
+**Tämä korjattiin 27.9.2026 (commit `656c6e2`):** molemmat sivut ohjaavat
+nyt ottamaan yhteyttä kirjeitse käyntiosoitteeseen (Yhdystie 4, 19650
+Joutsa), ja tietosuoja-asioita varten pyydetään merkitsemään kuoreen
+"Tietosuoja". Rekisterinpitäjän yhteystiedot täyttävät tietosuoja-asetuksen
+vaatimuksen tällä tavalla.
+
+**Jäljellä (ei kiireellinen):** sähköpostiosoite (esim. `tietosuoja@` tai
+`asiakaspalvelu@reilusoppari.fi`) olisi kirjeitse nopeampi tapa. Se vaatii
+kaksi Jukan päätöstä/tointa: valita osoitteen alkuosa, ja lisätä MX-, SPF-,
+DKIM- ja DMARC-tietueet Vercelin DNS-hallintaan (ks. alempana DNS-osio).
+Kunnes näin tehdään, kirjeosoite on sivuston virallinen yhteydenottotapa —
+ei väliaikaisratkaisu, joka pitäisi korjata ennen lanseerausta.
 
 ## Kustannukset
 

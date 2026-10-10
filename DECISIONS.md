@@ -300,3 +300,20 @@ kaksi eri sopimusta.
 Sivusto sai CI:n (lint, typecheck, test, build), jotta PR:llä on tarkistukset.
 **Perustelu:** push mainiin julkaisee sivuston, ja Jukka tarkistaa PR:t
 puhelimella. Automaattinen yhdistäminen tarvitsee vihreän CI:n.
+
+## 2026-10-10 — PLAN.md ja BLOCKERS.md korjattu vastaamaan toteutunutta tilaa (yhteydenottotapa)
+
+**Havainto (yöajo):** PLAN.md:n Vaihe D:ssä oli yhä auki rivi
+"Yhteydenottotapa: yhteystietosivu ohjaa odotuslistalle, jota ei enää ole",
+vaikka asia korjattiin jo 27.9.2026 (commit `656c6e2`): `/yhteystiedot` ja
+`/tietosuoja` ohjaavat yhteydenottoon kirjeitse käyntiosoitteeseen, eivät
+enää olemattomalle odotuslistalle. BLOCKERS.md:n vastaava kohta oli
+samasta syystä vanhentunut.
+
+**Päätös:** merkitään PLAN.md:n kohta tehdyksi ja päivitetään BLOCKERS.md
+kertomaan, että kirjeosoite on sivuston nykyinen, toimiva yhteydenottotapa
+— ei väliaikaisratkaisu joka olisi korjattava ennen lanseerausta. Sähköposti
+(`tietosuoja@` tms.) jää yhä auki omana, ei-kiireellisenä kohtanaan, koska
+se vaatii Jukan päätöksen osoitteen alkuosasta ja MX/SPF/DKIM/DMARC-tietueet
+Vercelin DNS:ään. Koodissa ei muuttunut mitään — kyse oli vain
+dokumentaation jälkeenjääneisyydestä.
