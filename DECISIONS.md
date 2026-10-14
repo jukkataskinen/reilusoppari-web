@@ -339,3 +339,9 @@ kaksi eri sopimusta.
 Sivusto sai CI:n (lint, typecheck, test, build), jotta PR:llä on tarkistukset.
 **Perustelu:** push mainiin julkaisee sivuston, ja Jukka tarkistaa PR:t
 puhelimella. Automaattinen yhdistäminen tarvitsee vihreän CI:n.
+
+## 2026-10-14 — Riippuvuuden pääversio ei yhdisty automaattisesti
+
+**Päätös (Jukka 14.10.2026):** kun PR nostaa riippuvuuden pääversiota (0.x:ssä sivuversiota), `scripts/pr.mjs` ei kytke automaattista yhdistämistä, vaan antaa PR:lle tunnisteen `riippuvuus-major` ja kommentin. Jukka yhdistää sen itse tarkistettuaan sivuston esikatselussa. Tunnistus: `scripts/riippuvuudet.mjs` (sama kuin Reilusoppari-sovelluksessa), testit `tests/unit/riippuvuudet.test.ts`.
+**Perustelu:** eSinetin WeasyPrint 63 → 70 yhdistyi 8.10.2026 kuin pieni päivitys ja rikkoi logolliset sopimukset kuudeksi päiväksi. Pienet päivitykset yhdistyvät edelleen vihreällä CI:llä. Sivuston CI:ssä ei ole e2e-työtä; sen lisääminen on erillinen `.github/`-muutos, jos Jukka haluaa.
+
