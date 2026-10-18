@@ -9,6 +9,7 @@ Tämä on repon `reilusoppari-web` `CLAUDE.md`. Sivusto on Reilusoppari-palvelun
 - PR:n kuvaus on Jukalle, joka lukee sen puhelimella eikä ole koodari. Kirjoita arkikielellä kolme kohtaa: **Mitä muuttui** (kävijän näkökulmasta), **Miten tarkistat** (mitä Vercelin esikatselussa kannattaa katsoa), **Riskit** (koskeeko lomakkeita, sähköposteja tai henkilötietoja). Ei teknistä jargonia.
 - Muutokset kansioon `.github/`: lisää `--ei-automaattista`, jolloin Jukka hyväksyy ne itse.
 - Älä koskaan pushaa mainiin, älä yhdistä PR:iä itse äläkä muuta GitHubin asetuksia.
+- **Painikepalaute (Jukka 18.10.2026).** Jokainen painike näyttää heti painalluksen jälkeen, että työ on käynnissä: painike lukittuu (estää tuplapainalluksen), teksti vaihtuu muotoon "Tallennetaan…" / "Lähetetään…" tms. ja näkyy pyörivä ilmaisin, kunnes tulos (onnistui tai virhe) näkyy. Käytä yhteistä painikekomponenttia `Nappi` (`src/components/painike.tsx`; `kesken`-prop antaa tekstin, `kaynnissa` client-tilan), latauslinkeille `LataaLinkki`. Paljas `<button>` ei ole sallittu (testi `tests/unit/painikevahti.test.ts`); `type="button"` paikalliseen toimintoon on.
 
 ---
 

@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import { joinWaitlist } from "@/app/actions/waitlist";
 import { initialWaitlistState } from "@/lib/waitlist-state";
 import { asksApartments, parties, partyLabels, type Party } from "@/lib/waitlist-schema";
+import { Nappi } from "@/components/painike";
 
 /**
  * Odotuslistalomake (CLAUDE.md kohta 2). Asuntojen määrä kysytään vain
@@ -125,13 +126,13 @@ export function WaitlistForm({ defaultParty = "vuokranantaja" }: { defaultParty?
         </p>
       )}
 
-      <button
+      <Nappi
         type="submit"
         disabled={pending}
         className="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 font-medium text-paper transition-colors hover:bg-ink-strong disabled:opacity-60"
       >
         {pending ? "Lähetetään…" : "Liity odotuslistalle"}
-      </button>
+      </Nappi>
       <p className="text-xs text-ink/60">
         Lähetämme vahvistuslinkin sähköpostiisi. Tietoja ei jaeta kolmansille osapuolille.
       </p>
