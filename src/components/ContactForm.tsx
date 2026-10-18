@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import Script from "next/script";
 import { sendContactMessage } from "@/app/actions/contact";
 import { initialContactState } from "@/lib/contact-state";
+import { Nappi } from "@/components/painike";
 
 interface ContactFormProps {
   /** Palvelinpuolelta luettu TURNSTILE_SITE_KEY, ei NEXT_PUBLIC_-muuttuja
@@ -121,13 +122,13 @@ export function ContactForm({ turnstileSiteKey, nonce }: ContactFormProps) {
         </p>
       )}
 
-      <button
+      <Nappi
         type="submit"
         disabled={pending}
         className="mt-2 inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 font-medium text-paper transition-colors hover:bg-ink-strong disabled:opacity-60"
       >
         {pending ? "Lähetetään…" : "Lähetä viesti"}
-      </button>
+      </Nappi>
     </form>
   );
 }
