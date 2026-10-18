@@ -239,3 +239,31 @@ tarjoaa eri yhtiö, mutta vastuunjakoa niiden välillä ei ole kuvattu.
 **Teksti on juridista sisältöä eli Jukan vastuulla**, kuten muutkin
 selosteen ja ehtojen kohdat. Tämä on merkintä siitä, että kohta on nyt
 puutteellinen – ei ehdotus sanamuodoksi.
+
+## Yöajo 2026-10-18: ei tehtävissä olevaa tehtävää Vaihe D:ssä
+
+Käytiin läpi `PLAN.md`:n kaikki merkitsemättömät (`[ ]`) kohdat. Kaikki neljä
+ovat estyneitä eikä yksikään ole tehtävissä ilman Jukkaa tai sovelluksen
+olemassaoloa:
+
+- **Tietosuojaseloste ja käyttöehdot live-muotoon** — juridista sisältöä,
+  Jukan tarkistettava ja kirjoitettava (CLAUDE.md kohta 9.4, tämän tiedoston
+  kohta 4).
+- **`LAUNCH_MODE=live` Vercelissä** — nimenomaisesti Jukan tehtävä
+  (CLAUDE.md kohta 9.2, "Riippuvuus eSinettiin" yllä).
+- **Aidot kuvakaappaukset sovelluksesta** — sovellusta ei ole vielä olemassa.
+- **Suosittelupolku testattu päästä päähän** — suositteluedun *toteutus on
+  sovelluksessa*, ei tällä sivustolla (`content/pricing.ts`, CLAUDE.md kohta 2:
+  "Näytetään sivustolla, toteutus sovelluksessa"). Sivusto näyttää vain
+  suositteluetua kuvaavan tekstin (`TuoKaveri`-osio, `/hinnat`, UKK), joka on
+  jo tehty vaiheissa A/B. Polun päästä-päähän-testaus kuuluu sovellusrepoon,
+  ei tähän repoon — tätä kohtaa ei voi koskaan merkitä valmiiksi tästä
+  repositoriosta käsin.
+
+Terveystarkistus samalla: `npm run lint`, `npm run typecheck` ja
+`npm run test` (99 testiä) ovat vihreinä puhtaalta työpuulta, ei korjattavaa.
+
+Ei tehty PR:ää koodimuutoksille, koska mitään koodiin kajoavaa tekemistä ei
+ollut. Tämä rivi on dokumentaatio-PR, jotta seuraava yöajo ei käy samaa
+läpi uudestaan — tarkista jatkossa ensin, onko jokin näistä neljästä
+muuttunut (Jukan päätös, sovellus julkaistu) ennen kuin etsit uutta tehtävää.
