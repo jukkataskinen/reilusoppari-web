@@ -345,3 +345,13 @@ puhelimella. Automaattinen yhdistäminen tarvitsee vihreän CI:n.
 **Päätös (Jukka 14.10.2026):** kun PR nostaa riippuvuuden pääversiota (0.x:ssä sivuversiota), `scripts/pr.mjs` ei kytke automaattista yhdistämistä, vaan antaa PR:lle tunnisteen `riippuvuus-major` ja kommentin. Jukka yhdistää sen itse tarkistettuaan sivuston esikatselussa. Tunnistus: `scripts/riippuvuudet.mjs` (sama kuin Reilusoppari-sovelluksessa), testit `tests/unit/riippuvuudet.test.ts`.
 **Perustelu:** eSinetin WeasyPrint 63 → 70 yhdistyi 8.10.2026 kuin pieni päivitys ja rikkoi logolliset sopimukset kuudeksi päiväksi. Pienet päivitykset yhdistyvät edelleen vihreällä CI:llä. Sivuston CI:ssä ei ole e2e-työtä; sen lisääminen on erillinen `.github/`-muutos, jos Jukka haluaa.
 
+## 2026-10-25 — Juridiset tekstit: Claude laatii luonnokset, Jukka hyväksyy
+
+**Päätös (Jukka 25.10.2026):** Claude laatii tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset sekä
+blogin artikkelien 6 ja 7 luonnokset. Jukka hyväksyy ne ennen julkaisua, joten niiden PR:t avataan
+`--ei-automaattista`.
+**Perustelu:** tehtävät olivat jumissa, koska tekstit odottivat Jukan kirjoittamista. Luonnos nopeuttaa työtä, ja
+juridinen vastuu säilyy Jukalla, koska mikään teksti ei yhdisty ilman häntä.
+
+**Suosittelupolku sovellusrepoon (Jukka 25.10.2026):** päästä päähän -testi siirrettiin reilusoppari-sovelluksen
+PLANiin, koska suositteluedun toteutus on sovelluksessa eikä sivustolla.

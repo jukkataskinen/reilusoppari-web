@@ -51,6 +51,9 @@ Seuraava ympäristötehtävä on vasta lanseerauksessa: `LAUNCH_MODE=live` ja
 
 ### 4. Tietosuoja ja käyttöehdot — JUKAN LUETTAVA (CLAUDE.md kohta 9.4)
 
+**Päivitys 25.10.2026 (Jukka):** Claude laatii live-muotoiset luonnokset (PLAN vaihe D), ja Jukka hyväksyy ne
+ennen julkaisua. PR:t ilman automaattista yhdistämistä.
+
 `/tietosuoja` ja `/kayttoehdot` ovat pohjia. Kolme kohtaa vaativat erityistä
 huolellisuutta, koska palvelu myydään kuluttajalle: peruutusoikeus (KSL 6 luku,
 etämyynti), kuvat kodista ja todistuksen omistajuus. Juristin tarkistusta on
@@ -60,6 +63,9 @@ Huom: tietosuojaselosteen odotuslistaosuus koskee käsittelyä, joka on TOTTA JO
 NYT — se ei voi odottaa lanseeraukseen asti.
 
 ### 5. Blogin verotusartikkelit — JUKAN KIRJOITETTAVA (CLAUDE.md kohta 9.5)
+
+**Päivitys 25.10.2026 (Jukka):** Claude kirjoittaa artikkelien 6 ja 7 luonnokset (PLAN vaihe C), ja Jukka
+tarkistaa ja hyväksyy ne ennen julkaisua. PR:t ilman automaattista yhdistämistä.
 
 Kymmenestä artikkelista **kahdeksan on kirjoitettu ja julkaistu**. Jäljellä ovat
 artikkelit 6 (vuokratulon verotus) ja 7 (vähennykset), jotka Jukka kirjoittaa
@@ -241,6 +247,9 @@ selosteen ja ehtojen kohdat. Tämä on merkintä siitä, että kohta on nyt
 puutteellinen – ei ehdotus sanamuodoksi.
 
 ## Yöajo 2026-10-18: ei tehtävissä olevaa tehtävää Vaihe D:ssä
+
+**Päivitys 25.10.2026:** tilanne muuttui Jukan päätöksillä. Tietosuojan ja käyttöehtojen luonnokset sekä
+artikkelien 6 ja 7 luonnokset ovat nyt yöajon tehtäviä (PLAN), ja suosittelupolku siirtyi sovellusrepoon.
 
 Käytiin läpi `PLAN.md`:n kaikki merkitsemättömät (`[ ]`) kohdat. Kaikki neljä
 ovat estyneitä eikä yksikään ole tehtävissä ilman Jukkaa tai sovelluksen
