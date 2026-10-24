@@ -73,6 +73,15 @@ Ne eivät ole rekisterissä eivätkä siis näy sivustolla. Julkaisu on kolme ko
 (900–1400 sanaa), description-mitan, sisäiset linkit ja sen, että frontmatter
 vastaa rekisteriä.
 
+- [ ] **Artikkelien 6 ja 7 luonnokset** (Jukka 25.10.2026: Claude kirjoittaa luonnokset, Jukka hyväksyy ennen
+      julkaisua). Kirjoita sisältö tiedostoihin `LUONNOS-vuokratulon-verotus-2026.mdx` ja
+      `LUONNOS-vuokranantajan-matkakulut.mdx` CLAUDE.md kohdan 6 aiheista. Säännöt: 900–1400 sanaa,
+      lakiviittaukset nimellä (tuloverolaki, Verohallinnon ohjeet), ei keksittyjä lukuja; jokainen luku ja
+      verosääntö Verohallinnon julkisesta lähteestä, lähde ja hakupäivä artikkeliin. Luonnokset **jäävät pois
+      rekisteristä** (`LUONNOS-`-etuliite pysyy), joten ne eivät näy sivustolla. Oma PR `--ei-automaattista`:
+      **automaattinen yhdistäminen pois**, Jukka lukee ja hyväksyy. Julkaisu (kolme kohtaa yllä) vasta Jukan
+      hyväksynnän jälkeen omana PR:nä.
+
 **Päivämäärät:** kaikki artikkelit on päivätty 2026-09-10, koska ne on
 kirjoitettu samana päivänä eikä sivustoa ole julkaistu. Aseta todelliset
 julkaisupäivät, kun sivusto avataan.
@@ -88,9 +97,17 @@ julkaisupäivät, kun sivusto avataan.
 - [x] Luonnos: eSinetti (Adepta Oy) käsittelijänä tietosuojaselosteessa ja
       vastuunjako käyttöehtojen kohdassa 5 (2026-09-26) — **Jukka tarkistaa
       ennen mergeä**, ks. BLOCKERS.md
-- [ ] Tietosuojaseloste ja käyttöehdot live-muotoon ennen `LAUNCH_MODE=live`:
-      "avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
-      ovat julkaisua edeltävää tekstiä (Jukan juridista sisältöä)
+- [ ] **Tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset** (Jukka 25.10.2026: Claude laatii,
+      Jukka hyväksyy ennen julkaisua). "Avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
+      ovat julkaisua edeltävää tekstiä. Tee:
+      1) Luonnos live-tilan tekstistä sivuille `/tietosuoja` ja `/kayttoehdot` niin, että nykyinen teksti näkyy
+         ennallaan, kunnes `LAUNCH_MODE=live` (live-teksti vain live-tilassa, yksikkötesti kummallekin tilalle).
+      2) Pohjana sovelluksen nykyinen toiminta ja sen repon luonnos `docs/luonnos-tietosuoja-ja-kayttoehdot.md`
+         (reilusoppari-repo): eSinetti käsittelijänä, kuitin käsittely, viennin peitetty henkilötunnus,
+         peruutusoikeus (KSL 6 luku), kuvat kodista ja todistuksen omistajuus. Ei keksittyjä tietoja: avoimet
+         kohdat hakasulkeisiin ja PR-kuvaukseen kysymyksiksi Jukalle.
+      3) Oma PR `node scripts/pr.mjs ... --ei-automaattista`: **automaattinen yhdistäminen pois**, Jukka hyväksyy
+         juridiset tekstit itse. PR-kuvaukseen lista muuttuneista kohdista arkikielellä.
 - [x] Yhteydenottotapa (2026-10-07): `/yhteystiedot` sai toimivan
       yhteydenottolomakkeen (nimi, sähköposti, viesti + honeypot + Turnstile-runko),
       samalla rakenteella kuin esinetti-webin lomake. Korvaa vanhan tekstin, joka
@@ -99,7 +116,8 @@ julkaisupäivät, kun sivusto avataan.
       BLOCKERS.md.
 - [ ] `LAUNCH_MODE=live` Vercelissä (Jukka)
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)
-- [ ] Suosittelupolku testattu päästä päähän
+- [~] Suosittelupolku testattu päästä päähän: **siirretty reilusoppari-sovelluksen PLANiin** (Jukka 25.10.2026),
+      koska suositteluedun toteutus on sovelluksessa. Tässä repossa ei tehtävää.
 
 ---
 
