@@ -1,6 +1,6 @@
 ---
 title: "Vuokratulon verotus 2026: vastikkeet, korjaukset ja se kuuluisa rahoitusvastike"
-description: "TÄYTÄ TÄMÄ – alle 155 merkkiä."
+description: "Mikä vuokratulosta on veronalaista, miten hoito- ja rahoitusvastike vähennetään ja miksi tuloutettu ja rahastoitu eroavat verotuksessa."
 date: "2026-09-10"
 tags: ["Verotus", "Vuokranantajat"]
 ---
@@ -8,39 +8,85 @@ tags: ["Verotus", "Vuokranantajat"]
 {/*
   LUONNOS – EI JULKAISTA VIELÄ.
 
-  Tämä on CLAUDE.md kohdan 6 artikkeli 6. Kohdan 9.5 mukaan Jukka kirjoittaa
-  tai tarkistaa verotusartikkelit itse, koska ne ovat sivuston uskottavuuden
-  ydin. Tiedosto EI ole rekisterissä, joten se ei näy sivustolla.
+  Sisältö kirjoitettu yöajolla 2026-10-25 (PLAN.md Vaihe C, Jukan päätös
+  25.10.2026: Claude kirjoittaa luonnoksen, Jukka tarkistaa ja hyväksyy ennen
+  julkaisua). Tiedosto EI ole rekisterissä, joten se ei näy sivustolla.
 
-  Julkaisu on kolme kohtaa:
-   1. kirjoita sisältö ja nimeä tiedosto uudelleen ilman LUONNOS-etuliitettä
+  Julkaisu Jukan hyväksynnän jälkeen on kolme kohtaa:
+   1. poista LUONNOS-etuliite tiedostonimestä
    2. lisää slug src/lib/blog/registry.ts:n POST_ORDER- ja POST_FRONTMATTER-
       rakenteisiin (frontmatterin on vastattava täsmälleen – testi tarkistaa)
    3. lisää staattinen import ja rivi CONTENT_BY_SLUG:iin src/lib/blog/posts.ts
 
-  Vaatimukset (CLAUDE.md kohta 6, testit tarkistavat):
-   - 900-1400 sanaa, UKK-osio mukaan laskettuna
-   - description alle 155 merkkia
-   - sisainen linkki /verolaskelma-sivulle JA linkki (/hinnat)
-   - Lyhyesti-laatikko alussa, UKK-komponentti lopussa
-   - ei keksittyja lukuja; lakiviittaukset nimella
-
-  Runko, jonka voit tayttaa:
-   - Mika on veronalaista vuokratuloa
-   - Vahennyskelpoiset kulut: hoitovastike
-   - Rahoitusvastike: tuloutettu vs. rahastoitu, ja miksi ero ratkaisee
-   - Vuosikorjaus vs. perusparannus
-   - Kalusteet ja poistot
-   - Milloin kulun saa vahentaa: maksuperuste
-   - Mihin OmaVeron kenttiin mikakin menee
+  Lähteet (haettu 2026-10-24, WebSearch – ei suoraa pääsyä vero.fi:hin tästä
+  ympäristöstä, ks. DECISIONS.md): Verohallinnon ohjeet "Vuokratulojen
+  verotus" ja "Vuokratulot – vähennykset" (vero.fi/henkiloasiakkaat/omaisuus/
+  vuokratulot/), tuloverolaki (1535/1992) 32 §, 54 § ja 124 §. Pääomatulo-
+  veroprosentit (30 % / 34 %, raja 30 000 €) ovat olleet voimassa vuodesta
+  2016 eikä mikään lähde viittaa muutokseen vuodelle 2026 – tarkista silti
+  ennen julkaisua, ettei tuloverolakia ole muutettu tältä osin.
 */}
 
 <Lyhyesti>
-TÄYTÄ TÄMÄ.
+Vuokratulo on kokonaisuudessaan veronalaista pääomatuloa, vaikka kulut söisivät siitä suurimman osan. Hoitovastike vähenee aina, mutta rahoitusvastikkeen saa vähentää vain, jos taloyhtiö on tulouttanut sen – rahastoitu rahoitusvastike lisätään sen sijaan asunnon hankintahintaan. Vuosikorjaus vähenee kerralla, perusparannus poistoina usean vuoden aikana. Pääomatulosta maksetaan veroa 30 % 30 000 euroon asti ja siitä ylöspäin 34 %.
 </Lyhyesti>
+
+Vuokratulon verotus ei ole vaikeaa, mutta se on täynnä kohtia, joissa samannäköinen asia käsitellään eri tavalla. Hoitovastike ja rahoitusvastike näyttävät isännöitsijäntodistuksessa samalta rivi­parilta, mutta verotuksessa ne voivat olla täysin eri asioita. Sama koskee korjauksia: kaksi remonttia voi näyttää ulospäin samalta, ja silti yksi vähenee kokonaan tänä vuonna ja toinen pikkuhiljaa kymmenen vuoden aikana.
+
+## Mikä vuokratulosta on veronalaista
+
+Koko vuokratulo on veronalaista pääomatuloa (tuloverolaki 32 §), ja siitä saa vähentää tulonhankkimismenot (tuloverolaki 54 §). Bruttovuokra ilmoitetaan aina – myös niissä kuukausina, jolloin kulut ovat suuremmat kuin vuokra, ja myös silloin, kun koko vuokratulo menee käytännössä kuluihin. Vuokratulo ja siihen kohdistuvat kulut merkitään OmaVeroon kohtaan "Pääomatulot – Vuokratulot", tai paperilla lomakkeelle 7H (huoneisto taloyhtiössä), 7K (kiinteistö) tai 7L (muu, esim. pelto).
+
+## Pääomatulosta 30 % tai 34 %
+
+Pääomatuloveroprosentti on 30 % 30 000 euroon asti; ylimenevästä osasta vero on 34 % (tuloverolaki 124 §). Rajaa sovelletaan kaikkiin pääomatuloihin yhteensä, ei erikseen vuokratuloon – jos sinulla on myös esimerkiksi osinkotuloa tai luovutusvoittoja, ne lasketaan samaan 30 000 euron rajaan mukaan.
+
+## Hoitovastike vähenee, rahoitusvastike riippuu tulouttamisesta
+
+Hoitovastike on vähennyskelpoinen tulonhankkimismeno aina, siltä osin kuin asunto on vuokrattuna.
+
+Rahoitusvastike (pääomavastike) on sen sijaan kahden kerroksen asia:
+
+- Jos taloyhtiö **tulouttaa** rahoitusvastikkeen kirjanpidossaan, se käsitellään samalla tavalla kuin hoitovastike: vähennyskelpoinen sinä vuonna, jona se on maksettu.
+- Jos taloyhtiö **rahastoi** rahoitusvastikkeen, kyse on pääomansijoituksesta yhtiöön. Sitä ei vähennetä vuosittaisesta vuokratulosta, vaan se lisätään asunnon hankintahintaan ja vaikuttaa vasta siinä vaiheessa, kun asunto joskus myydään.
+
+Kumpi tapa on kyseessä, selviää isännöitsijäntodistuksesta tai suoraan isännöitsijältä. Tätä kannattaa kysyä kerran ja kirjata ylös – sama vastaustieto on voimassa niin pitkään kuin taloyhtiön käytäntö pysyy samana.
+
+## Vuosikorjaus vähenee heti, perusparannus poistoina
+
+Ero näiden kahden välillä ratkaisee, saako kulun vähentää kerralla vai vuosien mittaan.
+
+**Vuosikorjaus** tarkoittaa, että asunto palautetaan vastaamaan sitä kuntoa, joka sillä on aiemmin ollut – esimerkiksi keittiön kaapistot, lattiapinnoite tai ikkunat uusitaan vastaavantasoisiksi, tai asunto maalataan. Vuosikorjauksen kustannukset saa vähentää kokonaan sen vuoden tulosta, jona ne on maksettu.
+
+**Perusparannus** tarkoittaa asunnon laajentamista, muuttamista tai sen tason parantamista alkuperäisestä – esimerkiksi kylmiön muuttaminen saunaksi tai talon varustetason nostaminen. Perusparannuksen kustannuksia ei saa vähentää kerralla: osakehuoneistossa ne vähennetään tasapoistoina **kymmenen verovuoden aikana**, jos toimenpiteen vaikutusaika on yli kymmenen vuotta.
+
+Yksi remontti voi sisältää molempia: jos kylpyhuone uusitaan vastaavantasoiseksi mutta samalla asennetaan esimerkiksi aiemmin puuttunut lattialämmitys, kustannukset jaetaan vuosikorjaus- ja perusparannusosuuteen sen mukaan, mitä kumpikin osa todellisuudessa on. Jako ei ole aina yksiselitteinen, ja isommissa remonteissa kannattaa pyytää erittely urakoitsijalta jo laskutusvaiheessa – jälkikäteen jakaminen on työläämpää.
+
+Ennen ensimmäistä vuokrausta tehdyt korjaukset eivät ole vuosikorjausta eivätkä suoraan vähennyskelpoisia, vaan ne lisätään asunnon hankintahintaan.
+
+## Kalusteet ja irtaimisto: poistoina, ei kerralla
+
+Kalustetun vuokra-asunnon kalusteet ja muu irtaimisto vähennetään pääsääntöisesti poistoina, jos niiden taloudellinen käyttöaika on yli kolme vuotta: enintään **25 % jäljellä olevasta menojäännöksestä vuodessa**. Jos kalusteiden ja irtaimiston yhteenlaskettu menojäännös verovuoden alussa on enintään **1 200 euroa**, koko määrän saa vähentää kerralla sen vuoden kuluna.
+
+Poistoja varten on pidettävä luetteloa hankituista kalusteista ja niiden menojäännöksestä – tämä on sama tieto, joka kannattaa kirjata talteen heti hankintahetkellä, ei keväällä muistin varassa.
+
+## Maksuperuste: milloin kulun saa vähentää
+
+Kulu vähennetään sen vuoden verotuksessa, jona se on **maksettu** – ei siltä vuodelta, jota lasku koskee. Joulukuussa maksettu tammikuun vesimaksu on siis edellisen vuoden kulu, ei seuraavan. Sama periaate koskee tuloja: vuokra on sen kuukauden tuloa, jona se on maksettu vuokranantajalle, ei sitä kuukautta, jolta se on sovittu.
+
+## Yksi paikka koko kauden kirjauksille
+
+Suurin osa verotuksen harmista ei syynny siitä, että säännöt olisivat vaikeita, vaan siitä, että tiedot ovat hajallaan: kuitti yhdessä sähköpostissa, isännöitsijäntodistus toisessa, matkapäiväkirja ei missään. Kun hoitovastike, rahoitusvastike, korjaukset, kalusteet ja vuokratulot kirjataan samaan paikkaan sitä mukaa kun niitä syntyy, [verolaskelma](/verolaskelma) on keväällä valmis eritellyksi yhteenvedoksi OmaVeron kenttien mukaan – ei veroilmoitus puolestasi, vaan pohja, jolta sen voi tehdä nopeasti ja tarkistetusti.
+
+Verolaskelma on osa Plus-ominaisuuksia; [hinnat](/hinnat) kertovat, mitä se maksaa ja mitä perussopimus sisältää ilman sitä.
 
 ## Usein kysytyt kysymykset
 
 <UKK items={[
-  { question: "TÄYTÄ", answer: "TÄYTÄ" }
+  { question: "Pitääkö vuokratulo ilmoittaa, jos kulut ovat suuremmat kuin vuokra?", answer: "Kyllä. Koko bruttovuokra on veronalaista pääomatuloa, ja se ilmoitetaan aina – kulut vähennetään erikseen omana rivinään, eikä niitä saa netottaa pois ilmoittamatta vuokratuloa." },
+  { question: "Mistä tiedän, kuuluuko rahoitusvastike vähennykseen?", answer: "Kysy isännöitsijältä tai tarkista isännöitsijäntodistuksesta, tulouttaako taloyhtiö rahoitusvastikkeen vai rahastoiko se sen. Tuloutettu rahoitusvastike vähenee kuten hoitovastike; rahastoitu lisätään asunnon hankintahintaan." },
+  { question: "Onko keittiön uusiminen vuosikorjaus vai perusparannus?", answer: "Jos keittiö uusitaan vastaavantasoiseksi kuin se oli, kyse on vuosikorjauksesta ja kulut vähenevät kerralla. Jos samalla nostetaan tasoa alkuperäisestä (esimerkiksi lisätään kodinkoneita, joita ei aiemmin ollut), osa kustannuksista on perusparannusta ja vähenee poistoina kymmenen vuoden aikana." },
+  { question: "Saako kalusteen vähentää kerralla, jos se maksoi vähän?", answer: "Jos kaikkien kalusteiden ja irtaimiston yhteenlaskettu menojäännös verovuoden alussa on enintään 1 200 euroa, koko määrän saa vähentää kerralla. Suuremmat määrät vähennetään poistoina, enintään 25 % menojäännöksestä vuodessa." },
+  { question: "Minä vuonna remontin kustannus vähennetään?", answer: "Maksuperusteen mukaan: sen vuoden verotuksessa, jona lasku on maksettu, ei sen vuoden, jota remontti koskee tai jolloin työ tehtiin." },
+  { question: "Mihin vuokratulo ja kulut merkitään veroilmoituksessa?", answer: "OmaVerossa kohtaan \"Pääomatulot – Vuokratulot\". Paperilomakkeista käytetään 7H-lomaketta taloyhtiön huoneistolle, 7K-lomaketta kiinteistölle ja 7L-lomaketta muulle vuokratulle omaisuudelle." }
 ]} />

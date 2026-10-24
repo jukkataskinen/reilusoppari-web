@@ -4,6 +4,47 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## Artikkelien 6 ja 7 luonnokset kirjoitettu (2026-10-25, yötyö)
+
+**Tausta:** PLAN.md Vaihe C ja Jukan päätös 25.10.2026: Claude kirjoittaa
+artikkelien 6 (vuokratulon verotus) ja 7 (matkakulut ja muut vähennykset)
+luonnokset, Jukka tarkistaa ja hyväksyy ennen julkaisua.
+
+**Tehty:** Molemmat `LUONNOS-`-tiedostot (`content/blogi/
+LUONNOS-vuokratulon-verotus-2026.mdx` ja `LUONNOS-vuokranantajan-
+matkakulut.mdx`) täytettiin kokonaisella sisällöllä (1035 ja 987 sanaa,
+molemmat 900–1400 sanan vaatimuksen sisällä UKK mukaan laskettuna).
+Tiedostot pysyvät tarkoituksella rekisterin (`src/lib/blog/registry.ts`)
+ulkopuolella, eivätkä siis näy sivustolla – julkaisu on oma, myöhempi askel
+Jukan hyväksynnän jälkeen (ohje tiedostojen alussa, PLAN.md Vaihe C).
+
+**Lähteet ja niiden luotettavuus:** Tämän istunnon verkkoyhteys ei päässe
+suoraan `vero.fi`-osoitteisiin (sekä `curl` että `WebFetch` saivat
+"connect_rejected" -virheen), joten faktat on kerätty `WebSearch`-työkalun
+hakuotteista, ei suoralla sivulta lukemisella. Vahvimmat ja suoraan
+käytetyt: pääomatuloveroprosentit 30 %/34 % 30 000 euron rajalla
+(tuloverolaki 124 §, voimassa vuodesta 2016), hoitovastike/rahoitusvastike
+tuloutettu-vs.-rahastoitu-sääntö, vuosikorjaus vs. perusparannus
+(osakehuoneistossa 10 vuoden tasapoisto), kalusteiden poisto (25 %
+menojäännöksestä/vuosi, 1 200 euron kertavähennysraja), lomakkeet 7H/7K/7L,
+ja vuokranvälityspalkkio + puhelinkulut esimerkkinä tulonhankkimismenosta.
+
+**Kaksi kohtaa jätetty tarkoituksella auki (merkitty artikkeli 7:n
+MDX-kommenttiin ja alla), koska hakutulokset eivät riittäneet varmistamaan
+lukua luotettavasti eikä keksittyä lukua haluttu kirjoittaa:**
+
+1. Oman auton kilometrikorvauksen tarkka €/km-arvo tulonhankkimismenona
+   vuodelle 2026 (eri luku kuin työnantajan verovapaa kilometrikorvaus).
+   Artikkeli ohjaa lukijan tarkistamaan ajantasaisen arvon vero.fi:stä sen
+   sijaan, että siinä lukisi tarkka euromäärä.
+2. Työhuonevähennyksen soveltuminen ja euromäärä pääomatulon (vuokraus-
+   toiminnan) kohdalla – hakutulokset olivat ristiriitaisia sen suhteen,
+   koskeeko kaavamainen työhuonevähennys ylipäätään pääomatuloa.
+   Artikkeli kirjoitettu yleisellä tasolla ilman euromäärää.
+
+Jukka voi täydentää nämä kaksi kohtaa tarkistaessaan luonnoksia, tai jättää
+ne yleisluontoisiksi julkaisuun asti.
+
 ## Yhteydenottolomake korvasi "liity odotuslistalle" -tekstin (2026-10-07, yötyö)
 
 **Tausta:** BLOCKERS.md:n mukaan `/yhteystiedot` neuvoi ottamaan yhteyttä

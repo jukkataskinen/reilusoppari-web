@@ -1,6 +1,6 @@
 ---
 title: "Vuokranantajan matkakulut ja muut vähennykset, jotka jäävät usein tekemättä"
-description: "TÄYTÄ TÄMÄ – alle 155 merkkiä."
+description: "Mitkä matkat, välityspalkkiot ja puhelinkulut saa vähentää vuokratulosta, ja miksi kirjaamaton kulu on käytännössä vähentämätön."
 date: "2026-09-10"
 tags: ["Verotus", "Vuokranantajat"]
 ---
@@ -8,39 +8,90 @@ tags: ["Verotus", "Vuokranantajat"]
 {/*
   LUONNOS – EI JULKAISTA VIELÄ.
 
-  Tämä on CLAUDE.md kohdan 6 artikkeli 7. Kohdan 9.5 mukaan Jukka kirjoittaa
-  tai tarkistaa verotusartikkelit itse, koska ne ovat sivuston uskottavuuden
-  ydin. Tiedosto EI ole rekisterissä, joten se ei näy sivustolla.
+  Sisältö kirjoitettu yöajolla 2026-10-25 (PLAN.md Vaihe C, Jukan päätös
+  25.10.2026: Claude kirjoittaa luonnoksen, Jukka tarkistaa ja hyväksyy ennen
+  julkaisua). Tiedosto EI ole rekisterissä, joten se ei näy sivustolla.
 
-  Julkaisu on kolme kohtaa:
-   1. kirjoita sisältö ja nimeä tiedosto uudelleen ilman LUONNOS-etuliitettä
+  Julkaisu Jukan hyväksynnän jälkeen on kolme kohtaa:
+   1. poista LUONNOS-etuliite tiedostonimestä
    2. lisää slug src/lib/blog/registry.ts:n POST_ORDER- ja POST_FRONTMATTER-
       rakenteisiin (frontmatterin on vastattava täsmälleen – testi tarkistaa)
    3. lisää staattinen import ja rivi CONTENT_BY_SLUG:iin src/lib/blog/posts.ts
 
-  Vaatimukset (CLAUDE.md kohta 6, testit tarkistavat):
-   - 900-1400 sanaa, UKK-osio mukaan laskettuna
-   - description alle 155 merkkia
-   - sisainen linkki /verolaskelma-sivulle JA linkki (/hinnat)
-   - Lyhyesti-laatikko alussa, UKK-komponentti lopussa
-   - ei keksittyja lukuja; lakiviittaukset nimella
+  Lähteet (haettu 2026-10-24, WebSearch – ei suoraa pääsyä vero.fi:hin tästä
+  ympäristöstä, ks. DECISIONS.md): Verohallinnon ohjeet matkakuluista
+  tulonhankkimismenona (vero.fi/henkiloasiakkaat/vahennykset/matkakulut/) ja
+  "Tulonhankkimiskulut" / kannanotto vuokranvälityspalkkiosta ja puhelin-
+  kuluista tulonhankkimismenona, tuloverolaki (1535/1992) 54 §.
 
-  Runko, jonka voit tayttaa:
-   - Matkat asunnolle: milloin vahennyskelpoisia ja milla perusteella
-   - Kilometrikorvaus vs. todelliset kulut
-   - Mita matkasta pitaa kirjata: paiva, kohde, syy, kilometrit
-   - Valityspalkkiot ja ilmoituskulut
-   - Tyohuonevahennys ja sen edellytykset
-   - Puhelin- ja tietoliikennekulut
-   - Miksi kirjaamaton kulu on kaytannossa vahentamaton
+  KAKSI AVOINTA KOHTAA JUKALLE (ei vahvistettu riittävän luotettavasti haun
+  kautta, ei haluttu kirjoittaa auki keksittyä lukua):
+   1. Oman auton kilometrikorvauksen tarkka euromäärä/km tulonhankkimis-
+      menona vuodelle 2026 (HUOM: eri luku kuin työnantajan verovapaa
+      kilometrikorvaus). Vuoden 2025 luku löytyi hakujen perusteella
+      (0,27 €/km), mutta en voinut vahvistaa sitä suoraan vero.fi:stä eikä
+      vuoden 2026 lukua löytynyt luotettavasti. Artikkelissa jätetty tarkka
+      luku pois ja ohjattu lukija tarkistamaan ajantasainen arvo vero.fi:stä.
+   2. Työhuonevähennyksen soveltuminen ja euromäärä pääomatulosta (vuokraus-
+      toiminnan hoitaminen kotona). Hakutulokset olivat ristiriitaisia sen
+      suhteen, koskeeko kaavamainen työhuonevähennys ylipäätään pääomatuloa
+      vai vain palkka-/ansiotuloa. Artikkelissa kirjoitettu varovaisesti
+      yleisellä tasolla ilman euromäärää – Jukka tarkistaa vero.fi:stä ennen
+      julkaisua, soveltuuko tämä vähennys käytännössä kenellekään lukijalle.
 */}
 
 <Lyhyesti>
-TÄYTÄ TÄMÄ.
+Vuokra-asunnolla käynnin matkakulut ovat vähennyskelpoisia tulonhankkimismenoja, kunhan matkasta jää muistiin päivä, kohde, syy ja kilometrit. Myös vuokranvälityspalkkio, ilmoituskulut ja vuokraustoimintaan liittyvät puhelinkulut saa vähentää. Yhteistä kaikille: jos kulua ei ole kirjattu eikä sitä pystytä näyttämään toteen, se on käytännössä vähentämätön, vaikka se olisi aito ja oikea.
 </Lyhyesti>
+
+Suurin osa vuokranantajista osaa vähentää hoitovastikkeen ja ison remontin. Pienemmät, toistuvat kulut jäävät sen sijaan usein kokonaan vähentämättä, koska niitä ei ole kirjattu mihinkään sillä hetkellä, kun ne syntyivät. Yksittäinen matka asunnolle tai yksi puhelinlasku ei tunnu isolta rahalta – mutta vuoden mittaan niitä kertyy, ja verotuksessa ratkaisee aina se, pystytkö näyttämään kulun toteen.
+
+## Matkat vuokra-asunnolle ovat vähennyskelpoisia
+
+Jos käyt vuokra-asunnollasi esimerkiksi katselmuksen, vikailmoituksen tai huoltotoimen takia, matkasta aiheutuneet kulut ovat tulonhankkimismenoja ja vähennyskelpoisia pääomatulosta. Tämä koskee niin omalla autolla kuin julkisella kulkuvälineellä tehtyjä matkoja – kummassakin tapauksessa vähennys lasketaan todellisten kustannusten perusteella.
+
+Julkisella kulkuvälineellä tehdystä matkasta kulu on yksinkertainen: se on matkalipun hinta. Omalla autolla tehdyn matkan kustannus lasketaan Verohallinnon vuosittain vahvistaman kilometrikohtaisen arvon mukaan – **tämä on eri luku kuin työnantajan maksama verovapaa kilometrikorvaus**, ja se kannattaa tarkistaa ajantasaisena vero.fi:stä ennen veroilmoituksen tekemistä, koska arvo vahvistetaan ja voi muuttua vuosittain.
+
+## Mitä matkasta kannattaa kirjata
+
+Vähennyksen perusteeksi ei riitä muistikuva siitä, että asunnolla "käytiin jokunen kerta". Jokaisesta matkasta kannattaa kirjata ylös:
+
+- **päivämäärä**
+- **kohde** (minkä asunnon luo matka tehtiin)
+- **syy** (katselmus, huolto, avainten vaihto, näyttö uudelle vuokralaiselle)
+- **kilometrit** tai matkalipun hinta
+
+Kun tämä kirjataan samalla kertaa kun matka tehdään, keväällä ei tarvitse yrittää muistella, montako kertaa asunnolla oikeasti käytiin ja minkä takia. Hajanaisista muistiinpanoista koottu arvio on juuri sitä, mitä verotuksessa ei hyväksytä toteen näytetyksi kuluksi.
+
+## Välityspalkkiot ja ilmoituskulut
+
+Vuokranvälityspalkkio ja vuokralaisen hankkimisesta aiheutuneet ilmoituskulut ovat tulonhankkimismenoja ja vähennyskelpoisia samalla tavalla kuin muutkin vuokratulon hankkimiseen liittyvät kulut. Tämä koskee myös lyhytaikaisvuokrauksen alustoilta perittäviä palvelumaksuja. Edellytyksenä on, että kulu liittyy nimenomaan vuokraustoimintaan – esimerkiksi vuokrausilmoitus tai välityssopimus osoittaa tämän tarvittaessa.
+
+## Työhuonevähennys koskee harvaa vuokranantajaa
+
+Kaavamainen työhuonevähennys on olemassa tilanteisiin, joissa tulonhankkimistoimintaa – myös pääomatulon hankkimista, kuten sijoitustoiminnan hoitamista – tehdään säännöllisesti kotona erillisessä työtilassa. Käytännössä harva yksittäisiä vuokra-asuntoja omistava vuokranantaja täyttää tämän kynnyksen: muutaman asunnon hallinnointi puhelimitse ja sähköpostitse ei vielä tarkoita, että kotona olisi tulonhankkimiskäytössä oleva työhuone siinä merkityksessä, jota vähennys edellyttää. Jos vuokraustoiminta on laajaa ja sen hoitaminen vaatii aidosti erillisen, säännöllisessä käytössä olevan työtilan, kannattaa tarkistaa vero.fi:stä ajantasaiset edellytykset ja euromäärät ennen vähennyksen tekemistä.
+
+## Puhelin- ja tietoliikennekulut
+
+Vuokraustoimintaan liittyvät puhelinkulut ovat vähennyskelpoisia siltä osin kuin ne todellisuudessa liittyvät vuokra-asunnon hoitamiseen – esimerkiksi yhteydenpitoon vuokralaisten, isännöitsijän tai huoltoyhtiön kanssa. Jos puhelinta käytetään myös muuhun, vähennyskelpoinen on vain vuokraustoimintaan kohdistuva, perusteltu osuus kokonaiskustannuksesta.
+
+## Miksi kirjaamaton kulu on käytännössä vähentämätön
+
+Verotuksessa näyttövelvollisuus kulun aitoudesta ja määrästä on vähennystä vaativalla. Aito ja oikea kulu, jota ei pystytä osoittamaan – ei kuitilla, ei matkamerkinnällä, ei muulla selvityksellä – jää käytännössä vähentämättä, jos Verohallinto kysyy sitä. Tästä syystä kannattaa kirjata kulu ylös sillä hetkellä kun se syntyy, ei sillä hetkellä kun veroilmoitus tehdään.
+
+## Kun kaikki on yhdessä paikassa
+
+Matkat, välityspalkkiot ja puhelinkulut ovat juuri niitä pieniä, toistuvia kirjauksia, jotka unohtuvat helpoimmin. Kun ne merkitään talteen pitkin vuotta samaan paikkaan kuin hoitovastike ja korjaukset, [verolaskelma](/verolaskelma) kokoaa ne keväällä yhteen OmaVeron kenttien mukaiseksi yhteenvedoksi – silloin ei tarvitse luottaa siihen, että kenkälaatikon pohjalta löytyy tammikuussa unohtunut kuitti.
+
+Verolaskelma on osa Plus-ominaisuuksia; [hinnat](/hinnat) kertovat, mitä se maksaa.
 
 ## Usein kysytyt kysymykset
 
 <UKK items={[
-  { question: "TÄYTÄ", answer: "TÄYTÄ" }
+  { question: "Voiko matkan vuokra-asunnolle vähentää, jos käy siellä vain muutaman kerran vuodessa?", answer: "Kyllä. Vähennys ei edellytä säännöllisiä käyntejä, vaan sitä, että matka on tehty vuokratulon hankkimiseksi – esimerkiksi katselmuksen, huollon tai avainten vaihdon takia – ja että matkasta on kirjattu päivämäärä, kohde, syy ja kilometrit tai matkalipun hinta." },
+  { question: "Onko oman auton kilometrikorvaus sama kuin työnantajan maksama verovapaa kilometrikorvaus?", answer: "Ei. Vuokratulon hankkimismenona vähennettävä kilometrikohtainen arvo on eri luku kuin työnantajan työmatkoista maksama verovapaa korvaus. Tarkista ajantasainen arvo vero.fi:stä ennen veroilmoituksen tekemistä." },
+  { question: "Saako vuokranvälityspalkkion vähentää?", answer: "Kyllä, vuokranvälityspalkkio ja vuokralaisen hankkimisesta aiheutuneet ilmoituskulut ovat tulonhankkimismenoja. Tämä koskee myös lyhytaikaisvuokrauksen alustojen palvelumaksuja." },
+  { question: "Voiko vuokranantaja vähentää työhuonevähennyksen?", answer: "Harvoin yksittäisten asuntojen kohdalla. Kaavamainen työhuonevähennys edellyttää säännöllisessä käytössä olevaa erillistä työtilaa tulonhankkimistoimintaa varten – muutaman asunnon hallinnointi puhelimitse ja sähköpostitse ei tyypillisesti täytä tätä kynnystä. Tarkista edellytykset vero.fi:stä, jos vuokraustoiminta on laajaa." },
+  { question: "Mitä tapahtuu, jos kulua ei ole kirjattu mihinkään?", answer: "Näyttövelvollisuus kulun aitoudesta ja määrästä on vähennystä vaativalla. Jos kulua ei pystytä osoittamaan kuitilla, matkamerkinnällä tai muulla selvityksellä, se jää käytännössä vähentämättä, vaikka se olisi todellinen." },
+  { question: "Kannattaako pienet kulut kirjata, vaikka summat ovat yksittäin pieniä?", answer: "Kyllä. Yksittäinen matka tai puhelinlasku on pieni, mutta vuoden mittaan niitä kertyy useita, ja kirjaamattomana ne jäävät kokonaan vähentämättä. Kirjaaminen samalla hetkellä kun kulu syntyy on helpompaa kuin yritys muistella niitä keväällä." }
 ]} />
