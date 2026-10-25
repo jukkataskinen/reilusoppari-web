@@ -120,7 +120,7 @@ export default function TietosuojaPage() {
               kiinteä luokka (esimerkiksi lomakkeen aihe), ei kirjoittamiasi tietoja.
             </p>
 
-            <h2>Chat-assistentti</h2>
+            <h2 id="chat-assistentti" className="scroll-mt-24">Chat-assistentti</h2>
             <p>
               Sivuston chatissa kirjoittamasi kysymykset lähetetään vastauksen tuottamista varten
               Anthropicille (Yhdysvallat), joka toimii alihankkijanamme. Keskusteluja ei tallenneta

@@ -18,8 +18,10 @@ export const CHAT_CONFIG = {
   fallbackSourcePath: "/ukk",
   welcome:
     "Hei. Vastaan kysymyksiin Reilusopparista: miten vuokrasopimus, katselmus ja kuittaukset toimivat, mitä ne maksavat ja kenelle palvelu sopii.",
-  privacyNotice:
-    "Älä kirjoita henkilötunnusta, osoitetta tai muita henkilötietoja. Keskusteluja ei tallenneta, mutta viestit käsittelee Anthropic (Yhdysvallat), joka tuottaa vastaukset.",
+  /** Huomautus chat-ikkunan alareunassa (Jukka 26.10.2026): sama teksti kaikissa chateissa. */
+  aiNotice: "Vastauksissa on käytetty tekoälyä.",
+  /** Tietosuojaselosteen chat-kohta, johon huomautuksen linkki vie. */
+  privacyPath: "/tietosuoja#chat-assistentti",
   suggestions: [
     "Mitä Reilusoppari maksaa kolmelle asunnolle?",
     "Miten alkukatselmus toimii?",

@@ -392,3 +392,7 @@ juridinen vastuu säilyy Jukalla, koska mikään teksti ei yhdisty ilman häntä
 
 **Suosittelupolku sovellusrepoon (Jukka 25.10.2026):** päästä päähän -testi siirrettiin reilusoppari-sovelluksen
 PLANiin, koska suositteluedun toteutus on sovelluksessa eikä sivustolla.
+
+**Chatin huomautus (Jukka 26.10.2026):** chat-ikkunan alareunan huomautus on nyt sama kaikissa Adeptan chateissa:
+"Vastauksissa on käytetty tekoälyä. Lisätietoja tietosuojasivulta." Linkki vie tietosuojaselosteen chat-kohtaan
+(`/tietosuoja#chat-assistentti`), jossa henkilötietojen ohje ja Anthropicin käsittely kerrotaan tarkemmin.
