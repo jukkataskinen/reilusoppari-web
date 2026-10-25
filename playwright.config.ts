@@ -20,7 +20,9 @@ export default defineConfig({
     // Lomake on silti tuettu koodipolku, joten e2e ajaa sen omassa tilassaan.
     // CONTACT_DELIVERY=mock: yhteydenottolomake hyväksyy viestin mutta ei
     // lähetä sitä, vaikka .env.local sisältäisi Resend-avaimen.
-    env: { LAUNCH_MODE: "waitlist", CONTACT_DELIVERY: "mock" },
+    // ANTHROPIC_API_KEY=testi: chat-painike renderöityy vain avaimella. Avain ei ole oikea, ja
+    // tests/e2e/chat.spec.ts pysäyttää /api/chat-pyynnöt selaimessa, joten Anthropicia ei kutsuta.
+    env: { LAUNCH_MODE: "waitlist", CONTACT_DELIVERY: "mock", ANTHROPIC_API_KEY: "testi" },
     command: "npm run build && npm run start -- -p 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: !process.env.CI,

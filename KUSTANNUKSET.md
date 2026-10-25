@@ -102,3 +102,9 @@ Laskutus on dollareissa, joten euromääriin tulee kurssiheittoa kuukausittain.
 | Sivusto nyt (odotuslista) | ~540 €/v | **~220 €/v** |
 | Sovellus lanseerauksesta | ~+300 €/v + tunnistukset | ~+0–300 €/v + tunnistukset |
 | ~~Sovelluskaupat~~ | ~~+92 €/v~~ | Poistettu: PWA riittää |
+
+## Chat-assistentti (26.10.2026)
+
+| Palvelu | Hinta | Huomio |
+|---|---|---|
+| Anthropic API (Claude Sonnet 5.5) | käytön mukaan: 2 $ / milj. syötetokenia, 0,20 $ välimuistista, 10 $ / milj. vastaustokenia | Kuukausiraja asetetaan konsolin työtilaan (esim. 20 $), sivuston päiväbudjetti 5 $. Tietopohja (noin 35 000 merkkiä) välimuistitetaan, joten toistuva osa maksaa noin kymmenesosan. |

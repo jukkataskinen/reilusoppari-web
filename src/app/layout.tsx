@@ -4,6 +4,8 @@ import Script from "next/script";
 import { sans, jetbrainsMono } from "@/lib/fonts";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ChatLauncher } from "@/components/chat/ChatLauncher";
+import { isChatEnabled } from "@/lib/chat/enabled";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,6 +24,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
+  // Chat-painike vain, kun ANTHROPIC_API_KEY on asetettu (Jukka 26.10.2026). Avain luetaan
+  // palvelimella, eikä se päädy selaimeen; selaimelle kulkee vain tieto, näytetäänkö nappi.
+  const chatEnabled = isChatEnabled();
 
   return (
     <html lang="fi" className={`${sans.variable} ${jetbrainsMono.variable} h-full`}>
@@ -37,6 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
         </main>
         <Footer />
+        {chatEnabled && <ChatLauncher />}
         {plausibleDomain && (
           <Script
             src="https://plausible.io/js/script.js"

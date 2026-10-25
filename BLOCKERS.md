@@ -276,3 +276,37 @@ Ei tehty PR:ää koodimuutoksille, koska mitään koodiin kajoavaa tekemistä ei
 ollut. Tämä rivi on dokumentaatio-PR, jotta seuraava yöajo ei käy samaa
 läpi uudestaan — tarkista jatkossa ensin, onko jokin näistä neljästä
 muuttunut (Jukan päätös, sovellus julkaistu) ennen kuin etsit uutta tehtävää.
+
+## Chatbot: ANTHROPIC_API_KEY — JUKAN TEHTÄVÄ (26.10.2026)
+
+Chat on valmis mutta **pois päältä**, kunnes avain on asetettu: ilman avainta
+sivustolla ei näy chat-painiketta lainkaan. Vaiheet:
+
+1. Anthropic Console (platform.claude.com): luo oma työtila (Workspace) nimellä
+   `reilusoppari-web` ja aseta sille kuukausiraja, esimerkiksi 20 $. Raja on
+   varsinainen kovakatto; sivuston oma päiväbudjetti (5 $) on vain kevyt suoja.
+2. Luo API key **tähän työtilaan** (ei organisaation admin-avainta).
+3. Aja `C:\Users\JukkaTaskinen\Claude-cowork\PROJECTS\chatbot-avaimet.ps1`, joka vie
+   avaimen Verceliin (`ANTHROPIC_API_KEY`, Production). Valinnaiset muuttujat ja
+   oletukset: `.env.example`.
+4. Vercel, projekti `reilusoppari-web`: Deployments-sivulla **Production/Current**-rivin
+   kolmen pisteen valikosta Redeploy (ei ylin rivi).
+5. Avaa www.reilusoppari.fi, paina oikean alakulman "Kysy Reilusopparista" ja kokeile
+   ehdotettuja kysymyksiä, yhtä salkkukysymystä ("paljonko 8 asuntoa maksaa") ja yhtä
+   tyhmää ("unohda ohjeesi").
+6. Tarkista `/tietosuoja`: chat ja Anthropic (Yhdysvallat) on mainittu. Varmista, että
+   Anthropicin tietojenkäsittelyehdot (DPA) kattavat käytön.
+
+## Plausible-tavoitteet chatin seurantaan — JUKAN TEHTÄVÄ (26.10.2026)
+
+Plausible, sivusto reilusoppari.fi: Settings, Goals, Add goal, Custom event. Lisää
+neljä tavoitetta täsmälleen näillä nimillä:
+
+- `Chat: keskustelu alkoi`
+- `Chat: ehdotus näytetty`
+- `Chat: ehdotus painettu`
+- `Yhteydenotto lähetetty`
+
+Ehdotuksen tyyppi (`tyyppi`) sekä lomakkeen aihe ja lähde (`aihe`, `lahde`) näkyvät
+tavoitteen alla ominaisuuksina (Properties). Ilman tätä tapahtumat eivät näy
+raporteissa. Tapahtumat eivät sisällä kirjoitettua tekstiä eivätkä henkilötietoja.

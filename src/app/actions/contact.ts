@@ -1,6 +1,12 @@
 "use server";
 
-import { parseContactFormData, type ContactFieldErrors } from "@/lib/contact-schema";
+import {
+  CONTACT_TOPIC_LABELS,
+  parseContactFormData,
+  type ContactFieldErrors,
+  type ContactSource,
+  type ContactTopic,
+} from "@/lib/contact-schema";
 import {
   getResendClient,
   getContactEmail,
@@ -43,7 +49,8 @@ export async function sendContactMessage(
     return { status: "error", message: "Tarkista lomakkeen tiedot.", fieldErrors };
   }
 
-  const { name, email, message, turnstileToken } = parsed.data;
+  const { name, email, message, turnstileToken, topic, source } = parsed.data;
+  const sent = { topic, source };
 
   if (getTurnstileSiteKey()) {
     const turnstileOk = await verifyTurnstileToken(turnstileToken ?? null);
@@ -61,6 +68,7 @@ export async function sendContactMessage(
     return {
       status: "success",
       message: "Kiitos viestistä. Testitila: viestiä ei lähetetty.",
+      sent,
     };
   }
 
@@ -80,8 +88,14 @@ export async function sendContactMessage(
       from: getEmailFromAddress(),
       to: contactEmail,
       replyTo: email,
-      subject: `Yhteydenotto verkkosivulta: ${name}`,
-      text: [`Nimi: ${name}`, `Sähköposti: ${email}`, "", message].join("\n"),
+      subject: `${CONTACT_TOPIC_LABELS[topic]} verkkosivulta: ${name}`,
+      text: [
+        `Aihe: ${CONTACT_TOPIC_LABELS[topic]}${source === "chat" ? " (chatin ehdotuksesta)" : ""}`,
+        `Nimi: ${name}`,
+        `Sähköposti: ${email}`,
+        "",
+        message,
+      ].join("\n"),
     });
   } catch {
     return {
@@ -90,8 +104,15 @@ export async function sendContactMessage(
     };
   }
 
+  logSent(topic, source);
   return {
     status: "success",
     message: "Kiitos viestistä. Vastaamme mahdollisimman pian.",
+    sent,
   };
+}
+
+/** Seuranta: vain aihe ja lähde, ei lähettäjän tietoja eikä viestiä. */
+function logSent(topic: ContactTopic, source: ContactSource) {
+  console.info(JSON.stringify({ scope: "contact", event: "sent", topic, source }));
 }

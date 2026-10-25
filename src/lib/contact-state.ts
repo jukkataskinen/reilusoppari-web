@@ -1,4 +1,4 @@
-import type { ContactFieldErrors } from "@/lib/contact-schema";
+import type { ContactFieldErrors, ContactSource, ContactTopic } from "@/lib/contact-schema";
 
 /**
  * Tyypit ja aloitusarvo erillään src/app/actions/contact.ts:stä, koska
@@ -9,6 +9,8 @@ export type ContactState = {
   status: "idle" | "success" | "error";
   message?: string;
   fieldErrors?: ContactFieldErrors;
+  /** Onnistuneen lähetyksen aihe ja lähde seurantaa varten (ei henkilötietoja). */
+  sent?: { topic: ContactTopic; source: ContactSource };
 };
 
 export const initialContactState: ContactState = { status: "idle" };
