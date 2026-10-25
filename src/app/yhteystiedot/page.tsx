@@ -6,6 +6,7 @@ import { PageHero, Section } from "@/components/PageHero";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { ContactForm } from "@/components/ContactForm";
 import { getTurnstileSiteKey } from "@/lib/turnstile";
+import { sourceFromParam, topicFromParam } from "@/lib/contact-schema";
 import { company, companyAddress, signingProvider } from "@content/company";
 
 const title = "Yhteystiedot";
@@ -18,7 +19,15 @@ export const metadata: Metadata = {
   openGraph: { title, description, type: "website" },
 };
 
-export default async function YhteystiedotPage() {
+export default async function YhteystiedotPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  // ?aihe= ja ?lahde= esitäyttävät lomakkeen (chatin ehdotusnappi). Vain sallitut arvot.
+  const params = await searchParams;
+  const topic = topicFromParam(params.aihe);
+  const source = sourceFromParam(params.lahde);
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   const turnstileSiteKey = getTurnstileSiteKey();
 
@@ -58,7 +67,13 @@ export default async function YhteystiedotPage() {
       <Section title="Yhteydenotot" tone="cloud">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.1fr_1fr]">
           <div className="max-w-xl">
-            <ContactForm turnstileSiteKey={turnstileSiteKey} nonce={nonce} />
+            <ContactForm
+              key={`${topic}-${source}`}
+              turnstileSiteKey={turnstileSiteKey}
+              nonce={nonce}
+              defaultTopic={topic}
+              source={source}
+            />
           </div>
           <div className="prose-measure text-ink/80">
             {/*

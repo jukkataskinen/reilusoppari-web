@@ -114,6 +114,10 @@ julkaisupäivät, kun sivusto avataan.
       ohjasi odotuslistalle, jota ei enää ole. Kirjeosoite jäi rinnalle. Lähettäjä
       voi olla mikä tahansa osoite (ei vaadi MX-tietueita) – ks. DECISIONS.md ja
       BLOCKERS.md.
+- [x] Chat-assistentti, joka ohjaa seuraavaan askeleeseen (Jukka 26.10.2026): tietopohja sivuston
+      sisällöstä, ehdotusnapit (aloita ilmaiseksi / pyydä tarjous salkulle / kysy meiltä),
+      lomakkeen aihe ja lähde, Plausible-seuranta. Pois päältä, kunnes `ANTHROPIC_API_KEY` on
+      asetettu (BLOCKERS: Chatbot, Plausible-tavoitteet). Ks. DECISIONS 2026-10-26.
 - [ ] `LAUNCH_MODE=live` Vercelissä (Jukka)
 - [ ] Aidot kuvakaappaukset sovelluksesta (ei ennen kuin sovellus on olemassa)
 - [~] Suosittelupolku testattu päästä päähän: **siirretty reilusoppari-sovelluksen PLANiin** (Jukka 25.10.2026),
