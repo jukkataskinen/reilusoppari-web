@@ -306,7 +306,13 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           </div>
 
           <form onSubmit={onSubmit} className="border-t border-line p-3">
-            <p className="mb-2 text-xs text-ink/70">{CHAT_CONFIG.privacyNotice}</p>
+            <p className="mb-2 text-xs text-ink/70">
+              {CHAT_CONFIG.aiNotice} Lisätietoja{" "}
+              <Link href={CHAT_CONFIG.privacyPath} onClick={onClose} className="underline decoration-sky underline-offset-2">
+                tietosuojasivulta
+              </Link>
+              .
+            </p>
             <div className="flex items-end gap-2">
               <label htmlFor="chat-input" className="sr-only">
                 Kysymyksesi

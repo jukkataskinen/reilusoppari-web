@@ -35,7 +35,8 @@ test.describe("chat", () => {
     await launcher.click();
     const dialog = page.getByRole("dialog");
     await expect(dialog).toBeVisible();
-    await expect(dialog.getByText("Älä kirjoita henkilötunnusta")).toBeVisible();
+    await expect(dialog.getByText("Vastauksissa on käytetty tekoälyä.")).toBeVisible();
+    await expect(dialog.getByRole("link", { name: "tietosuojasivulta" })).toHaveAttribute("href", "/tietosuoja#chat-assistentti");
     await expect(dialog.getByRole("button", { name: SUGGESTION })).toBeVisible();
 
     await dialog.getByRole("button", { name: SUGGESTION }).click();
