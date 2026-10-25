@@ -5,7 +5,8 @@ import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
 import { pricing } from "@content/pricing";
 import { formatEuroAuto } from "@/lib/format";
-import { LAUNCH_TARGET } from "@/lib/launch";
+import { getLaunchMode } from "@/lib/launch";
+import { kayttoehdotHeroLead } from "@/lib/legal-copy";
 import { company, companyLegalName, signingProvider } from "@content/company";
 
 const title = "Käyttöehdot";
@@ -37,10 +38,14 @@ export const metadata: Metadata = {
  *
  * Kohdan 5 vastuunjako eSinetin (Adepta Oy) kanssa lisättiin 26.9.2026 ja
  * julkaistiin 27.9.2026 Jukan katselmoinnin jälkeen.
+ *
+ * `live`-tilan hero-teksti (26.10.2026, yöajo): ks. `src/lib/legal-copy.ts`.
+ * Nykyinen (`soon`/`waitlist`) teksti ei muutu.
  */
-const UPDATED = "27.9.2026";
+const UPDATED = "26.10.2026";
 
 export default function KayttoehdotPage() {
+  const mode = getLaunchMode();
   return (
     <>
       <Breadcrumbs
@@ -52,7 +57,7 @@ export default function KayttoehdotPage() {
       <PageHero
         eyebrow={`Päivitetty ${UPDATED}`}
         title="Käyttöehdot"
-        lead={`Nämä ehdot koskevat Reilusoppari-palvelua, joka avautuu ${LAUNCH_TARGET}. Odotuslistalle liittymiseen sovelletaan vain kohtia 1 ja 9.`}
+        lead={kayttoehdotHeroLead(mode)}
       />
 
       <section className="bg-paper py-12 md:py-[72px]">
