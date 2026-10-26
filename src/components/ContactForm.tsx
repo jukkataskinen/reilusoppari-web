@@ -1,10 +1,12 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import Script from "next/script";
 import { sendContactMessage } from "@/app/actions/contact";
 import { initialContactState } from "@/lib/contact-state";
 import { Nappi } from "@/components/painike";
+import { CONTACT_TOPICS, CONTACT_TOPIC_LABELS, type ContactSource, type ContactTopic } from "@/lib/contact-schema";
+import { track } from "@/lib/analytics";
 
 interface ContactFormProps {
   /** Palvelinpuolelta luettu TURNSTILE_SITE_KEY, ei NEXT_PUBLIC_-muuttuja
@@ -15,10 +17,28 @@ interface ContactFormProps {
   turnstileSiteKey: string | null;
   /** CSP-nonce script-tagille, jos widget joskus aktivoituu. */
   nonce?: string;
+  /** Esitäytetty aihe (?aihe=), esim. chatin ehdotusnapista. */
+  defaultTopic?: ContactTopic;
+  /** Mistä kävijä tuli (?lahde=chat), kulkee piilokenttänä seurantaa varten. */
+  source?: ContactSource;
 }
 
-export function ContactForm({ turnstileSiteKey, nonce }: ContactFormProps) {
+const MESSAGE_HINTS: Record<ContactTopic, string> = {
+  kysymys: "Kerro lyhyesti, mistä on kyse.",
+  tarjous: "Kerro, montako asuntoa salkussa on ja mitä toivot. Riittää arvio.",
+  palaute: "Mikä toimi, mikä ei? Kaikki palaute luetaan.",
+  muu: "Kerro lyhyesti, mistä on kyse.",
+};
+
+export function ContactForm({ turnstileSiteKey, nonce, defaultTopic = "kysymys", source = "sivusto" }: ContactFormProps) {
   const [state, formAction, pending] = useActionState(sendContactMessage, initialContactState);
+
+  // Seuranta: lähetetty lomake aiheineen ja lähteineen, ei kenttien sisältöä.
+  useEffect(() => {
+    if (state.status === "success" && state.sent) {
+      track("Yhteydenotto lähetetty", { aihe: state.sent.topic, lahde: state.sent.source });
+    }
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -34,6 +54,26 @@ export function ContactForm({ turnstileSiteKey, nonce }: ContactFormProps) {
       <div className="sr-only" aria-hidden="true">
         <label htmlFor="company">Älä täytä tätä kenttää</label>
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <input type="hidden" name="source" value={source} />
+
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="topic" className="text-sm font-medium">
+          Aihe
+        </label>
+        <select
+          id="topic"
+          name="topic"
+          defaultValue={defaultTopic}
+          className="rounded-[var(--radius-panel)] border border-line bg-paper px-4 py-2.5"
+        >
+          {CONTACT_TOPICS.map((t) => (
+            <option key={t} value={t}>
+              {CONTACT_TOPIC_LABELS[t]}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="flex flex-col gap-1.5">
@@ -88,7 +128,7 @@ export function ContactForm({ turnstileSiteKey, nonce }: ContactFormProps) {
           name="message"
           required
           rows={5}
-          placeholder="Kerro lyhyesti, mistä on kyse."
+          placeholder={MESSAGE_HINTS[defaultTopic]}
           className="rounded-[var(--radius-panel)] border border-line bg-paper px-4 py-2.5 placeholder:text-ink/40"
           aria-invalid={Boolean(state.fieldErrors?.message)}
           aria-describedby={state.fieldErrors?.message ? "message-error" : undefined}

@@ -4,6 +4,43 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## 2026-10-26 — Chat-assistentti, joka ohjaa seuraavaan askeleeseen (Jukka 26.10.2026)
+
+**Päätös:** sivustolle tuli sama AI-chat kuin esinetti-webiin (`claude/chat-myynti`), sovitettuna
+Reilusopparille. Jukan pyyntö: botti ohjaa hienovaraisesti pyytämään tarjousta tai kysymään, koskee kaikkia tuotteita.
+
+- **Pois päältä ilman avainta.** Root layout renderöi chat-painikkeen vain, kun `ANTHROPIC_API_KEY` on
+  asetettu (`isChatEnabled`, `src/lib/chat/enabled.ts`). Ilman avainta nappia ei ole, `GET /api/chat`
+  kertoo `enabled: false` ja `POST` vastaa 503. Nappi, joka avaa vain ilmoituksen "ei käytössä", olisi turha.
+- **Malli `claude-sonnet-5-5`** (`CHAT_MODEL`), ajattelu pois ja työmäärä `low`. Rajat muistissa:
+  6/min ja 30/h per IP, päiväbudjetti 5 $ (`CHAT_DAILY_BUDGET_USD`). Kovakatto on konsolin työtilan
+  kuukausiraja (BLOCKERS). `@anthropic-ai/sdk` 0.131.0 tarkkana versiona, `engines` Node >= 22.18.
+- **Tietopohja buildissa** (`npm run chat:build`, myös `prebuild`): hinnat `content/pricing.ts`:stä ja
+  `src/lib/pricing.ts`:n laskennalla (esimerkkilaskelmat), UKK:t `content/faq.ts`:stä, yhtiö
+  `content/company.ts`:stä, sivujen tekstit `src/app/**/page.tsx`:stä ja etusivun osioista sekä blogin
+  tiivistelmät rekisteristä (LUONNOS-artikkelit eivät ole rekisterissä, joten ne jäävät pois).
+  Järjestelmäohje on kiinteä (prompt caching); julkaisutila ja sallitut ehdotukset kulkevat erikseen
+  (`launchNote`).
+- **Hinnat verollisina.** Ohje käskee esittämään hinnat kuluttajahintoina "sis. ALV 25,5 %" eikä
+  koskaan verottomina (eSinetin ohjeessa "ALV 0 %"). Kohdan 7 sallitut ja kielletyt väittämät ovat
+  ohjeessa sellaisinaan.
+- **Toimintakehotteet ilman esittelyä.** Reilusoppari on kuluttajatuote, joten esittelyä ei ole:
+  `kokeilu` "Aloita ilmaiseksi" (vain `LAUNCH_MODE=live`, vie `getSignupUrl()`:iin), `tarjous`
+  "Pyydä tarjous salkulle" (`/yhteystiedot?aihe=tarjous&lahde=chat`) ja `konsultaatio` "Kysy meiltä"
+  (`?aihe=kysymys&lahde=chat`). Odotuslistaa ei ehdoteta: lista ei ole auki, ja jos se avataan, sivuston
+  oma CTA vie sinne jo. Vuokralaiselle ei ehdoteta mitään maksullista. Mekanismi sama kuin eSinetissä
+  (`CtaStreamFilter`, `splitCtaTrailer`, `decideCta`, `ctaHref` vain aihe ja lähde).
+- **Lomakkeen aihe ja lähde.** `/yhteystiedot`-lomakkeeseen Aihe-valinta (kysymys, tarjous salkulle,
+  palaute, muu) ja piilokenttä lähde; vain kiinteät arvot. Sähköpostin otsikko kertoo aiheen, ja
+  lokiin menee onnistuneesta lähetyksestä vain aihe ja lähde.
+- **Seuranta Plausiblella** (evästeetön, jo käytössä): "Chat: keskustelu alkoi", "Chat: ehdotus näytetty",
+  "Chat: ehdotus painettu", "Yhteydenotto lähetetty". Tavoitteet Jukka lisää Plausibleen (BLOCKERS).
+- **Tietosuoja:** `/tietosuoja` sai Chat-assistentti-kohdan (Anthropic, Yhdysvallat; keskusteluja ei
+  tallenneta; lokiin vain määrät), päivitetty 26.10.2026.
+- **Ei `vercel.json`:ia.** eSinetin sivusto siirsi funktiot Dubliniin (`regions: dub1`). Tässä repossa ei
+  ole `vercel.json`:ia, joten sitä ei lisätty tämän muutoksen yhteydessä; funktioiden alue on erillinen
+  päätös. Chat ei tallenna keskusteluja, joten alue ei muuta tallennuspaikkaa.
+
 ## Artikkelien 6 ja 7 luonnokset kirjoitettu (2026-10-25, yötyö)
 
 **Tausta:** PLAN.md Vaihe C ja Jukan päätös 25.10.2026: Claude kirjoittaa
@@ -396,3 +433,7 @@ juridinen vastuu säilyy Jukalla, koska mikään teksti ei yhdisty ilman häntä
 
 **Suosittelupolku sovellusrepoon (Jukka 25.10.2026):** päästä päähän -testi siirrettiin reilusoppari-sovelluksen
 PLANiin, koska suositteluedun toteutus on sovelluksessa eikä sivustolla.
+
+**Chatin huomautus (Jukka 26.10.2026):** chat-ikkunan alareunan huomautus on nyt sama kaikissa Adeptan chateissa:
+"Vastauksissa on käytetty tekoälyä. Lisätietoja tietosuojasivulta." Linkki vie tietosuojaselosteen chat-kohtaan
+(`/tietosuoja#chat-assistentti`), jossa henkilötietojen ohje ja Anthropicin käsittely kerrotaan tarkemmin.

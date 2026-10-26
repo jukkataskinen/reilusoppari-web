@@ -37,7 +37,7 @@ export const metadata: Metadata = {
  * Jos eSinetti siirtyy EU-ajoalueelle tai lakkaa säilyttämästä todistetta,
  * päivitä kohta. Ks. BLOCKERS.md.
  */
-const UPDATED = "27.9.2026";
+const UPDATED = "26.10.2026";
 
 export default function TietosuojaPage() {
   const waitlistOpen = getLaunchMode() === "waitlist";
@@ -116,7 +116,20 @@ export default function TietosuojaPage() {
             <p>
               Sivustolla käytetään Plausible-kävijämittausta, joka ei aseta evästeitä eikä kerää
               henkilötietoja. Yksittäistä kävijää ei voida tunnistaa eikä seurata sivustojen
-              välillä.
+              välillä. Chatin ja yhteydenottolomakkeen käytöstä kirjataan vain tapahtuman nimi ja
+              kiinteä luokka (esimerkiksi lomakkeen aihe), ei kirjoittamiasi tietoja.
+            </p>
+
+            <h2 id="chat-assistentti" className="scroll-mt-24">Chat-assistentti</h2>
+            <p>
+              Sivuston chatissa kirjoittamasi kysymykset lähetetään vastauksen tuottamista varten
+              Anthropicille (Yhdysvallat), joka toimii alihankkijanamme. Keskusteluja ei tallenneta
+              sivustollemme: lokiin kirjataan vain viestien määrät ja mahdolliset virhekoodit, ei
+              viestien sisältöä. Älä kirjoita chattiin henkilötunnusta, osoitetta tai muita
+              henkilötietoja. Nopeusrajoitusta varten IP-osoitetta pidetään tilapäisesti palvelimen
+              muistissa, eikä sitä tallenneta pysyvästi. Siirto Yhdysvaltoihin perustuu EU:n
+              komission hyväksymiin vakiolausekkeisiin tai EU:n ja Yhdysvaltojen
+              tietosuojakehykseen.
             </p>
 
             <h2>Osa 2: Palvelun tiedot (alkaa {LAUNCH_TARGET})</h2>
