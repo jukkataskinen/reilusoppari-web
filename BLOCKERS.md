@@ -310,3 +310,30 @@ neljä tavoitetta täsmälleen näillä nimillä:
 Ehdotuksen tyyppi (`tyyppi`) sekä lomakkeen aihe ja lähde (`aihe`, `lahde`) näkyvät
 tavoitteen alla ominaisuuksina (Properties). Ilman tätä tapahtumat eivät näy
 raporteissa. Tapahtumat eivät sisällä kirjoitettua tekstiä eivätkä henkilötietoja.
+
+## Yöajo 2026-10-27: ei tehtävissä olevaa tehtävää
+
+Kaksi aiemman yöajon PR:ää on auki ja vihreänä, molemmat odottavat sinun
+lukemistasi eivätkä yhdisty automaattisesti (`--ei-automaattista`):
+
+- **PR #8** — blogiartikkelien 6 ja 7 luonnokset. Kaksi avointa kysymystä
+  PR:n kuvauksessa (kilometrikorvauksen 2026-arvo, työhuonevähennyksen
+  soveltuminen pääomatuloon).
+- **PR #11** — tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset.
+  Kolme kysymystä PR:n kuvauksessa (eSinetin käsittelysopimus, "viennin
+  peitetty henkilötunnus" -kohta, vanha luonnostiedosto).
+
+PLAN.md:n jäljellä olevat merkitsemättömät rivit ovat juuri näiden kahden
+PR:n tehtävät (Vaihe C ja Vaihe D) sekä kaksi muuta Jukan tehtävää
+(`LAUNCH_MODE=live`, aidot kuvakaappaukset — sovellusta ei ole vielä
+olemassa). Koska molemmat tekemättömät sisältötehtävät on jo tehty omina
+PR:inään ja vain odottavat vastauksiasi, uutta tehtävää ei ollut: aloittaisin
+vain kolmannen version samasta sisällöstä.
+
+Terveystarkistus puhtaalta työpuulta: `npm run lint`, `npm run typecheck` ja
+`npm run test` (147/147) vihreinä, ei korjattavaa. `npm install` muutti
+`package-lock.json`:ia — palautettu koskemattomaksi, ei liity mihinkään
+tehtävään.
+
+Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
+edenneet (vastaukset, hyväksyntä tai hylkäys) ennen uuden tehtävän etsimistä.
