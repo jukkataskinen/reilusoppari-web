@@ -337,3 +337,23 @@ tehtävään.
 
 Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
 edenneet (vastaukset, hyväksyntä tai hylkäys) ennen uuden tehtävän etsimistä.
+
+## Yöajo 2026-10-29: ei tehtävissä olevaa tehtävää
+
+PR #8 ja PR #11 ovat edelleen auki, vihreinä (CI ja Vercel-esikatselu
+onnistuneet) ja odottavat vastauksiasi — ei uusia kommentteja eikä muutoksia
+kummassakaan 27.10.2026 jälkeen. Kumpikaan ei ole edennyt, joten niitä ei
+kosketettu: avointen kysymysten vastaukset ovat yhä sinulta kesken (PR #8:
+kilometrikorvaus ja työhuonevähennys; PR #11: eSinetin käsittelysopimus,
+"peitetty henkilötunnus" ja vanha luonnostiedosto).
+
+PLAN.md:n jäljellä olevat merkitsemättömät rivit ovat samat kuin 27.10.2026:
+näiden kahden PR:n tehtävät plus `LAUNCH_MODE=live` ja aidot kuvakaappaukset
+(Jukan tehtäviä / sovellusta ei ole vielä olemassa).
+
+Terveystarkistus puhtaalta työpuulta: `npm install`, sitten `npm run lint`,
+`npm run typecheck` ja `npm run test` (147/147) vihreinä, ei korjattavaa.
+`npm install` muutti `package-lock.json`:ia — palautettu koskemattomaksi.
+
+Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
+edenneet ennen uuden tehtävän etsimistä.
