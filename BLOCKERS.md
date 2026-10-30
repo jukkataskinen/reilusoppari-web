@@ -357,3 +357,22 @@ Terveystarkistus puhtaalta työpuulta: `npm install`, sitten `npm run lint`,
 
 Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
 edenneet ennen uuden tehtävän etsimistä.
+
+## Yöajo 2026-10-30: ei tehtävissä olevaa tehtävää
+
+PR #8 ja PR #11 ovat edelleen auki, vihreinä ja odottavat vastauksiasi — ei
+uusia kommentteja eikä muutoksia kummassakaan 29.10.2026 jälkeen. Kumpikaan ei
+ole edennyt: PR #8:n kysymykset (kilometrikorvaus, työhuonevähennys) ja PR
+#11:n kysymykset (eSinetin käsittelysopimus, "peitetty henkilötunnus", vanha
+luonnostiedosto) ovat yhä sinulta kesken.
+
+PLAN.md:n jäljellä olevat merkitsemättömät rivit ovat samat kuin 29.10.2026:
+näiden kahden PR:n tehtävät plus `LAUNCH_MODE=live` ja aidot kuvakaappaukset
+(Jukan tehtäviä / sovellusta ei ole vielä olemassa).
+
+Terveystarkistus puhtaalta työpuulta: `npm install`, sitten `npm run lint`,
+`npm run typecheck` ja `npm run test` (147/147) vihreinä, ei korjattavaa.
+`npm install` muutti `package-lock.json`:ia — palautettu koskemattomaksi.
+
+Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
+edenneet ennen uuden tehtävän etsimistä.
