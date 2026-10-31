@@ -388,3 +388,42 @@ Terveystarkistus puhtaalta työpuulta: `npm install`, sitten `npm run lint`,
 
 Ei koodimuutoksia. Seuraava yöajo: tarkista ensin, ovatko PR #8 tai #11
 edenneet ennen uuden tehtävän etsimistä.
+
+## Yöajo 2026-10-31: PR #8, #11 ja #15 yhdistetty — ei uutta koodautettavaa tehtävää
+
+Molemmat odottaneet PR:t ja yksi uusi ovat edenneet 31.10.2026 aikana:
+
+- **PR #11** (tietosuoja ja käyttöehdot, live-tila) — Jukka hyväksyi ja
+  yhdisti. Vastaukset kolmeen avoimeen kysymykseen on kirjattu yllä kohtaan 4.
+  `PLAN.md`:n rivi merkitty `[x]`.
+- **PR #8** (blogiartikkelit 6 ja 7) — Jukka hyväksyi ja yhdisti nykyisillä
+  yleisillä muotoiluilla (ei kilometrikorvauksen euromäärää, työhuonevähennys
+  yleisellä tasolla). Ks. DECISIONS.md 2026-10-31.
+- **PR #15** (etusivun tekstien uudistus) — Jukan omat tekstit, yhdistetty.
+  Ei liity yöajon tehtäviin, mainittu täydellisyyden vuoksi.
+
+Käytiin läpi `PLAN.md`:n jäljellä olevat merkitsemättömät rivit uudelleen:
+
+- `LAUNCH_MODE=live` Vercelissä — Jukan oma tehtävä, ja sillä on nyt
+  nimenomainen ehto: Adepta Tilat Oy:n ja Adepta Oy:n käsittelysopimus on
+  allekirjoitettava **ennen** kytkentää, koska live-teksti sanoo sopimuksen
+  olevan voimassa (kohta 4 yllä).
+- Aidot kuvakaappaukset sovelluksesta — sovellusta ei ole vielä olemassa.
+- Suosittelupolku — siirretty sovellusrepoon 25.10.2026, ei tämän repon
+  tehtävä.
+
+Kaikki kolme ovat siis edelleen estyneitä Jukan päätöksen tai sovelluksen
+olemassaolon takia. Tämän yöajon ainoa muutos oli `PLAN.md`:n tilan
+korjaaminen vastaamaan todellisuutta (rivi oli jäänyt `[ ]`-tilaan, vaikka
+PR #11 oli jo yhdistetty) — tämä itsessään on dokumentaatiokorjaus, ei
+koodimuutos.
+
+Terveystarkistus puhtaalta työpuulta: `npm install`, sitten `npm run lint`,
+`npm run typecheck` ja `npm run test` (17 tiedostoa, 168/168) vihreinä, ei
+korjattavaa. `npm install` muutti `package-lock.json`:ia — palautettu
+koskemattomaksi.
+
+Seuraava yöajo: tarkista ensin, onko Jukka allekirjoittanut
+käsittelysopimuksen ja kytkenyt `LAUNCH_MODE=live`, tai onko sovellus
+edistynyt niin, että kuvakaappaukset ovat mahdollisia — vasta sitten on uutta
+koodautettavaa tehtävää tässä repossa.
