@@ -2,13 +2,15 @@ import Image from "next/image";
 import { Container } from "@/components/Container";
 
 interface StoryBlockProps {
+  /** Osion otsikko (Jukan hyväksymä 31.10.2026, CLAUDE.md kohta 4). */
+  title: string;
   /**
-   * Jukan kirjoittama, SITOVA teksti (CLAUDE.md kohta 4.3, 4.5 ja 4.6).
+   * Jukan hyväksymä, SITOVA leipäteksti (CLAUDE.md kohta 4.3, 4.5 ja 4.6).
    * Näitä kappaleita ei muotoilla uudelleen eikä lyhennetä.
    */
   quote: string;
-  /** Yksi asiallinen lause, joka kertoo mitä palvelu oikeasti tekee. */
-  fact: string;
+  /** Valinnainen asiallinen lisälause, joka kertoo mitä palvelu oikeasti tekee. */
+  fact?: string;
   /**
    * Asiakirjanäkymä (`src/components/previews/`). Tämä on ensisijainen tapa
    * kuvittaa osio: lukija näkee, mitä asiakirjassa oikeasti lukee.
@@ -29,11 +31,12 @@ interface StoryBlockProps {
 }
 
 /**
- * Etusivun kertomusosio: sitova sitaatti, sen vieressä asiakirja ja alla yksi
- * asiallinen lause. Sama rakenne toistuu kolmesti (katselmus, kuittaus,
+ * Etusivun kertomusosio: otsikko, sitova teksti, sen vieressä asiakirja ja
+ * tarvittaessa yksi asiallinen lisälause. Sama rakenne toistuu kolmesti (katselmus, kuittaus,
  * todistus), joten se on yksi komponentti – ei kolmea lähes samaa.
  */
 export function StoryBlock({
+  title,
   quote,
   fact,
   preview,
@@ -50,8 +53,9 @@ export function StoryBlock({
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className={reverse ? "md:order-2" : undefined}>
-            <p className="prose-measure text-xl leading-[1.5] md:text-2xl">{quote}</p>
-            <p className="prose-measure mt-6 text-ink/70">{fact}</p>
+            <h2 className="text-2xl md:text-[32px]">{title}</h2>
+            <p className="prose-measure mt-5 text-lg leading-[1.6] md:text-xl">{quote}</p>
+            {fact && <p className="prose-measure mt-6 text-ink/70">{fact}</p>}
             {children}
           </div>
           <figure className={reverse ? "md:order-1" : undefined}>

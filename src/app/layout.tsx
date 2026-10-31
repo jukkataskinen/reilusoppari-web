@@ -11,11 +11,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://reilusoppari.fi"),
   title: {
-    default: "Reilusoppari – vuokrasopimus, jonka molemmat allekirjoittavat mielellään",
+    default: "Reilusoppari – reilu ja selkeä vuokrasopimus",
     template: "%s | Reilusoppari",
   },
   description:
-    "Sopimus pankkitunnuksilla, kuvat asunnon kunnosta, vuokrakuittaukset ja lopuksi todistus – molemmille. Ensimmäinen vuokrasuhde on ilmainen, vuokralaiselle aina maksuton.",
+    "Vuokrasopimus, alkukatselmuksen valokuvat ja kuukausittaiset maksukuittaukset samassa paikassa. Ensimmäinen vuokrasuhde 0 €, vuokralaiselle maksuton.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },

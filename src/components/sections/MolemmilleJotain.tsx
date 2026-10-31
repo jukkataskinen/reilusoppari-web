@@ -1,33 +1,36 @@
 import { Container } from "@/components/Container";
 
 /**
- * "Molemmille jotain" (CLAUDE.md kohta 4.4).
+ * "Edut molemmille osapuolille" (CLAUDE.md kohta 4.4, tekstit Jukan hyväksymät
+ * 31.10.2026; huoltokirja ja muut aiemmat edut säilyivät).
  *
  * Kaksi palstaa rinnakkain, EI kortteja. Palstoissa on tarkoituksella yhtä
  * monta riviä ja ne ovat samanpituiset – se on osiota kantava viesti, ei
  * taittoseikka. Jos toiseen lisätään rivi, toiseen on lisättävä myös.
  */
 const landlord = [
-  "Sopimus pankkitunnuksilla",
-  "Kuvat todisteena asunnon kunnosta",
-  "Kuukausikuittaus yhdellä napilla",
+  "Sähköinen sopimus ja allekirjoitus pankkitunnuksilla",
+  "Kuvat asunnon kunnosta sopimuksen liitteenä",
+  "Helppo vuokranseuranta",
   "Huoltokirja: viat ja korjaukset talteen",
-  "Kulut talteen ja verolaskelma keväällä (Plus)",
+  "Valmis verolaskelma keväisin (Plus)",
+  "Ensimmäinen vuokrasuhde maksuton",
 ];
 
 const tenant = [
-  "Pankkitunnistettu vuokranantaja",
+  "Maksuton palvelu",
+  "Varmuus vuokranantajan henkilöllisyydestä",
   "Omat kuvat samassa paikassa",
   "Ilmoitus, kun vuokra on kuitattu",
   "Viat kirjattu, kukaan ei voi poistaa",
-  "Vuokratodistus seuraavaan asuntoon",
+  "Allekirjoitettu vuokratodistus seuraavaa asuntoa varten",
 ];
 
 export function MolemmilleJotain() {
   return (
     <section className="border-b border-line bg-cloud py-14 md:py-[88px]">
       <Container>
-        <h2 className="text-2xl md:text-[32px]">Molemmille jotain</h2>
+        <h2 className="text-2xl md:text-[32px]">Edut molemmille osapuolille</h2>
         <div className="mt-10 grid gap-10 md:grid-cols-2">
           <Column title="Vuokranantaja" tone="sky" items={landlord} />
           <Column title="Vuokralainen" tone="coral" items={tenant} />

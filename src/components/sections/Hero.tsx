@@ -9,7 +9,7 @@ type Party = "vuokranantaja" | "vuokralainen";
 
 const copy: Record<Party, { lead: string; ctaLabel: string; ctaHref: string; note: string }> = {
   vuokranantaja: {
-    lead: "Reilusoppari hoitaa sopimuksen, kuvat asunnon kunnosta, vuokrakuittaukset ja lopuksi todistuksen – molemmille. Ensimmäinen vuokrasuhde on ilmainen.",
+    lead: "Reilusoppari kokoaa vuokrasopimuksen, alkukatselmuksen valokuvat ja kuukausittaiset maksukuittaukset samaan paikkaan. Turvallinen ratkaisu sekä vuokranantajalle että vuokralaiselle.",
     // Korvataan `landlordCta`-propsilla: teksti riippuu LAUNCH_MODE:sta, jota
     // client-komponentti ei voi lukea. Nämä ovat vain tyypin täyttöä.
     ctaLabel: "",
@@ -114,7 +114,7 @@ export function Hero({
             </div>
 
             <h1 className="mt-6 text-[34px] md:text-[52px]">
-              Vuokrasopimus, jonka molemmat allekirjoittavat mielellään.
+              Reilu ja selkeä vuokrasopimus.
             </h1>
 
             <p className="prose-measure mt-5 text-ink/80">{variant.lead}</p>

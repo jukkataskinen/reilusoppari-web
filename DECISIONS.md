@@ -511,3 +511,31 @@ hakasulkeita kävijälle):**
 
 **Ei muutettu:** säilytysaikaa aitoustodisteelle ("voidaan säilyttää pidempään") – tämä oli jo aiemmin kirjattu
 avoimeksi kysymykseksi (BLOCKERS.md "Yhtiövaihdos" -osio, kohta "Säilytys") eikä kuulu tähän tehtävään.
+
+## 2026-10-31 — Etusivun tekstien uudistus (Jukka hyväksyi 31.10.2026)
+
+**Päätös (Jukka 31.10.2026):** etusivun tekstit vaihdettiin Jukan hyväksymiin. Ulkoasu ja komponentit säilyivät.
+Nämä korvaavat CLAUDE.md:n kohdan 4 aiemmat sitovat tekstit; kohdan 4 alkuun on lisätty viittaus tähän.
+
+- Hero: "Reilu ja selkeä vuokrasopimus." + uusi alaotsikko vuokranantajan näkymään. Vuokralaisen näkymän
+  alaotsikko ja CTA jäivät ennalleen (ohjeessa ei ollut niille uutta tekstiä).
+- Vaiheet: yläotsikko "Sopikaa. Kuvatkaa. Kuitatkaa." säilyi pienenä, otsikko "Miten Reilusoppari toimii
+  käytännössä?", kolme uutta askeltekstiä.
+- Kuvat-, kuittaus- ja todistusosiot saivat otsikot ja uudet tekstit. `StoryBlock` sai `title`-propin, ja
+  lisälause (`fact`) on valinnainen. Katselmuksen lisälause (kumpikin kuvaa olennaiset kohdat, 10.9. korjaus)
+  ja todistuksen omistajuuslause säilyivät, koska ne kertovat jotain uutta. Kuittauksen lisälause poistettiin,
+  koska uusi teksti sanoo saman. Todistuksen omistajuuslause muutettiin kolmanteen persoonaan ("vuokralaisen
+  oma"), koska osion uusi teksti ei enää ole vuokralaisen äänellä.
+- "Edut molemmille osapuolille": Jukan rivit + säilytetyt aiemmat edut (huoltokirja; vuokralaisen omat kuvat,
+  kuittausilmoitus, viat kirjattu). Palstat pidettiin yhtä pitkinä (6 + 6), joten vuokranantajalle lisättiin
+  "Ensimmäinen vuokrasuhde maksuton" (hinnaston mukainen). Verolaskelma on Plus-ominaisuus
+  (`content/pricing.ts`), joten "(Plus)" pysyy.
+- Hinta: "Ensimmäinen vuokrasuhde 0 €." ja uusi teksti; luvut edelleen `content/pricing.ts`:stä.
+- Uusi osio "Miksi Reilusoppari?" (`Tarina.tsx`) suosittelukaistan jälkeen: Jukan nimetty lausuma ja
+  allekirjoitus "Jukka Taskinen, Adepta Tilat Oy" (yhtiön nimi `content/company.ts`:stä). Aito ja hyväksytty,
+  joten ei ristiriidassa "ei keksittyjä sitaatteja" -säännön kanssa.
+- Sivuston oletusotsikko ja -kuvaus (`layout.tsx`) päivitettiin vastaamaan heroa. Chatin tietopohja
+  koottiin uudelleen, ja siihen lisättiin hinta- ja tarinaosio.
+- Etusivulla ei ole enää "Reilua."-loppuja; ne säilyvät CLAUDE.md:n äänensävyn mittatikkuna muualla.
+  `/vuokralaiselle`- ja `/todistus`-sivujen todistusteksti ("kovaa valuuttaa") jäi ennalleen, koska tehtävä
+  koski etusivua.

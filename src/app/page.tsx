@@ -7,6 +7,7 @@ import { StoryBlock } from "@/components/sections/StoryBlock";
 import { MolemmilleJotain } from "@/components/sections/MolemmilleJotain";
 import { HomePricing } from "@/components/sections/HomePricing";
 import { TuoKaveri } from "@/components/sections/TuoKaveri";
+import { Tarina } from "@/components/sections/Tarina";
 import { Faq } from "@/components/sections/Faq";
 import { CtaSection } from "@/components/sections/CtaSection";
 import { JsonLd } from "@/components/JsonLd";
@@ -17,9 +18,8 @@ import { getLandlordCta } from "@/lib/launch";
  * Etusivu (CLAUDE.md kohta 4). Osioiden järjestys on speksin mukainen eikä
  * sitä muuteta ilman, että kohta 4 muutetaan ensin.
  *
- * Kolmen kertomusosion sitaatit ovat Jukan kirjoittamia ja SITOVIA. Niitä ei
- * muotoilla uudelleen. Sivulla on kaksi "Reilua."-loppua (kohdat 3 ja 5) –
- * kolmatta ei lisätä, koska sana kuluu.
+ * Etusivun tekstit uudistettiin Jukan hyväksymiksi 31.10.2026 (DECISIONS.md).
+ * Kertomusosioiden tekstit ovat SITOVIA, eikä niitä muotoilla uudelleen.
  */
 export default async function HomePage({
   searchParams,
@@ -42,9 +42,10 @@ export default async function HomePage({
 
       <Steps />
 
-      {/* Kohta 4.3 – sivun sydän. Sitaatti on sitova. */}
+      {/* Kohta 4.3 – sivun sydän. Teksti on sitova (Jukka 31.10.2026). */}
       <StoryBlock
-        quote="Parketissa kulumaa? Ovikellon nappi jumii? Ainahan asunnoissa jotain on, kun eivät uusia ole. Turha niistä on kuitenkaan riidellä; otetaan kuva ja laitetaan se talteen niin ei tarvitse vikoja muistella. Reilua."
+        title="Vähemmän riitaa vakuusrahoista."
+        quote="Ainahan asunnoissa jotain on, kun eivät uusia ole. Kun kuvat pinnoista ja kodinkoneista tallennetaan pankkitunnuksin vahvistettuun alkukatselmukseen, vikoja ei tarvitse muistella."
         fact="Alkukatselmus on osa sopimusta: kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoittaessaan vuokrasopimuksen. Muuttopäivänä katsotaan samoja kuvia."
         preview={<DocumentPage name="alkukatselmus" />}
       >
@@ -57,18 +58,19 @@ export default async function HomePage({
 
       <MolemmilleJotain />
 
-      {/* Kohta 4.5 – sitaatti on sitova. */}
+      {/* Kohta 4.5 – teksti on sitova (Jukka 31.10.2026). */}
       <StoryBlock
-        quote="Olikos sen Liisan tämän kuun vuokra jo tullut? No joo, yleensä se tulee ajallaan niin kuin nytkin. Laitetaan siitä viesti menemään. Reilua."
-        fact="Vuokralainen näkee kuittauksen heti, ja vuoden päästä kummallakin on sama maksuhistoria – ilman pankkitiliä, ilman perintätoimistoa."
+        title="Selkeä maksuhistoria."
+        quote="Ei enää pankkitositteiden kaivelua. Vuokranantaja vahvistaa vuokran saapuneeksi napin painalluksella, ja vuokralainen saa vahvistuksen heti."
         preview={<ConfirmationPreview />}
         reverse
       />
 
-      {/* Kohta 4.6 – vuokralaisen äänellä, sitaatti on sitova. */}
+      {/* Kohta 4.6 – teksti on sitova (Jukka 31.10.2026). */}
       <StoryBlock
-        quote="Sitten kun on aika muuttaa seuraavaan kotiin niin muistoksi saat yhteenvedon vuokrien maksusta ajallaan ja vuokranantajan terveiset. Allekirjoitettu dokumentti hyvästä vuokrasuhteesta on kovaa valuuttaa, kun näytät sen seuraavalle vuokranantajalle."
-        fact="Todistus on sinun: sinä päätät, kenelle sen näytät. Aitouden voi tarkistaa linkistä."
+        title="Vuokratodistus seuraavaan asuntohakuun."
+        quote="Vuokrasuhteen päättyessä vuokralainen saa allekirjoitetun vuokratodistuksen, joka osoittaa vuokrien hoituneen ajallaan."
+        fact="Todistus on vuokralaisen oma: hän päättää, kenelle sen näyttää. Aitouden voi tarkistaa linkistä."
         preview={<DocumentPage name="vuokratodistus" />}
         tone="cloud"
       >
@@ -85,6 +87,8 @@ export default async function HomePage({
       <HomePricing />
 
       <TuoKaveri />
+
+      <Tarina />
 
       <Faq />
 
