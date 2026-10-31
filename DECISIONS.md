@@ -4,6 +4,20 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## 2026-10-31 — Yöajo: PLAN.md korjattu vastaamaan yhdistettyjä PR:iä
+
+**Päätös:** merkittiin `PLAN.md`:ssä "Tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset" tehdyksi
+(`[x]`), koska PR #11 on yhdistetty ja Jukka on vastannut kaikkiin kolmeen avoimeen kysymykseen (BLOCKERS.md
+kohta 4). Lisätty PLAN.md:hen huomio, että käsittelysopimuksen allekirjoitus on edelleen `LAUNCH_MODE=live`-
+kytkennän ehto, ei tämän tehtävän este.
+
+**Perustelu:** PLAN.md on tarkoitettu kertomaan todellisen tilan; rivi oli jäänyt `[ ]`-tilaan vanhentuneena PR:n
+yhdistämisen jälkeen, mikä olisi johtanut seuraavan yöajon yrittämään samaa tehtävää uudestaan. Muuta
+koodautettavaa tehtävää ei löytynyt tällä kerralla (ks. BLOCKERS.md, Yöajo 2026-10-31) — kaikki jäljellä olevat
+PLAN.md:n kohdat vaativat Jukan päätöksen tai sovelluksen olemassaolon.
+
+---
+
 ## 2026-10-26 — Chat-assistentti, joka ohjaa seuraavaan askeleeseen (Jukka 26.10.2026)
 
 **Päätös:** sivustolle tuli sama AI-chat kuin esinetti-webiin (`claude/chat-myynti`), sovitettuna

@@ -106,8 +106,9 @@ julkaisupäivät, kun sivusto avataan.
 - [x] Luonnos: eSinetti (Adepta Oy) käsittelijänä tietosuojaselosteessa ja
       vastuunjako käyttöehtojen kohdassa 5 (2026-09-26) — **Jukka tarkistaa
       ennen mergeä**, ks. BLOCKERS.md
-- [ ] **Tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset** (Jukka 25.10.2026: Claude laatii,
-      Jukka hyväksyy ennen julkaisua). "Avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
+- [x] **Tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset** (Jukka 25.10.2026: Claude laatii,
+      Jukka hyväksyy ennen julkaisua; **Jukka hyväksyi ja PR #11 yhdistettiin 31.10.2026**, ks. BLOCKERS.md
+      kohta 4). "Avautuu lokakuussa 2026", odotuslistan osuudet ja "Osa 2 alkaa" -otsikko
       ovat julkaisua edeltävää tekstiä. Tee:
       1) Luonnos live-tilan tekstistä sivuille `/tietosuoja` ja `/kayttoehdot` niin, että nykyinen teksti näkyy
          ennallaan, kunnes `LAUNCH_MODE=live` (live-teksti vain live-tilassa, yksikkötesti kummallekin tilalle).
@@ -118,14 +119,12 @@ julkaisupäivät, kun sivusto avataan.
       3) Oma PR `node scripts/pr.mjs ... --ei-automaattista`: **automaattinen yhdistäminen pois**, Jukka hyväksyy
          juridiset tekstit itse. PR-kuvaukseen lista muuttuneista kohdista arkikielellä.
 
-      **Tila 26.10.2026 (yöajo):** luonnos tehty, PR auki haarassa `claude/yoajo-tietosuoja-live-luonnos`,
-      ei automaattista yhdistämistä. Docs-tiedostoa `docs/luonnos-tietosuoja-ja-kayttoehdot.md` ei ollut
-      (poistettu 27.9.2026, kun sen sisältö siirrettiin sivuille korjattuna, ks. DECISIONS.md) – pohjana
-      käytettiin siis nykyisiä sivuja. eSinetti käsittelijänä, peruutusoikeus, kuvat kodista ja todistuksen
-      omistajuus olivat jo sivuilla ennallaan; lisätty uusi kohta kuluista ja kuiteista (Plus), jota ei ollut
-      selosteessa ollenkaan. "Viennin peitetty henkilötunnus" -kohtaa ei löytynyt mistään tuotteen kuvauksesta,
-      ei lisätty väitettä siitä – kysymys Jukalle PR:n kuvauksessa. Jätetään `[ ]`, kunnes Jukka hyväksyy ja PR
-      yhdistetään (hyväksynnässä on myös kaksi muuta avointa kysymystä PR:n kuvauksessa).
+      **Tila 31.10.2026:** PR #11 yhdistetty. Jukan vastaukset kolmeen avoimeen kysymykseen (BLOCKERS.md
+      kohta 4): (1) Adepta Tilat Oy:n ja Adepta Oy:n käsittelysopimus allekirjoitetaan ennen
+      `LAUNCH_MODE=live`-kytkentää — **tämä on siis lanseerauksen ehto, ei tämän tehtävän este** — live-teksti
+      sanoo sopimuksen olevan allekirjoitettu, joten se täytyy olla totta siinä hetkessä kun tila vaihdetaan.
+      (2) "Viennin peitetty henkilötunnus" -kohtaa ei lisätä, koska eSinetti ei palauta henkilötunnusta.
+      (3) Pohjana käytettiin nykyisiä sivuja, koska vanha luonnostiedosto oli poistunut.
 - [x] Yhteydenottotapa (2026-10-07): `/yhteystiedot` sai toimivan
       yhteydenottolomakkeen (nimi, sähköposti, viesti + honeypot + Turnstile-runko),
       samalla rakenteella kuin esinetti-webin lomake. Korvaa vanhan tekstin, joka
