@@ -54,6 +54,12 @@ Seuraava ympäristötehtävä on vasta lanseerauksessa: `LAUNCH_MODE=live` ja
 **Päivitys 25.10.2026 (Jukka):** Claude laatii live-muotoiset luonnokset (PLAN vaihe D), ja Jukka hyväksyy ne
 ennen julkaisua. PR:t ilman automaattista yhdistämistä.
 
+**Jukka hyväksyi PR #11:n 31.10.2026:** (1) Adepta Tilat Oy:n ja Adepta Oy:n (eSinetti) käsittelysopimus
+**allekirjoitetaan ennen kuin `LAUNCH_MODE=live` kytketään**; live-teksti sanoo sen olevan allekirjoitettu,
+joten tämä on lanseerauksen ehto. (2) "Viennin peitetty henkilötunnus" -kohtaa ei lisätä: Reilusoppari ei käsittele
+henkilötunnuksia (eSinetti palauttaa tunnistuksesta vain nimen ja tunnistustavan). (3) Pohjana nykyiset sivut, koska
+vanha luonnostiedosto poistui 27.9.2026.
+
 `/tietosuoja` ja `/kayttoehdot` ovat pohjia. Kolme kohtaa vaativat erityistä
 huolellisuutta, koska palvelu myydään kuluttajalle: peruutusoikeus (KSL 6 luku,
 etämyynti), kuvat kodista ja todistuksen omistajuus. Juristin tarkistusta on

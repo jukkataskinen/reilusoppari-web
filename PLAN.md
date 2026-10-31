@@ -108,6 +108,15 @@ julkaisupäivät, kun sivusto avataan.
          kohdat hakasulkeisiin ja PR-kuvaukseen kysymyksiksi Jukalle.
       3) Oma PR `node scripts/pr.mjs ... --ei-automaattista`: **automaattinen yhdistäminen pois**, Jukka hyväksyy
          juridiset tekstit itse. PR-kuvaukseen lista muuttuneista kohdista arkikielellä.
+
+      **Tila 26.10.2026 (yöajo):** luonnos tehty, PR auki haarassa `claude/yoajo-tietosuoja-live-luonnos`,
+      ei automaattista yhdistämistä. Docs-tiedostoa `docs/luonnos-tietosuoja-ja-kayttoehdot.md` ei ollut
+      (poistettu 27.9.2026, kun sen sisältö siirrettiin sivuille korjattuna, ks. DECISIONS.md) – pohjana
+      käytettiin siis nykyisiä sivuja. eSinetti käsittelijänä, peruutusoikeus, kuvat kodista ja todistuksen
+      omistajuus olivat jo sivuilla ennallaan; lisätty uusi kohta kuluista ja kuiteista (Plus), jota ei ollut
+      selosteessa ollenkaan. "Viennin peitetty henkilötunnus" -kohtaa ei löytynyt mistään tuotteen kuvauksesta,
+      ei lisätty väitettä siitä – kysymys Jukalle PR:n kuvauksessa. Jätetään `[ ]`, kunnes Jukka hyväksyy ja PR
+      yhdistetään (hyväksynnässä on myös kaksi muuta avointa kysymystä PR:n kuvauksessa).
 - [x] Yhteydenottotapa (2026-10-07): `/yhteystiedot` sai toimivan
       yhteydenottolomakkeen (nimi, sähköposti, viesti + honeypot + Turnstile-runko),
       samalla rakenteella kuin esinetti-webin lomake. Korvaa vanhan tekstin, joka

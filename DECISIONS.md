@@ -396,3 +396,36 @@ PLANiin, koska suositteluedun toteutus on sovelluksessa eikä sivustolla.
 **Chatin huomautus (Jukka 26.10.2026):** chat-ikkunan alareunan huomautus on nyt sama kaikissa Adeptan chateissa:
 "Vastauksissa on käytetty tekoälyä. Lisätietoja tietosuojasivulta." Linkki vie tietosuojaselosteen chat-kohtaan
 (`/tietosuoja#chat-assistentti`), jossa henkilötietojen ohje ja Anthropicin käsittely kerrotaan tarkemmin.
+
+## 2026-10-26 — Tietosuojaselosteen ja käyttöehtojen live-tilan luonnokset (yöajo)
+
+**Mitä tehtiin:** `/tietosuoja` ja `/kayttoehdot` saivat `LAUNCH_MODE=live`-variantit niihin kohtiin, jotka
+ennen olettivat palvelun olevan vielä avaamatta (hero-teksti, "Osa 2 alkaa <kuukausi>" -otsikko, eSinetti-kohdan
+"ennen kuin palvelu avautuu", muutokset-osion ingressi). Nykyinen (`soon`/`waitlist`) teksti ei muutu – tekstit
+eriytettiin omaan tiedostoon `src/lib/legal-copy.ts`, joka on yksikkötestattu molemmille/kaikille kolmelle
+tilalle (`tests/unit/legal-copy.test.ts`) ilman React-renderöintiä, samaan tapaan kuin `src/lib/launch.ts`.
+
+**Samalla korjattu virhe:** `soon`-tilassa (nykyinen tuotannon oletus) molemmat sivut näyttivät silti
+`LAUNCH_TARGET`-vakion ("lokakuussa 2026"), vaikka `src/lib/launch.ts`:n oma dokumentaatio sanoo nimenomaan,
+että se näytetään vain `waitlist`-tilassa. `soon`-tila ei saa luvata päivämäärää. Korjattu samassa PR:ssä, koska
+sama koodi muutettiin joka tapauksessa.
+
+**Lisätty uusi kohta:** "Kulut ja kuitit (Plus)" tietosuojaselosteen Osa 2:een. Plus-ominaisuus (`/verolaskelma`)
+on ollut sivustolla Vaihe B:stä asti, mutta sen käsittelemiä tietoja (kulukirjaukset, kuitit) ei mainittu
+selosteessa lainkaan ennen tätä. Ei launch-mode-riippuvainen, koska kuvaa tuotteen toimintaa yleisesti samaan
+tapaan kuin "Kuvat kodista" -kohta.
+
+**Kolme avointa kysymystä Jukalle (PR:n kuvauksessa, ei koodissa – juridinen teksti ei saa näyttää
+hakasulkeita kävijälle):**
+1. eSinetti-kohta väittää live-tilassa, että käsittelysopimus *on* sovittu (ennen: "sovitaan ... ennen kuin
+   palvelu avautuu"). Tätä ei voi todentaa koodista – tarkista, että sopimus on allekirjoitettu, ennen kuin
+   hyväksyt PR:n tai asetat `LAUNCH_MODE=live`.
+2. CLAUDE.md:n tehtävälistassa mainittu "viennin peitetty henkilötunnus" ei vastaa mitään löytämääni kohtaa
+   tuotteen kuvauksessa (ei verolaskelmassa, ei todistuksessa, ei muualla). Ei lisätty väitettä, jota ei voinut
+   perustaa mihinkään – kerro, tarkoititko jotain tiettyä vientitoimintoa, niin lisätään oma kohta.
+3. Vanha `docs/luonnos-tietosuoja-ja-kayttoehdot.md`, jota tehtävä pyysi pohjaksi, ei ole olemassa (poistui
+   27.9.2026 commissa `bf07633`, kun sen korjattu sisältö siirrettiin sivuille). Käytin siis nykyisiä
+   `/tietosuoja`- ja `/kayttoehdot`-sivuja pohjana sen sijaan – sisältö vastaa samaa asiaa, mutta tarkista.
+
+**Ei muutettu:** säilytysaikaa aitoustodisteelle ("voidaan säilyttää pidempään") – tämä oli jo aiemmin kirjattu
+avoimeksi kysymykseksi (BLOCKERS.md "Yhtiövaihdos" -osio, kohta "Säilytys") eikä kuulu tähän tehtävään.
