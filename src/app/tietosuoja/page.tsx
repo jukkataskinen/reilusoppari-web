@@ -3,7 +3,14 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
-import { getLaunchMode, LAUNCH_TARGET } from "@/lib/launch";
+import { getLaunchMode } from "@/lib/launch";
+import {
+  tietosuojaEsinettiSopimus,
+  tietosuojaHeroLead,
+  tietosuojaMuutoksetIntro,
+  tietosuojaOsa2Heading,
+  tietosuojaOsa2Intro,
+} from "@/lib/legal-copy";
 import { company, companyLegalName, signingProvider } from "@content/company";
 
 const title = "Tietosuoja";
@@ -36,11 +43,19 @@ export const metadata: Metadata = {
  * Vercelin ajoalue on Yhdysvallat (esinetti/docs/sopimukset/alihankkijat-luonnos.md).
  * Jos eSinetti siirtyy EU-ajoalueelle tai lakkaa säilyttämästä todistetta,
  * päivitä kohta. Ks. BLOCKERS.md.
+ *
+ * `live`-tilan tekstit (26.10.2026, yöajo): ks. `src/lib/legal-copy.ts`.
+ * Nykyinen (`soon`/`waitlist`) teksti ei muutu – `live` lisää oman
+ * variantin samoihin kohtiin, jotka olettivat palvelun olevan vielä auki
+ * lanseerausta edeltävässä tilassa. Jukka hyväksyy tämän PR:n ennen
+ * mergeä, koska merge julkaisee tekstin (vaikka se ei näy kävijälle ennen
+ * kuin `LAUNCH_MODE=live` on myös asetettu Vercelissä).
  */
 const UPDATED = "26.10.2026";
 
 export default function TietosuojaPage() {
-  const waitlistOpen = getLaunchMode() === "waitlist";
+  const mode = getLaunchMode();
+  const waitlistOpen = mode === "waitlist";
   return (
     <>
       <Breadcrumbs
@@ -52,11 +67,7 @@ export default function TietosuojaPage() {
       <PageHero
         eyebrow={`Päivitetty ${UPDATED}`}
         title="Tietosuojaseloste"
-        lead={
-          waitlistOpen
-            ? "Reilusoppari kerää kahdenlaisia tietoja: odotuslistan sähköpostiosoitteita nyt, ja vuokrasuhteen tietoja sitten kun palvelu avautuu. Tässä molemmat erikseen."
-            : "Sivusto ei kerää nyt henkilötietoja. Tässä kuvataan, miten tietoja käsitellään odotuslistalla, jos se avataan, ja palvelussa, kun se avautuu."
-        }
+        lead={tietosuojaHeroLead(mode)}
       />
 
       <section className="bg-paper py-12 md:py-[72px]">
@@ -132,12 +143,8 @@ export default function TietosuojaPage() {
               tietosuojakehykseen.
             </p>
 
-            <h2>Osa 2: Palvelun tiedot (alkaa {LAUNCH_TARGET})</h2>
-            <p>
-              Kun palvelu avautuu, Reilusopparissa käsitellään vuokrasuhteeseen liittyviä tietoja.
-              Tämä osa kuvaa suunnitellun käsittelyn. Se tarkistetaan ja täsmennetään ennen
-              palvelun avaamista.
-            </p>
+            <h2>{tietosuojaOsa2Heading(mode)}</h2>
+            <p>{tietosuojaOsa2Intro(mode)}</p>
 
             <h3>Sopimuksen osapuolet</h3>
             <p>
@@ -153,9 +160,8 @@ export default function TietosuojaPage() {
               {" "}{signingProvider.product}-palvelulla. Sen tarjoaa {signingProvider.name} (Y-tunnus{" "}
               {signingProvider.businessId}), joka on eri yhtiö kuin {company.name}.{" "}
               {signingProvider.name} käsittelee näitä tietoja henkilötietojen käsittelijänä{" "}
-              {company.name}:n lukuun ja sen ohjeiden mukaan, ei omiin tarkoituksiinsa. Käsittelystä
-              sovitaan yhtiöiden välillä tietosuoja-asetuksen 28 artiklan mukaisella kirjallisella
-              sopimuksella ennen kuin palvelu avautuu.
+              {company.name}:n lukuun ja sen ohjeiden mukaan, ei omiin tarkoituksiinsa.{" "}
+              {tietosuojaEsinettiSopimus(mode)}
             </p>
             <p>{signingProvider.product} käsittelee allekirjoituksessa seuraavia tietoja:</p>
             <ul>
@@ -230,6 +236,15 @@ export default function TietosuojaPage() {
               vuokralaisia koskevaa rekisteriä.
             </p>
 
+            <h3>Kulut ja kuitit (Plus)</h3>
+            <p>
+              Plus-ominaisuudella kirjaat asuntoon liittyviä kuluja ja tallennat niiden kuitit.
+              Kirjaukset ja kuitit näkyvät vain sinulle, ja niistä koostetaan keväällä verolaskelma
+              OmaVeron kenttien mukaan (ks. <Link href="/verolaskelma">verolaskelma</Link>).
+              Reilusoppari ei lähetä laskelmaa Verohallinnolle eikä tee veroilmoitusta puolestasi –
+              vastuu ilmoituksesta on aina sinulla.
+            </p>
+
             <h3>Todistuksen omistajuus</h3>
             <p>
               Vuokratodistus on sen osapuolen oma asiakirja, jolle se on annettu. Vuokralaisen
@@ -247,11 +262,7 @@ export default function TietosuojaPage() {
             </p>
 
             <h2>Muutokset</h2>
-            <p>
-              Tätä selostetta täydennetään ennen palvelun avaamista. Merkittävät muutokset
-              päivitetään tälle sivulle, ja jos odotuslista on auki, niistä kerrotaan listalle
-              liittyneille sähköpostitse.
-            </p>
+            <p>{tietosuojaMuutoksetIntro(mode)}</p>
 
             <p>
               <Link href="/kayttoehdot">Käyttöehdot</Link>
