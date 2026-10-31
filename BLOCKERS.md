@@ -68,7 +68,13 @@ syytä harkita ennen lanseerausta. Ks. `DECISIONS.md`.
 Huom: tietosuojaselosteen odotuslistaosuus koskee käsittelyä, joka on TOTTA JO
 NYT — se ei voi odottaa lanseeraukseen asti.
 
-### 5. Blogin verotusartikkelit — JUKAN KIRJOITETTAVA (CLAUDE.md kohta 9.5)
+### ~~5. Blogin verotusartikkelit~~ — RATKAISTU (Jukka 31.10.2026)
+
+**Jukan päätös 31.10.2026 PR #8:sta:** artikkelit 6 ja 7 julkaistaan nykyisillä yleisillä muotoiluilla.
+Kilometrikorvauksen 2026 arvoa ei kirjoiteta lukuna, vaan lukija ohjataan vero.fi:hin; työhuonevähennys pysyy
+yleisellä tasolla ilman euroja. Molemmat artikkelit julkaistiin 31.10.2026, ks. DECISIONS.md. Alla oleva teksti
+on historiaa.
+
 
 **Päivitys 25.10.2026 (Jukka):** Claude kirjoittaa artikkelien 6 ja 7 luonnokset (PLAN vaihe C), ja Jukka
 tarkistaa ja hyväksyy ne ennen julkaisua. PR:t ilman automaattista yhdistämistä.
@@ -175,7 +181,7 @@ vaihtoa: tietosuoja ja käyttöehdot live-muotoon (PLAN Vaihe D).
 CLAUDE.md kohdan 9.2 alkuperäinen kehote on vanhentunut. Käytä tätä:
 
 > Lue CLAUDE.md, PLAN.md, DECISIONS.md ja BLOCKERS.md. Vaiheet A ja B ovat
-> valmiit ja vaiheesta C on tehty 8 artikkelia kymmenestä. Kerro, mitä
+> valmiit ja vaiheen C kaikki 10 artikkelia on julkaistu. Kerro, mitä
 > jäljellä olevista töistä kannattaa tehdä seuraavaksi.
 
 ## DNS: nimipalvelinsiirto tehty (päivitetty 2026-09-10)

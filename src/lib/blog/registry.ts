@@ -3,9 +3,8 @@ import type { PostFrontmatter } from "@/lib/blog/types";
 
 /**
  * Julkaisujärjestys (CLAUDE.md kohta 6). Numerot suluissa viittaavat
- * CLAUDE.md:n listaan – kohdat 6 ja 7 (vuokratulon verotus ja vähennykset)
- * puuttuvat tarkoituksella: ne ovat sivuston uskottavuuden ydin ja Jukka
- * kirjoittaa tai tarkistaa ne itse (CLAUDE.md kohta 9.5).
+ * CLAUDE.md:n listaan. Kohdat 6 ja 7 (vuokratulon verotus ja vähennykset)
+ * julkaistiin 31.10.2026 Jukan tarkistuksen jälkeen (CLAUDE.md kohta 9.5).
  *
  * Uuden artikkelin lisääminen on kolme kohtaa: tiedosto
  * content/blogi/<slug>.mdx, rivi tähän listaan ja POST_FRONTMATTER:iin,
@@ -22,6 +21,8 @@ export const POST_ORDER: readonly string[] = [
   "vuokravakuuden-palautus", // 3
   "vuokralaisen-tunnistaminen", // 4
   "vuokrakuittaus-ilman-pankkiliittymaa", // 5
+  "vuokratulon-verotus-2026", // 6
+  "vuokranantajan-matkakulut", // 7
   "mita-suositukseen-saa-kirjoittaa", // 8
   "vuokrankorotus-indeksiehto-ja-ilmoitusaika", // 9
   "vuokrasuhteen-paattyminen-reilusti", // 10
@@ -71,6 +72,20 @@ export const POST_FRONTMATTER: Record<PostSlug, PostFrontmatter> = {
       "Miksi vuokranantajan oma kuukausikuittaus toimii paremmin kuin tiliyhteys, ja mitä hyötyä siitä on vuokralaiselle.",
     date: "2026-09-10",
     tags: ["Kuittaukset", "Vuokranantajat", "Vuokralaiset"],
+  },
+  "vuokratulon-verotus-2026": {
+    title: "Vuokratulon verotus 2026: vastikkeet, korjaukset ja se kuuluisa rahoitusvastike",
+    description:
+      "Mikä vuokratulosta on veronalaista, miten hoito- ja rahoitusvastike vähennetään ja miksi tuloutettu ja rahastoitu eroavat verotuksessa.",
+    date: "2026-10-31",
+    tags: ["Verotus", "Vuokranantajat"],
+  },
+  "vuokranantajan-matkakulut": {
+    title: "Vuokranantajan matkakulut ja muut vähennykset, jotka jäävät usein tekemättä",
+    description:
+      "Mitkä matkat, välityspalkkiot ja puhelinkulut saa vähentää vuokratulosta, ja miksi kirjaamaton kulu on käytännössä vähentämätön.",
+    date: "2026-10-31",
+    tags: ["Verotus", "Vuokranantajat"],
   },
   "mita-suositukseen-saa-kirjoittaa": {
     title: "Mitä vuokranantaja saa kirjoittaa suositukseen – ja mitä vuokralainen voi vastata",

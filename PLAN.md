@@ -40,7 +40,7 @@ DoD: julkaistavissa odotuslistatilassa.
 
 ---
 
-## Vaihe C — blogi · **8/10 valmiina** (2026-09-10)
+## Vaihe C — blogi · **valmis** (10/10, artikkelit 6 ja 7 julkaistu 2026-10-31)
 
 Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 
@@ -51,6 +51,8 @@ Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 | 3 | `vuokravakuuden-palautus` | 1113 |
 | 4 | `vuokralaisen-tunnistaminen` | 976 |
 | 5 | `vuokrakuittaus-ilman-pankkiliittymaa` | 1052 |
+| 6 | `vuokratulon-verotus-2026` | n. 910 |
+| 7 | `vuokranantajan-matkakulut` | n. 910 |
 | 8 | `mita-suositukseen-saa-kirjoittaa` | 1128 |
 | 9 | `vuokrankorotus-indeksiehto-ja-ilmoitusaika` | 927 |
 | 10 | `vuokrasuhteen-paattyminen-reilusti` | 1109 |
@@ -73,14 +75,21 @@ Ne eivät ole rekisterissä eivätkä siis näy sivustolla. Julkaisu on kolme ko
 (900–1400 sanaa), description-mitan, sisäiset linkit ja sen, että frontmatter
 vastaa rekisteriä.
 
-- [ ] **Artikkelien 6 ja 7 luonnokset** (Jukka 25.10.2026: Claude kirjoittaa luonnokset, Jukka hyväksyy ennen
-      julkaisua). Kirjoita sisältö tiedostoihin `LUONNOS-vuokratulon-verotus-2026.mdx` ja
-      `LUONNOS-vuokranantajan-matkakulut.mdx` CLAUDE.md kohdan 6 aiheista. Säännöt: 900–1400 sanaa,
-      lakiviittaukset nimellä (tuloverolaki, Verohallinnon ohjeet), ei keksittyjä lukuja; jokainen luku ja
-      verosääntö Verohallinnon julkisesta lähteestä, lähde ja hakupäivä artikkeliin. Luonnokset **jäävät pois
-      rekisteristä** (`LUONNOS-`-etuliite pysyy), joten ne eivät näy sivustolla. Oma PR `--ei-automaattista`:
-      **automaattinen yhdistäminen pois**, Jukka lukee ja hyväksyy. Julkaisu (kolme kohtaa yllä) vasta Jukan
-      hyväksynnän jälkeen omana PR:nä.
+- [x] **Artikkelien 6 ja 7 luonnokset** (Jukka 25.10.2026: Claude kirjoittaa luonnokset, Jukka hyväksyy ennen
+      julkaisua). Kirjoitettu 2026-10-25: `LUONNOS-vuokratulon-verotus-2026.mdx` (1035 sanaa) ja
+      `LUONNOS-vuokranantajan-matkakulut.mdx` (987 sanaa), molemmat 900–1400 sanan sisällä. Lakiviittaukset
+      nimellä (tuloverolaki 32 §, 54 §, 124 §), lähteet ja hakupäivä (2026-10-24) tiedostojen MDX-kommentissa ja
+      DECISIONS.md:ssä. Kaksi lukua (kilometrikorvaus 2026, työhuonevähennyksen soveltuminen pääomatulosta)
+      jätettiin tarkoituksella yleisluontoisiksi/auki, koska hakutuloksista ei saatu riittävän luotettavaa,
+      vahvistettua lukua tältä istunnolta (ei suoraa pääsyä vero.fi:hin, ks. DECISIONS.md) – Jukka tarkistaa
+      nämä kaksi kohtaa luonnoksia lukiessaan. Luonnokset **ovat yhä pois rekisteristä**
+      (`LUONNOS`-etuliite pysyy), eivät näy sivustolla. PR tehty `--ei-automaattista`: **automaattinen
+      yhdistäminen pois**, Jukka lukee ja hyväksyy sisällön. Julkaisu (kolme kohtaa yllä) on oma, myöhempi
+      PR vasta Jukan hyväksynnän jälkeen.
+- [x] **Artikkelit 6 ja 7 julkaistu 2026-10-31** (Jukan päätös 31.10.2026 PR #8:sta): nykyisillä yleisillä
+      muotoiluilla, eli kilometrikorvauksen 2026 arvoa ei kirjoiteta lukuna (lukija ohjataan vero.fi:hin) ja
+      työhuonevähennys pysyy yleisellä tasolla ilman euroja. `LUONNOS-`-etuliite ja kommenttilohko pois,
+      rekisteriin, julkaisupäivä 2026-10-31. Lukujen lähteet: DECISIONS.md 2026-10-31.
 
 **Päivämäärät:** kaikki artikkelit on päivätty 2026-09-10, koska ne on
 kirjoitettu samana päivänä eikä sivustoa ole julkaistu. Aseta todelliset
