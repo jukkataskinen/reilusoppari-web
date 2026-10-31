@@ -40,7 +40,7 @@ DoD: julkaistavissa odotuslistatilassa.
 
 ---
 
-## Vaihe C — blogi · **8/10 valmiina** (2026-09-10)
+## Vaihe C — blogi · **valmis** (10/10, artikkelit 6 ja 7 julkaistu 2026-10-31)
 
 Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 
@@ -51,6 +51,8 @@ Julkaistut artikkelit (CLAUDE.md kohdan 6 numerointi):
 | 3 | `vuokravakuuden-palautus` | 1113 |
 | 4 | `vuokralaisen-tunnistaminen` | 976 |
 | 5 | `vuokrakuittaus-ilman-pankkiliittymaa` | 1052 |
+| 6 | `vuokratulon-verotus-2026` | n. 910 |
+| 7 | `vuokranantajan-matkakulut` | n. 910 |
 | 8 | `mita-suositukseen-saa-kirjoittaa` | 1128 |
 | 9 | `vuokrankorotus-indeksiehto-ja-ilmoitusaika` | 927 |
 | 10 | `vuokrasuhteen-paattyminen-reilusti` | 1109 |
@@ -84,6 +86,10 @@ vastaa rekisteriä.
       (`LUONNOS`-etuliite pysyy), eivät näy sivustolla. PR tehty `--ei-automaattista`: **automaattinen
       yhdistäminen pois**, Jukka lukee ja hyväksyy sisällön. Julkaisu (kolme kohtaa yllä) on oma, myöhempi
       PR vasta Jukan hyväksynnän jälkeen.
+- [x] **Artikkelit 6 ja 7 julkaistu 2026-10-31** (Jukan päätös 31.10.2026 PR #8:sta): nykyisillä yleisillä
+      muotoiluilla, eli kilometrikorvauksen 2026 arvoa ei kirjoiteta lukuna (lukija ohjataan vero.fi:hin) ja
+      työhuonevähennys pysyy yleisellä tasolla ilman euroja. `LUONNOS-`-etuliite ja kommenttilohko pois,
+      rekisteriin, julkaisupäivä 2026-10-31. Lukujen lähteet: DECISIONS.md 2026-10-31.
 
 **Päivämäärät:** kaikki artikkelit on päivätty 2026-09-10, koska ne on
 kirjoitettu samana päivänä eikä sivustoa ole julkaistu. Aseta todelliset

@@ -41,7 +41,48 @@ Reilusopparille. Jukan pyyntö: botti ohjaa hienovaraisesti pyytämään tarjous
   ole `vercel.json`:ia, joten sitä ei lisätty tämän muutoksen yhteydessä; funktioiden alue on erillinen
   päätös. Chat ei tallenna keskusteluja, joten alue ei muuta tallennuspaikkaa.
 
-## Artikkelien 6 ja 7 luonnokset kirjoitettu (2026-10-25, yötyö)
+## 2026-10-31 — Artikkelit 6 ja 7 julkaistu yleisillä muotoiluilla
+
+**Päätös (Jukka 31.10.2026, PR #8):** artikkelit `vuokratulon-verotus-2026` ja `vuokranantajan-matkakulut`
+julkaistaan nykyisillä yleisillä muotoiluilla. Oman auton kilometrikohtaista arvoa vuodelle 2026 ei kirjoiteta
+lukuna, vaan lukija ohjataan tarkistamaan se vero.fi:stä. Työhuonevähennys pysyy yleisellä tasolla ilman euroja.
+**Perustelu:** kumpaakaan lukua ei saatu vahvistettua suoraan Verohallinnon sivulta, eikä artikkeliin kirjoiteta
+lukua, jota ei voi perustaa lähteeseen. Yleinen muotoilu ohjaa lukijan ajantasaiseen lähteeseen eikä vanhene.
+
+**Julkaisu:** `LUONNOS-`-etuliite pois, slugit rekisteriin (`POST_ORDER` kohtiin 6 ja 7, `POST_FRONTMATTER`,
+`CONTENT_BY_SLUG`), julkaisupäivä 2026-10-31 (muiden artikkelien 2026-09-10 – listaus näyttää nämä kaksi
+ensimmäisinä, koska ne ovat uusimmat). Tiedostojen alun luonnoskommentti poistettiin; sen lähdetiedot ovat alla,
+jotta jokaisella artikkelin luvulla on lähde tässä tiedostossa.
+
+**Artikkelien luvut ja lähteet** (haettu 2026-10-24, Verohallinnon ohjeet "Vuokratulojen verotus" ja
+"Vuokratulot – vähennykset", vero.fi/henkiloasiakkaat/omaisuus/vuokratulot/; tuloverolaki 1535/1992):
+
+| Luku artikkelissa | Lähde |
+|---|---|
+| Vuokratulo pääomatuloa, TVL 32 § | tuloverolaki 32 § |
+| Tulonhankkimismenot vähennyskelpoisia, TVL 54 § | tuloverolaki 54 § |
+| Pääomatulovero 30 % / 34 %, raja 30 000 € | tuloverolaki 124 § (voimassa vuodesta 2016, ei muutosta vuodelle 2026 löytynyt) |
+| Perusparannus osakehuoneistossa 10 vuoden tasapoistoina | Verohallinto, "Vuokratulot – vähennykset" |
+| Kalusteet: poisto enintään 25 % menojäännöksestä, käyttöaika yli 3 vuotta | Verohallinto, "Vuokratulot – vähennykset" |
+| Kalusteiden kertavähennys, kun menojäännös enintään 1 200 € | Verohallinto, "Vuokratulot – vähennykset" |
+| Lomakkeet 7H / 7K / 7L | Verohallinto, "Vuokratulojen verotus" |
+
+Artikkelissa 7 ei ole euro- tai prosenttilukuja; matkakulujen, välityspalkkion ja puhelinkulujen
+vähennyskelpoisuus perustuu Verohallinnon ohjeisiin matkakuluista ja tulonhankkimiskuluista
+(vero.fi/henkiloasiakkaat/vahennykset/) ja tuloverolain 54 §:ään. Samalla korjattiin kaksi kirjoitusvirhettä
+artikkelissa 6 ("niinä kuukausina", "ei synny").
+
+**Lisätty tekstiä pituusvaatimuksen takia (Jukka ei ole vielä lukenut näitä):** luonnosten sanamäärät
+(1035 ja 987) oli laskettu luonnoskommentti mukaan lukien. Kun kommentti poistettiin, blogitesti laski 890 ja
+763 sanaa, alle CLAUDE.md kohdan 6 vaatiman 900:n. Testiä ei muutettu; artikkeleihin lisättiin lyhyitä
+käytännön kappaleita, joissa ei ole uusia lukuja eikä uusia verosääntöjä:
+- artikkeli 6, "Maksuperuste": yksi lause vuodenvaihteen maksujen tarkistamisesta
+- artikkeli 7: uusi osio "Tavallinen vuosi vuokranantajan kalenterissa" (esimerkkejä käynneistä, linkki
+  `/katselmus`) ja puhelinosioon kappale osuuden perustelemisesta puhelu- ja viestihistorialla
+Koska lisäykset ovat uutta, tarkistamatonta tekstiä verotusartikkeleissa (CLAUDE.md kohta 9.5), PR:ää ei
+kytketty yhdistymään automaattisesti; Jukka lukee lisäykset ja yhdistää.
+
+
 
 **Tausta:** PLAN.md Vaihe C ja Jukan päätös 25.10.2026: Claude kirjoittaa
 artikkelien 6 (vuokratulon verotus) ja 7 (matkakulut ja muut vähennykset)

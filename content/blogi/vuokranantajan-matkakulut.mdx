@@ -1,44 +1,9 @@
 ---
 title: "Vuokranantajan matkakulut ja muut vähennykset, jotka jäävät usein tekemättä"
 description: "Mitkä matkat, välityspalkkiot ja puhelinkulut saa vähentää vuokratulosta, ja miksi kirjaamaton kulu on käytännössä vähentämätön."
-date: "2026-09-10"
+date: "2026-10-31"
 tags: ["Verotus", "Vuokranantajat"]
 ---
-
-{/*
-  LUONNOS – EI JULKAISTA VIELÄ.
-
-  Sisältö kirjoitettu yöajolla 2026-10-25 (PLAN.md Vaihe C, Jukan päätös
-  25.10.2026: Claude kirjoittaa luonnoksen, Jukka tarkistaa ja hyväksyy ennen
-  julkaisua). Tiedosto EI ole rekisterissä, joten se ei näy sivustolla.
-
-  Julkaisu Jukan hyväksynnän jälkeen on kolme kohtaa:
-   1. poista LUONNOS-etuliite tiedostonimestä
-   2. lisää slug src/lib/blog/registry.ts:n POST_ORDER- ja POST_FRONTMATTER-
-      rakenteisiin (frontmatterin on vastattava täsmälleen – testi tarkistaa)
-   3. lisää staattinen import ja rivi CONTENT_BY_SLUG:iin src/lib/blog/posts.ts
-
-  Lähteet (haettu 2026-10-24, WebSearch – ei suoraa pääsyä vero.fi:hin tästä
-  ympäristöstä, ks. DECISIONS.md): Verohallinnon ohjeet matkakuluista
-  tulonhankkimismenona (vero.fi/henkiloasiakkaat/vahennykset/matkakulut/) ja
-  "Tulonhankkimiskulut" / kannanotto vuokranvälityspalkkiosta ja puhelin-
-  kuluista tulonhankkimismenona, tuloverolaki (1535/1992) 54 §.
-
-  KAKSI AVOINTA KOHTAA JUKALLE (ei vahvistettu riittävän luotettavasti haun
-  kautta, ei haluttu kirjoittaa auki keksittyä lukua):
-   1. Oman auton kilometrikorvauksen tarkka euromäärä/km tulonhankkimis-
-      menona vuodelle 2026 (HUOM: eri luku kuin työnantajan verovapaa
-      kilometrikorvaus). Vuoden 2025 luku löytyi hakujen perusteella
-      (0,27 €/km), mutta en voinut vahvistaa sitä suoraan vero.fi:stä eikä
-      vuoden 2026 lukua löytynyt luotettavasti. Artikkelissa jätetty tarkka
-      luku pois ja ohjattu lukija tarkistamaan ajantasainen arvo vero.fi:stä.
-   2. Työhuonevähennyksen soveltuminen ja euromäärä pääomatulosta (vuokraus-
-      toiminnan hoitaminen kotona). Hakutulokset olivat ristiriitaisia sen
-      suhteen, koskeeko kaavamainen työhuonevähennys ylipäätään pääomatuloa
-      vai vain palkka-/ansiotuloa. Artikkelissa kirjoitettu varovaisesti
-      yleisellä tasolla ilman euromäärää – Jukka tarkistaa vero.fi:stä ennen
-      julkaisua, soveltuuko tämä vähennys käytännössä kenellekään lukijalle.
-*/}
 
 <Lyhyesti>
 Vuokra-asunnolla käynnin matkakulut ovat vähennyskelpoisia tulonhankkimismenoja, kunhan matkasta jää muistiin päivä, kohde, syy ja kilometrit. Myös vuokranvälityspalkkio, ilmoituskulut ja vuokraustoimintaan liittyvät puhelinkulut saa vähentää. Yhteistä kaikille: jos kulua ei ole kirjattu eikä sitä pystytä näyttämään toteen, se on käytännössä vähentämätön, vaikka se olisi aito ja oikea.
@@ -63,6 +28,12 @@ Vähennyksen perusteeksi ei riitä muistikuva siitä, että asunnolla "käytiin 
 
 Kun tämä kirjataan samalla kertaa kun matka tehdään, keväällä ei tarvitse yrittää muistella, montako kertaa asunnolla oikeasti käytiin ja minkä takia. Hajanaisista muistiinpanoista koottu arvio on juuri sitä, mitä verotuksessa ei hyväksytä toteen näytetyksi kuluksi.
 
+## Tavallinen vuosi vuokranantajan kalenterissa
+
+Harvan vuokranantajan vuosi on pelkkää vastikkeen maksamista. Kun vuokralainen vaihtuu, asunnolla käydään ensin näyttämässä sitä, sitten [alkukatselmuksessa](/katselmus) ja avaimia luovuttamassa. Kesken vuokrasuhteen tulee vikailmoitus: hana tippuu, liesituuletin pitää ääntä tai ovikellon nappi jumii, ja asunnolle lähdetään katsomaan, mitä asialle tehdään. Joskus pitää vain päästää huoltomies sisään, kun vuokralainen on töissä.
+
+Jokainen näistä on oma matkansa, ja jokaisesta kannattaa jäädä sama merkintä: päivä, kohde, syy ja kilometrit. Kun käynti on kirjattu samaan paikkaan kuin itse asia – vikailmoitus huoltokirjaan, katselmus kuvineen sopimuksen liitteeksi – matkan syy on valmiiksi näkyvissä, eikä sitä tarvitse keväällä selittää uudelleen kenellekään, ei edes itselleen.
+
 ## Välityspalkkiot ja ilmoituskulut
 
 Vuokranvälityspalkkio ja vuokralaisen hankkimisesta aiheutuneet ilmoituskulut ovat tulonhankkimismenoja ja vähennyskelpoisia samalla tavalla kuin muutkin vuokratulon hankkimiseen liittyvät kulut. Tämä koskee myös lyhytaikaisvuokrauksen alustoilta perittäviä palvelumaksuja. Edellytyksenä on, että kulu liittyy nimenomaan vuokraustoimintaan – esimerkiksi vuokrausilmoitus tai välityssopimus osoittaa tämän tarvittaessa.
@@ -74,6 +45,8 @@ Kaavamainen työhuonevähennys on olemassa tilanteisiin, joissa tulonhankkimisto
 ## Puhelin- ja tietoliikennekulut
 
 Vuokraustoimintaan liittyvät puhelinkulut ovat vähennyskelpoisia siltä osin kuin ne todellisuudessa liittyvät vuokra-asunnon hoitamiseen – esimerkiksi yhteydenpitoon vuokralaisten, isännöitsijän tai huoltoyhtiön kanssa. Jos puhelinta käytetään myös muuhun, vähennyskelpoinen on vain vuokraustoimintaan kohdistuva, perusteltu osuus kokonaiskustannuksesta.
+
+Käytännössä osuus kannattaa perustella jollakin, minkä voi tarvittaessa näyttää. Esimerkiksi muutaman kuukauden puhelu- ja viestihistoriasta näkee, kuinka suuri osa yhteydenpidosta liittyy vuokra-asuntoon. Pelkkä arvio ilman pohjaa on helppo kyseenalaistaa, perusteltu osuus taas kestää kysymykset ja on sama vuodesta toiseen, kunnes tilanne muuttuu.
 
 ## Miksi kirjaamaton kulu on käytännössä vähentämätön
 

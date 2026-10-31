@@ -17,6 +17,8 @@ import * as post05 from "@content/blogi/vuokrakuittaus-ilman-pankkiliittymaa.mdx
 import * as post06 from "@content/blogi/mita-suositukseen-saa-kirjoittaa.mdx";
 import * as post07 from "@content/blogi/vuokrankorotus-indeksiehto-ja-ilmoitusaika.mdx";
 import * as post08 from "@content/blogi/vuokrasuhteen-paattyminen-reilusti.mdx";
+import * as post09 from "@content/blogi/vuokratulon-verotus-2026.mdx";
+import * as post10 from "@content/blogi/vuokranantajan-matkakulut.mdx";
 
 type MDXContent = (props: MDXProps) => MDXElement;
 
@@ -29,6 +31,8 @@ const CONTENT_BY_SLUG: Record<PostSlug, MDXContent> = {
   "mita-suositukseen-saa-kirjoittaa": post06.default,
   "vuokrankorotus-indeksiehto-ja-ilmoitusaika": post07.default,
   "vuokrasuhteen-paattyminen-reilusti": post08.default,
+  "vuokratulon-verotus-2026": post09.default,
+  "vuokranantajan-matkakulut": post10.default,
 };
 
 export type { PostSlug };
