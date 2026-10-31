@@ -1,23 +1,24 @@
 import { Container } from "@/components/Container";
 
 /**
- * "Sopikaa. Kuvatkaa. Kuitatkaa." (CLAUDE.md kohta 4.2).
+ * "Sopikaa. Kuvatkaa. Kuitatkaa." (CLAUDE.md kohta 4.2). Yläotsikko säilyi,
+ * otsikko ja askelten tekstit Jukan hyväksymät 31.10.2026.
  *
  * Numerointi on perusteltua, koska askeleet ovat aito sekvenssi: sopimusta
- * ei voi kuitata ennen kuin se on tehty. Yksi lause per askel, ei enempää.
+ * ei voi kuitata ennen kuin se on tehty.
  */
 const steps = [
   {
-    title: "Sopikaa",
-    body: "Vuokrasopimus täytetään yhdessä ja allekirjoitetaan pankkitunnuksilla – molemmat saavat saman kappaleen.",
+    title: "Tehkää sopimus verkossa",
+    body: "Täyttäkää ehdot yhdessä ja allekirjoittakaa pankkitunnuksilla. Molemmat saavat saman asiakirjan.",
   },
   {
-    title: "Kuvatkaa",
-    body: "Kumpikin kuvaa ne kohdat, jotka itse pitää olennaisina, ja molemmat hyväksyvät kuvat allekirjoituksellaan.",
+    title: "Kuvatkaa asunnon kunto",
+    body: "Ottakaa kuvat esimerkiksi parketin jäljistä tai seinistä ja hyväksykää ne osaksi sopimusta. Poismuutossa verrataan kuvia, ei muistikuvia.",
   },
   {
-    title: "Kuitatkaa",
-    body: "Kerran kuussa vuokranantaja kuittaa vuokran, ja vuokralainen näkee kuittauksen heti.",
+    title: "Kuitatkaa vuokrat yhdellä painalluksella",
+    body: "Vuokranantaja kuittaa maksun saapuneeksi, ja vuokralaiselle kertyy maksuhistoria.",
   },
 ];
 
@@ -25,7 +26,8 @@ export function Steps() {
   return (
     <section className="border-b border-line bg-cloud py-14 md:py-[88px]">
       <Container>
-        <h2 className="text-2xl md:text-[32px]">Sopikaa. Kuvatkaa. Kuitatkaa.</h2>
+        <p className="text-sm font-medium text-ink/70">Sopikaa. Kuvatkaa. Kuitatkaa.</p>
+        <h2 className="mt-2 text-2xl md:text-[32px]">Miten Reilusoppari toimii käytännössä?</h2>
         <ol className="mt-10 grid gap-8 md:grid-cols-3">
           {steps.map((step, index) => (
             <li key={step.title}>

@@ -14,11 +14,11 @@ export function HomePricing() {
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
           <div>
             <h2 className="text-2xl md:text-[32px]">
-              Ensimmäinen vuokrasuhde ilmaiseksi. Sen jälkeen{" "}
-              {formatEuroAuto(pricing.tenancy.fee)} – kerran, koko vuokrasuhteen ajaksi.
+              Ensimmäinen vuokrasuhde {formatEuroAuto(0)}.
             </h2>
             <p className="mt-4 text-ink/80">
-              Vuokralaiselle {formatEuroAuto(pricing.tenant.price)}.
+              Sen jälkeen {formatEuroAuto(pricing.tenancy.fee)} kerran, koko vuokrasuhteen ajaksi.
+              Vuokralaiselle palvelu on maksuton.
             </p>
             <p className="mt-2 text-ink/70">
               Plus: kulut ja verolaskelma {formatEuroAuto(pricing.plus.yearlyPerApartment)}

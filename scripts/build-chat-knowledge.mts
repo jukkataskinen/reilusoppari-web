@@ -87,7 +87,9 @@ const sections: { title: string; path: string; body: string }[] = [
       "src/components/sections/Hero.tsx",
       "src/components/sections/Steps.tsx",
       "src/components/sections/MolemmilleJotain.tsx",
+      "src/components/sections/HomePricing.tsx",
       "src/components/sections/TuoKaveri.tsx",
+      "src/components/sections/Tarina.tsx",
     ),
   },
   { title: "Usein kysytyt kysymykset", path: "/ukk", // ukkFaq sisältää jo etusivun kysymykset (homeFaq), joten ne poistetaan vain varmuuden vuoksi.

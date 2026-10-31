@@ -70,6 +70,8 @@ Navigaatio: logo · Miten toimii · Vuokranantajalle · Vuokralaiselle · Hinnat
 
 ## 4. Etusivu
 
+> **Päivitys 31.10.2026 (Jukka):** etusivun tekstit uudistettiin. Voimassa olevat tekstit ovat sivuston koodissa (`src/app/page.tsx`, `src/components/sections/`) ja muutokset DECISIONS.md:ssä (2026-10-31). Alla oleva rakenne ja kuvat ovat yhä voimassa, mutta alla lainatut otsikot ja sitaatit on korvattu.
+
 1. **Hero.** Otsikko: "Vuokrasopimus, jonka molemmat allekirjoittavat mielellään." Alaotsikko: "Reilusoppari hoitaa sopimuksen, kuvat asunnon kunnosta, vuokrakuittaukset ja lopuksi todistuksen – molemmille. Ensimmäinen vuokrasuhde on ilmainen." CTA `<PrimaryCta />` ("Aloita ilmaiseksi" / odotuslista), alle "Vuokralaiselle aina maksuton."
    Heron visuaalinen elementti: **kaksipuolinen näkymä**. Sovelluksen oikea vuokrasopimus (`<DocumentPage name="vuokrasopimus" />`) ja sen alla kaksi samankokoista allekirjoittajapaneelia – vuokranantaja `sky`, vuokralainen `coral` – sekä yhteinen rivi "Yksi sopimus · molemmat allekirjoittavat pankkitunnuksilla". Asiakirja on yksi, koska niin se on oikeastikin: osapuolia on kaksi, ei sopimuksia. Kytkin vaihtaa allekirjoittajien järjestyksen; valittu osapuoli on aina vasemmalla. Allekirjoittajien nimet ovat samat kuin kuvassa näkyvässä sopimuksessa. Vaihtokytkin heron yläreunassa "Olen vuokranantaja / Olen vuokralainen" vaihtaa alaotsikon ja CTA-tekstin (vuokralaiselle: "Pyydä vuokranantajaa käyttämään Reilusopparia" → valmis viestipohja jaettavaksi). Kytkimen tila muistetaan sivuston sisällä (URL-parametri, ei evästettä).
 2. **Kolme askelta, kevyesti.** "Sopikaa. Kuvatkaa. Kuitatkaa." Yksi lause per askel. Aito sekvenssi, numerointi perusteltu.
