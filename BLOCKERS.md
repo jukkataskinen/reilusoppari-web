@@ -427,3 +427,16 @@ Seuraava yöajo: tarkista ensin, onko Jukka allekirjoittanut
 käsittelysopimuksen ja kytkenyt `LAUNCH_MODE=live`, tai onko sovellus
 edistynyt niin, että kuvakaappaukset ovat mahdollisia — vasta sitten on uutta
 koodautettavaa tehtävää tässä repossa.
+
+## Yöajo 2026-11-03: Next.js-tietoturvapäivitys tehty, kolme aiempaa estettä ennallaan
+
+Terveystarkistuksessa `npm audit` löysi kriittisen haavoittuvuuden (`next`,
+GHSA-2464-fhr4-w9xw, RCE kuvien optimoinnissa) — korjattu patch-tason nostolla
+15.5.25 → 15.5.29, omana PR:nä. Ks. DECISIONS.md 2026-11-03.
+
+`PLAN.md`:n jäljellä olevat merkitsemättömät kohdat (`LAUNCH_MODE=live`, aidot
+kuvakaappaukset, suosittelupolku sovellusrepossa) ovat ennallaan — Jukan omia
+tehtäviä tai riippuvat sovelluksen olemassaolosta. Chatbotin `ANTHROPIC_API_KEY`
+ja Plausible-tavoitteet (edelliset Jukan tehtävä -kohdat) ovat myös ennallaan.
+Seuraava yöajo: tarkista ensin, onko jokin näistä muuttunut, ennen kuin etsit
+uutta tehtävää.

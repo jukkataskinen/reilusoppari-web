@@ -553,3 +553,16 @@ Nämä korvaavat CLAUDE.md:n kohdan 4 aiemmat sitovat tekstit; kohdan 4 alkuun o
 - Etusivulla ei ole enää "Reilua."-loppuja; ne säilyvät CLAUDE.md:n äänensävyn mittatikkuna muualla.
   `/vuokralaiselle`- ja `/todistus`-sivujen todistusteksti ("kovaa valuuttaa") jäi ennalleen, koska tehtävä
   koski etusivua.
+
+## 2026-11-03 — Yöajo: Next.js 15.5.25 → 15.5.29 (kriittinen RCE-korjaus)
+
+Sama tilanne kuin esinetti-webissä (yhteinen runko): `npm audit` paljasti kriittisen
+haavoittuvuuden riippuvuudessa `next` — [GHSA-2464-fhr4-w9xw](https://github.com/advisories/GHSA-2464-fhr4-w9xw),
+tunnistautumatta tapahtuva mielivaltainen koodin suoritus kuvien optimointirajapinnassa
+SVG-tiedostoja käsiteltäessä, versioväli `>=10.0.0 <=15.5.27`. Sivusto oli `^15.5.25`. Korjaus
+on patch-tasolla: `next`, `@next/mdx` ja `eslint-config-next` nostettu `15.5.29`:ään, ei
+pääversion nosto. `npm audit`: 23 → 22 haavoittuvuutta, kriittisiä 0.
+
+`npm run lint && npm run typecheck && npm run test` (168/168) ja `npm run build` vihreinä,
+`npm run test:e2e` (Playwright, Chromium) 25/25 vihreinä. Patch-tason nosto, joten PR yhdistyy
+normaalisti vihreällä CI:llä (ei `riippuvuus-major`-tunnistetta).
