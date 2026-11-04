@@ -440,3 +440,17 @@ tehtäviä tai riippuvat sovelluksen olemassaolosta. Chatbotin `ANTHROPIC_API_KE
 ja Plausible-tavoitteet (edelliset Jukan tehtävä -kohdat) ovat myös ennallaan.
 Seuraava yöajo: tarkista ensin, onko jokin näistä muuttunut, ennen kuin etsit
 uutta tehtävää.
+
+## Yöajo 2026-11-04: zod-tietoturvapäivitys tehty, kolme aiempaa estettä ennallaan
+
+Ei avoimia PR:iä tätä yöajoa aloitettaessa (main ajan tasalla #17:ään asti).
+Terveystarkistuksessa `npm audit` löysi korkean vakavuusasteen haavoittuvuuden
+tuotantoriippuvuudessa `zod` (GHSA-mrhx-c7xc-m3w5, muistin loppuminen
+ylisuurilla kokoelmilla) — korjattu nostamalla `^4.6.7`:ään, omana PR:nä
+(sama korjaus tehty samalla kertaa sisarprojektiin esinetti-web). Ks.
+DECISIONS.md 2026-11-04.
+
+`PLAN.md`:n jäljellä olevat merkitsemättömät kohdat (`LAUNCH_MODE=live`, aidot
+kuvakaappaukset, suosittelupolku sovellusrepossa) ovat ennallaan. Seuraava
+yöajo: tarkista ensin, onko jokin näistä muuttunut, ennen kuin etsit uutta
+tehtävää.

@@ -4,6 +4,27 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## 2026-11-04 - Yöajo: zod 4.5.4 → 4.6.7 (korkean asteen tietoturvapäivitys)
+
+**Päätös:** `npm audit` löysi korkean vakavuusasteen haavoittuvuuden
+(`zod`, [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5):
+muistin loppuminen validoitaessa ylisuuria rajoitettuja kokoelmia,
+versioväli `<4.6.6`). Korjattu nostamalla `zod` `^4.6.7`:ään – pysyy
+major-versiossa 4, ei siis vaadi `--ei-automaattista`-lippua eikä
+`riippuvuus-major`-tunnistetta.
+**Perustelu:** `zod` on tuotantoriippuvuus, jota käytetään suoraan
+käyttäjän syötteen validointiin (yhteydenotto- ja odotuslistalomake,
+`src/lib/*-schema.ts`) – toisin kuin useimmat muut `npm audit`:n löytämät
+13 haavoittuvuutta, jotka ovat devDependency-ketjuissa (eslint, vitest,
+vite) tai Next.js:n sisäisessä build-aikaisessa postcss-riippuvuudessa
+(ei ajonaikainen riski, peritty esinetti-webistä). Sama korjaus tehtiin
+samalla yöajolla sisarprojektiin esinetti-web, koska molemmilla on
+identtinen `package.json`-riippuvuusrivi.
+`npm run lint && npm run typecheck && npm run test` (168/168) ja
+`npm run build` vihreinä; `npx playwright test` 25/25 vihreinä.
+
+---
+
 ## 2026-10-31 — Yöajo: PLAN.md korjattu vastaamaan yhdistettyjä PR:iä
 
 **Päätös:** merkittiin `PLAN.md`:ssä "Tietosuojaselosteen ja käyttöehtojen live-muotoiset luonnokset" tehdyksi
