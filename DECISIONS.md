@@ -587,3 +587,27 @@ pääversion nosto. `npm audit`: 23 → 22 haavoittuvuutta, kriittisiä 0.
 `npm run lint && npm run typecheck && npm run test` (168/168) ja `npm run build` vihreinä,
 `npm run test:e2e` (Playwright, Chromium) 25/25 vihreinä. Patch-tason nosto, joten PR yhdistyy
 normaalisti vihreällä CI:llä (ei `riippuvuus-major`-tunnistetta).
+
+## 2026-11-05 — Yöajo: 13 → 2 jäljellä olevaa kehitysriippuvuuksien haavoittuvuutta
+
+Sama tilanne kuin esinetti-webissä (yhteinen runko, sama riippuvuuspuu): terveystarkistuksessa
+13 haavoittuvuutta (9 moderate, 4 high), kaikki kehitysriippuvuuksissa (`vitest`, `vite`,
+`brace-expansion`, `@typescript-eslint/*`, `source-map-js`) tai `next`:in sisään paketoidussa
+`postcss`:ssä. `npm audit fix` (ei `--force`) ja `@typescript-eslint/eslint-plugin`/`parser`:n
+päivitys olemassa olevan semver-alueen sisällä korjasivat 11/13. Muutos on vain
+`package-lock.json`:ssa, `package.json` ennallaan.
+
+Jäljellä kaksi, molemmat vaativat pääversion noston eikä niitä tehty yötyössä — samat perusteet
+kuin esinetti-webissä (ks. sen DECISIONS.md 2026-11-05):
+
+- **`minimatch` (moderate, GHSA-g3hv-75wg-m249):** `@typescript-eslint/typescript-estree`
+  vaatii tarkasti `minimatch ^10.2.2`, korjattu versio on `11.0.1+`. `overrides`-pakotus
+  korjaisi tämän, mutta pakottaisi samalla `eslint-plugin-import`/`eslint-plugin-jsx-a11y`:n
+  oman `minimatch@3.1.5`:n eri API:lla olevaan pääversioon – riski rikkoa lint hiljaisesti.
+- **`postcss` (high, GHSA-qx2v-qp2m-jg93 ym.):** Next.js paketoi oman `postcss@8.4.31`:n;
+  korjaus vaatisi `next@16.4.5`:n. Molemmat build-aikaisia (lint/CSS-käännös), ei
+  ajonaikaisia riskejä tuotannossa.
+
+Kirjattu BLOCKERS.md:ään Jukan päätettäväksi (next 16 -migraatio on iso, oma tehtävä, tehtäisiin
+samalla kertaa molempiin sisarprojekteihin). `npm run lint && npm run typecheck && npm run test`
+(168/168) ja `npm run build` vihreinä, `npm run test:e2e` 25/25 vihreinä.

@@ -454,3 +454,24 @@ DECISIONS.md 2026-11-04.
 kuvakaappaukset, suosittelupolku sovellusrepossa) ovat ennallaan. Seuraava
 yöajo: tarkista ensin, onko jokin näistä muuttunut, ennen kuin etsit uutta
 tehtävää.
+
+## Yöajo 2026-11-05: 11/13 kehitysriippuvuuden haavoittuvuutta korjattu, kolme aiempaa estettä ennallaan
+
+Ei avoimia PR:iä tätä yöajoa aloitettaessa (main ajan tasalla #18:een asti). Terveystarkistuksessa
+`npm audit` löysi 13 haavoittuvuutta (9 moderate, 4 high), sama tilanne kuin esinetti-webissä
+(yhteinen runko). 11/13 korjattu olemassa olevan semver-alueen sisällä (`package.json` ennallaan,
+vain `package-lock.json`), ks. DECISIONS.md 2026-11-05.
+
+**8. Jäljellä kaksi haavoittuvuutta, joiden korjaus vaatii pääversion noston — sinun päätöksesi
+(sama tilanne ja sama kirjaus tehty esinetti-webin BLOCKERS.md:ään):**
+
+- `minimatch` (moderate) `@typescript-eslint`-ketjussa: korjaus vaatisi `overrides`-pakotuksen,
+  joka rikkoisi todennäköisesti lintin hiljaisesti (eri API toisaalla samassa ketjussa).
+- `postcss` (high) `next`:in sisällä: korjaus vaatisi `next@16.4.5`:n, Next.js:n pääversion
+  noston. Build-aikainen riski (CSS-käännös), ei ajonaikainen tuotannossa.
+
+Next 16 -migraatio kannattaisi tehdä samalla kertaa molempiin sisarprojekteihin (yhteinen runko).
+Kerro, haluatko että seuraava yöajo yrittää sitä omana isompana tehtävänä.
+
+`PLAN.md`:n jäljellä olevat merkitsemättömät kohdat ovat ennallaan. Seuraava yöajo: tarkista,
+onko jokin näistä tai kohta 8 muuttunut, ennen kuin etsit uutta tehtävää.
