@@ -44,6 +44,14 @@ export const metadata: Metadata = {
  * Jos eSinetti siirtyy EU-ajoalueelle tai lakkaa säilyttämästä todistetta,
  * päivitä kohta. Ks. BLOCKERS.md.
  *
+ * Kohdat "Henkilötunnus sopimuksessa", "Kuitin lukeminen" ja "Linkkien
+ * avaamisen rajoitus" lisättiin 7.11.2026 Jukan hyväksymin sanamuodoin
+ * (reilusoppari/docs, luonnos 26.9.2026). Kuitin luvun siirtoperuste ja
+ * koulutuskielto tarkistettu 7.11.2026 Anthropicin DPA:sta (SCC moduulit 2
+ * ja 3) ja kaupallisista ehdoista. Linkkirajan kuvaus vastaa
+ * reilusoppari-repon tiedostoa src/lib/security/link-rate-limit.ts ja
+ * migraatiota 0016.
+ *
  * `live`-tilan tekstit (26.10.2026, yöajo): ks. `src/lib/legal-copy.ts`.
  * Nykyinen (`soon`/`waitlist`) teksti ei muutu – `live` lisää oman
  * variantin samoihin kohtiin, jotka olettivat palvelun olevan vielä auki
@@ -51,7 +59,7 @@ export const metadata: Metadata = {
  * mergeä, koska merge julkaisee tekstin (vaikka se ei näy kävijälle ennen
  * kuin `LAUNCH_MODE=live` on myös asetettu Vercelissä).
  */
-const UPDATED = "26.10.2026";
+const UPDATED = "7.11.2026";
 
 export default function TietosuojaPage() {
   const mode = getLaunchMode();
@@ -154,6 +162,16 @@ export default function TietosuojaPage() {
               siltä osin kuin tunnistaminen sitä edellyttää.
             </p>
 
+            <h3>Henkilötunnus sopimuksessa</h3>
+            <p>
+              Vuokrasopimukseen kirjoitettu henkilötunnus tallennetaan salattuna. Palvelussa se
+              näytetään aina peitettynä (esimerkiksi 131052-***T). Kokonaisena se on vain
+              allekirjoitettavassa sopimuksessa. Myös omien tietojen viennissä (zip-paketti)
+              henkilötunnus on peitetty. Paketti tallentuu laitteellesi salaamattomana. Kokonaista
+              tunnusta ei tarvitse tallentaa sinne erikseen, koska se on jo paketissa olevassa
+              allekirjoitetussa sopimuksessa.
+            </p>
+
             <h3>Allekirjoitus ja tunnistautuminen: eSinetti käsittelijänä</h3>
             <p>
               Vuokrasopimuksen allekirjoitus ja siihen liittyvä vahva tunnistautuminen tehdään
@@ -245,12 +263,37 @@ export default function TietosuojaPage() {
               vastuu ilmoituksesta on aina sinulla.
             </p>
 
+            <h3>Kuitin lukeminen</h3>
+            <p>
+              Kun kuvaat kuitin ja pyydät palvelua lukemaan sen, kuva lähetetään Anthropic PBC:n
+              tekoälypalveluun (Yhdysvallat). Palvelu lukee kuitista summan, päivän,
+              arvonlisäveron ja myyjän. Luetut tiedot ovat ehdotus: tarkistat ja tallennat ne itse.
+              Anthropic toimii henkilötietojen käsittelijänä. Tietojen siirto Yhdysvaltoihin
+              perustuu Euroopan komission vakiosopimuslausekkeisiin. Anthropic ei käytä rajapinnan
+              kautta lähetettyjä tietoja tekoälynsä kouluttamiseen.
+            </p>
+            <p>
+              Kuitin lukeminen on vapaaehtoista. Voit aina kirjoittaa summan itse, jolloin kuva ei
+              lähde palvelun ulkopuolelle. Tallennettu kuitti säilytetään palvelussa kuten muutkin
+              kuvat. Kuitissa voi olla muiden henkilötietoja, esimerkiksi remonttiyrittäjän nimi.
+              Palvelu ei poimi niitä erikseen.
+            </p>
+
             <h3>Todistuksen omistajuus</h3>
             <p>
               Vuokratodistus on sen osapuolen oma asiakirja, jolle se on annettu. Vuokralaisen
               todistus on vuokralaisen, ja hän päättää yksin, kenelle sen näyttää. Reilusoppari ei
               näytä todistusta kenellekään muulle eikä ylläpidä siitä julkista hakemistoa.
               Tarkistuslinkki kertoo vain, että esitetty todistus on aito.
+            </p>
+
+            <h3>Linkkien avaamisen rajoitus</h3>
+            <p>
+              Kun avaat kutsulinkin tai jaetun vuokratodistuksen, palvelu muodostaa
+              verkko-osoitteestasi tunnisteen, jolla estetään linkkien poikkeuksellisen tiheä
+              avaaminen. Itse verkko-osoitetta ei tallenneta. Tunniste vaihtuu päivittäin, eikä
+              siitä voi päätellä osoitetta. Tunnisteet poistetaan vuorokauden kuluessa. Käsittely
+              perustuu oikeutettuun etuun: palvelun suojaamiseen kuormitukselta.
             </p>
 
             <h3>Oikeutesi</h3>

@@ -39,10 +39,17 @@ export const metadata: Metadata = {
  * Kohdan 5 vastuunjako eSinetin (Adepta Oy) kanssa lisättiin 26.9.2026 ja
  * julkaistiin 27.9.2026 Jukan katselmoinnin jälkeen.
  *
+ * 7.11.2026 (Jukan hyväksymä): uusi kohta 7 "Keskustelu toisen käyttäjän
+ * kanssa" (vanhat 7–10 ovat nyt 8–11), lisäys kohtaan 6 tilin sulkemisesta
+ * ja kuitin luvusta kohtaan 8. Kohdan 7 kuvaus vastaa reilusoppari-repon
+ * toteutusta (src/lib/db/certificate-contact.ts: luvan peruminen sulkee
+ * avoimet keskustelut). Odotuslistan viittaus "kohdat 1 ja 10" on
+ * legal-copy.ts:ssä.
+ *
  * `live`-tilan hero-teksti (26.10.2026, yöajo): ks. `src/lib/legal-copy.ts`.
  * Nykyinen (`soon`/`waitlist`) teksti ei muutu.
  */
-const UPDATED = "26.10.2026";
+const UPDATED = "7.11.2026";
 
 export default function KayttoehdotPage() {
   const mode = getLaunchMode();
@@ -149,8 +156,30 @@ export default function KayttoehdotPage() {
               luovuta todistusta kenellekään muulle eikä julkaise sitä. Aitouden tarkistuslinkki
               kertoo vain, että esitetty todistus on aito.
             </p>
+            <p>
+              Voit sulkea tilisi ja pyytää omien tietojesi poistoa. Vuokrasuhteen yhteinen aineisto
+              säilyy silti säilytysajan loppuun, koska toinen osapuoli voi tarvita sitä oikeuksiensa
+              turvaamiseen.
+            </p>
 
-            <h2>7. Mitä palvelu ei ole</h2>
+            <h2>7. Keskustelu toisen käyttäjän kanssa</h2>
+            <p>
+              Kun annat luvan ottaa sinuun yhteyttä vuokratodistuksen kautta, keskustelu käydään
+              Reilusopparissa. Kummankaan yhteystietoja ei näytetä toiselle. Vuokrasuhteen toinen
+              osapuoli näkee keskustelun, koska se koskee häntä.
+            </p>
+            <p>
+              Palvelu ei estä keskustelijoita sopimasta, että he jatkavat puhelimessa tai muualla.
+              Palvelun ulkopuolella käydystä keskustelusta ei jää merkintää Reilusopparin, eikä se
+              näy toiselle osapuolelle. Vastaat itse siitä, mitä kerrot toisesta ihmisestä palvelun
+              ulkopuolella.
+            </p>
+            <p>
+              Voit perua luvan milloin tahansa. Sen jälkeen uusia keskusteluja ei voi avata, eikä
+              avoimiin keskusteluihin voi enää kirjoittaa.
+            </p>
+
+            <h2>8. Mitä palvelu ei ole</h2>
             <ul>
               <li>Palvelu ei tee luottotietokyselyitä eikä taustatarkistuksia.</li>
               <li>Palvelu ei ylläpidä vuokralaisia tai vuokranantajia koskevaa rekisteriä.</li>
@@ -159,9 +188,10 @@ export default function KayttoehdotPage() {
                 Verolaskelma on yhteenveto käyttäjän omista kirjauksista. Se ei ole veroneuvontaa
                 eikä veroilmoituksen tekemistä käyttäjän puolesta.
               </li>
+              <li>Kuitista luetut tiedot ovat ehdotus. Tarkista ne ennen tallennusta.</li>
             </ul>
 
-            <h2>8. Vastuunrajoitus</h2>
+            <h2>9. Vastuunrajoitus</h2>
             <p>
               Palvelu tarjotaan sellaisena kuin se on. Palveluntarjoaja vastaa virheestä
               kuluttajansuojalain mukaisesti. Palveluntarjoaja ei vastaa vahingosta, joka aiheutuu
@@ -170,7 +200,7 @@ export default function KayttoehdotPage() {
               kuluttajalle pakottavan lainsäädännön nojalla kuuluvia oikeuksia.
             </p>
 
-            <h2>9. Odotuslista</h2>
+            <h2>10. Odotuslista</h2>
             <p>
               Odotuslistalle liittyminen on maksutonta eikä synnytä sopimusta palvelun käytöstä.
               Liittymisen voi peruuttaa jokaisessa viestissä olevasta linkistä. Odotuslistan
@@ -178,7 +208,7 @@ export default function KayttoehdotPage() {
               <Link href="/tietosuoja">tietosuojaselosteessa</Link>.
             </p>
 
-            <h2>10. Ehtojen muuttaminen ja sovellettava laki</h2>
+            <h2>11. Ehtojen muuttaminen ja sovellettava laki</h2>
             <p>
               Ehtoja voidaan muuttaa. Muutoksista ilmoitetaan käyttäjille, ja jo maksettuun
               vuokrasuhteeseen sovelletaan sen ostohetkellä voimassa olleita ehtoja. Sopimukseen
