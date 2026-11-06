@@ -88,8 +88,8 @@ describe("kayttoehdotHeroLead", () => {
     expect(text).not.toMatch(/lokakuussa 2026/);
   });
 
-  it("waitlist-tilassa viittaa odotuslistan rajattuihin kohtiin ennallaan", () => {
-    expect(kayttoehdotHeroLead("waitlist")).toMatch(/kohtia 1 ja 9/);
+  it("waitlist-tilassa viittaa odotuslistan rajattuihin kohtiin (1 ja 10)", () => {
+    expect(kayttoehdotHeroLead("waitlist")).toMatch(/kohtia 1 ja 10/);
   });
 
   it("live-tilassa ei lupaa tulevaa avautumista eikä mainitse odotuslistaa", () => {

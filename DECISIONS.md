@@ -4,6 +4,28 @@ Päätökset, jotka eivät ole CLAUDE.md:ssä. Uusin ensin.
 
 ---
 
+## 2026-11-07 — Tietosuojaselosteen ja käyttöehtojen lisäykset (Jukka hyväksyi 7.11.2026)
+
+**Päätös:** tietosuojaselosteeseen kolme uutta kohtaa Jukan sanamuodoin:
+henkilötunnus näkyy aina peitettynä, kuitin luku Anthropicilla ja linkkien
+avaamisen rajoitus. Käyttöehtoihin uusi kohta 7 "Keskustelu toisen
+käyttäjän kanssa" (vanhat 7–10 → 8–11; odotuslistan viittaus nyt "kohdat 1
+ja 10" `legal-copy.ts`:ssä), lisäys kohtaan 6 tilin sulkemisesta ja kuitin
+luvusta kohtaan 8.
+**Tarkistukset:** Anthropicin DPA (anthropic.com/legal/data-processing-addendum,
+luettu 7.11.2026) käyttää EU:n vakiosopimuslausekkeita (moduulit 2 ja 3) eikä
+mainitse DPF:ää; Anthropic on käsittelijä. Kaupalliset ehdot
+(anthropic.com/legal/commercial-terms): "Anthropic may not train models on
+Customer Content from Services." Linkkirajan kuvaus vastaa
+`reilusoppari/src/lib/security/link-rate-limit.ts`:ää ja migraatiota 0016;
+huom. vuorokautta vanhemmat tunnisteet poistuvat seuraavan linkin avauksen
+yhteydessä (ei erillistä ajastusta). Keskustelukohta vastaa toteutusta
+(`reilusoppari/src/lib/db/certificate-contact.ts`).
+Selosteessa ei ole palvelun käsittelijälistaa (vain odotuslistan), joten
+Anthropic mainitaan vain omassa kohdassaan.
+
+---
+
 ## 2026-11-04 - Yöajo: zod 4.5.4 → 4.6.7 (korkean asteen tietoturvapäivitys)
 
 **Päätös:** `npm audit` löysi korkean vakavuusasteen haavoittuvuuden

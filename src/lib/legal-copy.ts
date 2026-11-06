@@ -68,7 +68,7 @@ export function kayttoehdotHeroLead(mode: LaunchMode): string {
     return "Nämä ehdot koskevat Reilusoppari-palvelua.";
   }
   if (mode === "waitlist") {
-    return `Nämä ehdot koskevat Reilusoppari-palvelua, joka avautuu ${LAUNCH_TARGET}. Odotuslistalle liittymiseen sovelletaan vain kohtia 1 ja 9.`;
+    return `Nämä ehdot koskevat Reilusoppari-palvelua, joka avautuu ${LAUNCH_TARGET}. Odotuslistalle liittymiseen sovelletaan vain kohtia 1 ja 10.`;
   }
   return "Nämä ehdot koskevat Reilusoppari-palvelua, joka avautuu pian.";
 }
