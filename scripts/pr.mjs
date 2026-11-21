@@ -3,8 +3,8 @@
 // sama malli kuin adepta-repossa). Työ ei mene enää suoraan mainiin: haara pushataan,
 // PR avataan ja se yhdistyy vasta, kun CI on vihreä. Jukka näkee PR:n puhelimella.
 //
-// gh-työkalu ei saa Jukan koneelta aina verkkoyhteyttä, joten kutsut tehdään Noden
-// fetchillä gh:n tallentamalla tunnuksella. Tunnusta ei tulosteta.
+// GitHub-kutsut: gh api, ja jos gh ei saa verkkoa (Jukan kone), Noden fetch gh:n tunnuksella.
+// Pilvi-istunnossa auto-merge kytketään REST-reitillä, koska GraphQL on siellä estetty (21.11.2026).
 //
 //   node scripts/pr.mjs --otsikko "Otsikko" [--kuvaus tiedosto.md] [--ei-automaattista]
 //
@@ -39,10 +39,30 @@ const REPO = remote.replace(/^.*github\.com[:/]/, "").replace(/\.git$/, "");
 git("push", "-u", "origin", haara);
 
 const GH = process.platform === "win32" && existsSync("C:/Program Files/GitHub CLI/gh.exe") ? "C:/Program Files/GitHub CLI/gh.exe" : "gh";
-const token = execFileSync(GH, ["auth", "token"], { encoding: "utf8" }).trim();
-const h = { Authorization: `Bearer ${token}`, "User-Agent": "claude-pr", Accept: "application/vnd.github+json" };
+let token;
+let kaytaFetch = false;
 
+// GitHub-kutsut ensin gh api -komennolla: pilvi-istunnossa vain se kulkee välityspalvelimen kautta
+// (Noden fetch saa siellä 401 Bad credentials, Jukka 21.11.2026). Jos gh ei saa verkkoa (Jukan kone),
+// jatketaan Noden fetchillä gh:n tallentamalla tunnuksella. Tunnusta ei tulosteta.
 async function api(polku, metodi = "GET", runko) {
+  if (!kaytaFetch) {
+    try {
+      const ulos = execFileSync(GH, ["api", "--method", metodi, polku.replace(/^\//, ""), ...(runko ? ["--input", "-"] : [])], {
+        encoding: "utf8",
+        input: runko ? JSON.stringify(runko) : undefined,
+        stdio: ["pipe", "pipe", "pipe"],
+      });
+      return ulos.trim() ? JSON.parse(ulos) : {};
+    } catch (e) {
+      const viesti = `${e.stderr ?? ""}${e.message ?? ""}`;
+      const rivi = viesti.split("\n").find((r) => /HTTP \d{3}/.test(r));
+      if (rivi) throw new Error(`GitHub ${metodi} ${polku}: ${rivi}`);
+      kaytaFetch = true;
+    }
+  }
+  token ??= execFileSync(GH, ["auth", "token"], { encoding: "utf8" }).trim();
+  const h = { Authorization: `Bearer ${token}`, "User-Agent": "claude-pr", Accept: "application/vnd.github+json" };
   const r = await fetch(`https://api.github.com${polku}`, { method: metodi, headers: h, body: runko ? JSON.stringify(runko) : undefined });
   const j = await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(`GitHub ${metodi} ${polku}: ${r.status} ${j.message ?? ""}`);
@@ -52,6 +72,18 @@ async function graphql(query, variables) {
   const j = await api("/graphql", "POST", { query, variables });
   if (j.errors?.length) throw new Error(j.errors.map((e) => e.message).join("; "));
   return j.data;
+}
+/** Auto-merge (squash) päälle. Pilvi-istunnossa GraphQL on estetty, joten silloin istunnon REST-reitti. */
+async function kytkeAutoMerge(pr) {
+  try {
+    await graphql(
+      "mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:SQUASH}){pullRequest{number}}}",
+      { id: pr.node_id },
+    );
+  } catch (e) {
+    if (!/GraphQL is not available/i.test(e.message)) throw e;
+    await api(`/repos/${REPO}/pulls/${pr.number}/ccr/auto_merge`, "PUT", { merge_method: "squash" });
+  }
 }
 
 const avoimet = await api(`/repos/${REPO}/pulls?state=open&head=${REPO.split("/")[0]}:${encodeURIComponent(haara)}`);
@@ -87,15 +119,12 @@ const automaattinen = !args.includes("--ei-automaattista") && majorNostot.length
 
 // Ilman haarasuojausta GitHub pitäisi PR:ää heti "valmiina" ja yhdistäisi sen ennen CI:tä.
 // Silloin PR jätetään auki Jukan tarkistettavaksi.
-const suojattu = await api(`/repos/${REPO}/branches/main/protection`).then(() => true, () => false);
+const suojattu = await api(`/repos/${REPO}/branches/main`).then((b) => Boolean(b.protected), () => false);
 if (!suojattu && automaattinen) {
   console.log("Mainin haarasuojaus ei ole päällä, joten PR jää auki tarkistettavaksi.");
 } else if (automaattinen) {
   try {
-    await graphql(
-      "mutation($id:ID!){enablePullRequestAutoMerge(input:{pullRequestId:$id,mergeMethod:SQUASH}){pullRequest{number}}}",
-      { id: pr.node_id },
-    );
+    await kytkeAutoMerge(pr);
     console.log("Yhdistyy automaattisesti, kun tarkistukset ovat vihreänä.");
   } catch (e) {
     // Jos tarkistukset ovat jo valmiit, GitHub ei salli automaattista yhdistämistä vaan PR yhdistetään heti.
