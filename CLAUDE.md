@@ -185,3 +185,9 @@ Rakenne kuten esinetti-web: "Lyhyesti"-laatikko, H2-rakenne, UKK lopussa `FAQPag
 3. Vercel-projekti, domain, Resend-audience `reilusoppari-waitlist`, Turnstile, Plausible, env-muuttujat.
 4. Lue ja hyväksy `/tietosuoja` ja `/kayttoehdot` – kuluttajaehdot vaativat erityistä huolellisuutta (peruutusoikeus, kuvat kodista, todistuksen omistajuus). Harkitse juristin tarkistusta ennen lanseerausta.
 5. Kirjoita tai tarkista blogin verotusartikkelit (6 ja 7) itse – ne ovat sivuston uskottavuuden ydin.
+
+## Repot ja ajastetut tehtävät (Jukka 21.11.2026)
+Vastaus "en näe sitä repoa enkä voi tehdä mitään" ei ole hyväksyttävä (päätös `docs/paatokset/2026-11-21-ajastetut-tehtavat-ja-repot.md` repossa jukkataskinen/adepta).
+- **Puuttuva repo liitetään itse.** Jukan repot: adepta, mittarilukema, esinetti, esinetti-web, reilusoppari, reilusoppari-web, kasamaster, kasamaster-site, adepta-skog. Jos tehtävä koskee repoa, jota istunnossa ei ole, kutsu `add_repo` (muutoksiin `access: "push"`) ja kloonaa se. "En pääse" on sallittu vain, jos `add_repo` palauttaa virheen: kerro silloin virhe sanatarkasti ja mistä Jukka korjaa sen.
+- **GitHub pilvi-istunnossa:** `gh api` (REST) toimii, GraphQL ja Noden `fetch` api.github.comiin eivät (401 Bad credentials, vaikka `gh auth status` valittaa tunnuksesta). `scripts/pr.mjs` hoitaa tämän itse (auto-merge REST-reitillä `pulls/<n>/ccr/auto_merge`); muuten GitHub-liitännän työkalut.
+- **Agentti ei luo ajastettua tehtävää, joka tarvitsee repoja** (`create_trigger` ei anna valita repoja, eikä tehtävä näy Jukan listassa). Kirjoita kehote (nimi, aika, repot, kehote) adepta-repon kansioon `docs/ajastukset/` ja pyydä Jukkaa luomaan tehtävä claude.ai:n ajastetuissa tehtävissä.
